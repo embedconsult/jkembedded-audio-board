@@ -1,14 +1,89 @@
-(kicad_sch (version 20230121) (generator eeschema)
-
-  (uuid df100556-b288-4cb1-b69f-c0734132cb90)
-
-  (paper "A4")
-
-  (lib_symbols
-  )
-
-
-  (sheet_instances
-    (path "/" (page "1"))
-  )
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "df100556-b288-4cb1-b69f-c0734132cb90")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 46.99 46.99)
+		(size 12.7 64.77)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "8a24c5c7-3a1e-4ea3-b8af-25956c30237e")
+		(property "Sheetname" "sbc-header"
+			(at 46.99 46.2784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sbc-header.kicad_sch"
+			(at 46.99 112.3446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "dante-audio-board"
+				(path "/df100556-b288-4cb1-b69f-c0734132cb90"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 78.74 46.99)
+		(size 40.64 24.13)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "be7c4f40-c0c2-47f2-9c0c-8904af6555df")
+		(property "Sheetname" "clock-generation"
+			(at 78.74 46.2784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "clock-generation.kicad_sch"
+			(at 78.74 71.7046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "dante-audio-board"
+				(path "/df100556-b288-4cb1-b69f-c0734132cb90"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
 )
