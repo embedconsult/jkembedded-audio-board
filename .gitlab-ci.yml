@@ -9,4 +9,4 @@ print:
     - kicad-cli sch export pdf --output dante-audio-board_sch.pdf dante-audio-board.kicad_sch
   artifacts:
     paths:
-      - *.pdf
+      - dante-audio-board_sch.pdf
