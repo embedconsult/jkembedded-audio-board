@@ -1,0 +1,12 @@
+image: kicad/kicad:8.0.5
+
+stages:
+    - print
+
+print:
+  stage: print
+  script:
+    - kicad-cli sch export pdf --output dante-audio-board_sch.pdf dante-audio-board.kicad_sch
+  artifacts:
+    paths:
+      - dante-audio-board_sch.pdf
