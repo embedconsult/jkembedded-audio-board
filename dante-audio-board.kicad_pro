@@ -588,6 +588,14 @@
     [
       "be7c4f40-c0c2-47f2-9c0c-8904af6555df",
       "clock-generation"
+    ],
+    [
+      "f904953f-335e-4512-b297-b8d4a411c7e1",
+      "audio-codec"
+    ],
+    [
+      "f0b146c1-6597-43d1-a034-e1a9c8d997f5",
+      "audio-connectors"
     ]
   ],
   "text_variables": {}

@@ -81,6 +81,82 @@
 			)
 		)
 	)
+	(sheet
+		(at 228.6 48.26)
+		(size 13.97 67.31)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "f0b146c1-6597-43d1-a034-e1a9c8d997f5")
+		(property "Sheetname" "audio-connectors"
+			(at 228.6 47.5484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "audio-connectors.kicad_sch"
+			(at 228.6 116.1546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "dante-audio-board"
+				(path "/df100556-b288-4cb1-b69f-c0734132cb90"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 144.78 48.26)
+		(size 49.53 68.58)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "f904953f-335e-4512-b297-b8d4a411c7e1")
+		(property "Sheetname" "audio-codec"
+			(at 144.78 47.5484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "audio-codec.kicad_sch"
+			(at 144.78 117.4246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "dante-audio-board"
+				(path "/df100556-b288-4cb1-b69f-c0734132cb90"
+					(page "4")
+				)
+			)
+		)
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
