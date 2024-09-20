@@ -3,7 +3,7 @@
 	(generator "eeschema")
 	(generator_version "8.0")
 	(uuid "df100556-b288-4cb1-b69f-c0734132cb90")
-	(paper "A4")
+	(paper "USLetter")
 	(lib_symbols)
 	(sheet
 		(at 46.99 46.99)
@@ -72,6 +72,66 @@
 				)
 				(justify left top)
 			)
+		)
+		(pin "SDA" bidirectional
+			(at 78.74 54.61 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "b8226a02-58fa-4258-882c-2acb8d301462")
+		)
+		(pin "SCL" bidirectional
+			(at 78.74 57.15 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "0f8306fe-8c06-470b-8c23-176d3eb8d553")
+		)
+		(pin "OSC_SCLK" output
+			(at 119.38 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "d8dbe683-3986-4a0a-ad58-c7469f0517a8")
+		)
+		(pin "OSC_LRCLK" output
+			(at 119.38 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "bb22b681-31b3-4009-ac1d-e36350cea191")
+		)
+		(pin "OSC_MCLK" output
+			(at 119.38 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "c009fc2d-a846-4264-b5a8-54e67e8fb923")
+		)
+		(pin "COUNTER_FB" output
+			(at 119.38 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "82ecd71d-438a-41c5-9e4b-d086e6b43f48")
 		)
 		(instances
 			(project "dante-audio-board"
