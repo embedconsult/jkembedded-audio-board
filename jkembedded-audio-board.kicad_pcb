@@ -143,7 +143,7 @@
 		)
 	)
 	(net 0 "")
-	(footprint "dante-audio-board:IC_BQ25306RTER"
+	(footprint "Library:IC_BQ25306RTER"
 		(layer "F.Cu")
 		(uuid "1799026e-0ce2-4aeb-9510-626761f816b5")
 		(at 129.17 72.25)
@@ -169,7 +169,7 @@
 				)
 			)
 		)
-		(property "Footprint" "dante-audio-board:IC_BQ25306RTER"
+		(property "Footprint" "Library:IC_BQ25306RTER"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)

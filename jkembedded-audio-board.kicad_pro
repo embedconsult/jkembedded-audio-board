@@ -433,7 +433,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "dante-audio-board.kicad_pro",
+    "filename": "jkembedded-audio-board.kicad_pro",
     "version": 1
   },
   "net_settings": {
