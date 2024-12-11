@@ -25,7 +25,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Library:QFN-24_EP_4x4_Pitch0.5mm"
 				(at 0 0 0)
 				(effects
 					(font
@@ -66,44 +66,8 @@
 				)
 			)
 			(symbol "TAC5112_1_1"
-				(pin power_in line
-					(at 26.67 -54.61 90)
-					(length 2.54)
-					(name "AVSS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 44.45 -54.61 90)
-					(length 2.54)
-					(name "VSS_(THERMAL)"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin power_out line
-					(at 35.56 -54.61 90)
+					(at 39.37 -54.61 90)
 					(length 2.54)
 					(name "DREG"
 						(effects
@@ -373,7 +337,7 @@
 					)
 				)
 				(pin power_in line
-					(at 20.32 -54.61 90)
+					(at 19.05 -54.61 90)
 					(length 2.54)
 					(name "AVDD"
 						(effects
@@ -401,6 +365,24 @@
 						)
 					)
 					(number "24"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 44.45 -54.61 90)
+					(length 2.54)
+					(name "VSS_(THERMAL)"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "25"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -534,6 +516,78 @@
 						)
 					)
 				)
+				(pin power_in line
+					(at 25.4 -54.61 90)
+					(length 2.54)
+					(name "AVSS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 27.94 -54.61 90)
+					(length 2.54)
+					(name "AVSS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 30.48 -54.61 90)
+					(length 2.54)
+					(name "AVSS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 33.02 -54.61 90)
+					(length 2.54)
+					(name "AVSS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
 		)
 	)
@@ -563,7 +617,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Library:QFN-24_EP_4x4_Pitch0.5mm"
 			(at 95.25 62.23 0)
 			(effects
 				(font
@@ -590,7 +644,7 @@
 				(hide yes)
 			)
 		)
-		(pin ""
+		(pin "A4"
 			(uuid "4d81de82-8ac8-485f-9882-d3a7d0e3e253")
 		)
 		(pin "23"
@@ -599,7 +653,7 @@
 		(pin "22"
 			(uuid "3e7e418c-8e0b-40ce-a153-7722850eaa7a")
 		)
-		(pin ""
+		(pin "A2"
 			(uuid "cb3433bb-0ac4-4d4e-90bc-ffc4a883e78c")
 		)
 		(pin "12"
@@ -667,6 +721,15 @@
 		)
 		(pin "2"
 			(uuid "83e1239c-4276-4a2f-af1f-45f027829688")
+		)
+		(pin "A3"
+			(uuid "db40ad52-f946-4f15-831d-2551395bdade")
+		)
+		(pin "A1"
+			(uuid "4146e923-c3ee-4195-acc9-5442db5101fa")
+		)
+		(pin "25"
+			(uuid "b5e43ab0-949b-46d1-afc5-34487d0324af")
 		)
 		(instances
 			(project ""
