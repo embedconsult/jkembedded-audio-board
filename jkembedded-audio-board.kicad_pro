@@ -430,7 +430,9 @@
   },
   "libraries": {
     "pinned_footprint_libs": [],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "Library"
+    ]
   },
   "meta": {
     "filename": "jkembedded-audio-board.kicad_pro",
