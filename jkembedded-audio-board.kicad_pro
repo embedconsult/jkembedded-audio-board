@@ -583,19 +583,23 @@
     ],
     [
       "8a24c5c7-3a1e-4ea3-b8af-25956c30237e",
-      "sbc-header"
+      "mikroBus Header"
     ],
     [
       "be7c4f40-c0c2-47f2-9c0c-8904af6555df",
-      "clock-generation"
+      "Clock Generation"
     ],
     [
       "f904953f-335e-4512-b297-b8d4a411c7e1",
-      "audio-codec"
+      "Audio CODEC"
     ],
     [
       "f0b146c1-6597-43d1-a034-e1a9c8d997f5",
-      "audio-connectors"
+      "Audio Connectors"
+    ],
+    [
+      "a140926a-0a3b-478a-a548-a5c24f46f46e",
+      "mikroBus HAT"
     ]
   ],
   "text_variables": {}

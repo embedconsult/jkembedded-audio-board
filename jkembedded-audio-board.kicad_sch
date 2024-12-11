@@ -17,7 +17,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "8a24c5c7-3a1e-4ea3-b8af-25956c30237e")
-		(property "Sheetname" "sbc-header"
+		(property "Sheetname" "mikroBus Header"
 			(at 46.99 46.2784 0)
 			(effects
 				(font
@@ -26,7 +26,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "sbc-header.kicad_sch"
+		(property "Sheetfile" "mikrobus-header.kicad_sch"
 			(at 46.99 112.3446 0)
 			(effects
 				(font
@@ -44,6 +44,44 @@
 		)
 	)
 	(sheet
+		(at 44.45 143.51)
+		(size 72.39 36.83)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a140926a-0a3b-478a-a548-a5c24f46f46e")
+		(property "Sheetname" "mikroBus HAT"
+			(at 44.45 142.7984 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mikroBus-HAT.kicad_sch"
+			(at 44.45 180.9246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "jkembedded-audio-board"
+				(path "/df100556-b288-4cb1-b69f-c0734132cb90"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
 		(at 78.74 46.99)
 		(size 40.64 24.13)
 		(fields_autoplaced yes)
@@ -55,7 +93,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "be7c4f40-c0c2-47f2-9c0c-8904af6555df")
-		(property "Sheetname" "clock-generation"
+		(property "Sheetname" "Clock Generation"
 			(at 78.74 46.2784 0)
 			(effects
 				(font
@@ -153,7 +191,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "f0b146c1-6597-43d1-a034-e1a9c8d997f5")
-		(property "Sheetname" "audio-connectors"
+		(property "Sheetname" "Audio Connectors"
 			(at 228.6 47.5484 0)
 			(effects
 				(font
@@ -191,7 +229,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "f904953f-335e-4512-b297-b8d4a411c7e1")
-		(property "Sheetname" "audio-codec"
+		(property "Sheetname" "Audio CODEC"
 			(at 144.78 47.5484 0)
 			(effects
 				(font
