@@ -30,3 +30,25 @@ fab:
     name: "${CI_PROJECT_NAME}-fab"
     paths:
       - fab
+
+view:
+  stage: view
+  image: ghcr.io/linalinn/kicad-render:nightly-2024-04-09-14-29
+  variables:
+    PCB_FILE: "${CI_PROJECT_NAME}.kicad_pcb"
+    OUTPUT_PATH: public
+    BACKGROUND: transparent
+    ANIMATION: "gif"
+  script:
+    - |
+        if [ -n "$ANIMATION" ]; then
+          render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND" -a "$ANIMATION";
+        else 
+          render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND"
+        fi
+  artifacts:
+    name: "${CI_PROJECT_NAME}-view"
+    paths:
+      - public
+
+
