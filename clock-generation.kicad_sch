@@ -1820,7 +1820,7 @@
 		)
 	)
 	(symbol
-		(lib_id "jkembedded-audio-board:DAC53002")
+		(lib_id "Library:DAC53002")
 		(at 63.5 57.15 0)
 		(unit 1)
 		(exclude_from_sim no)
