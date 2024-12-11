@@ -1,4 +1,4 @@
-# DANTE Audio Board
+# JK-Embedded Audio Board
 
 ## Tasks
 
