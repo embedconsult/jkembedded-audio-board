@@ -3,6 +3,7 @@ image: kicad/kicad:8.0.5
 stages:
   - print
   - fab
+  - view
 
 print:
   stage: print
@@ -50,5 +51,4 @@ view:
     name: "${CI_PROJECT_NAME}-view"
     paths:
       - public
-
 
