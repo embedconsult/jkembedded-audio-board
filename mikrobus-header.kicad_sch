@@ -411,6 +411,297 @@
 				)
 			)
 		)
+		(symbol "Library:PTMP1827NGRT"
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Value" "PTMP1827NGRT"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Footprint" "NGR0008B-IPC_A"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "PTMP1827NGRT"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "PTMP1827NGRT"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "NGR0008B-IPC_A NGR0008B-IPC_B NGR0008B-IPC_C NGR0008B-MFG"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "PTMP1827NGRT_0_1"
+				(polyline
+					(pts
+						(xy 5.08 -17.78) (xy 38.1 -17.78)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 5.08) (xy 5.08 -17.78)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 38.1 -17.78) (xy 38.1 5.08)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 38.1 5.08) (xy 5.08 5.08)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin power_in line
+					(at 0 0 0)
+					(length 5.08)
+					(name "VDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 0 -5.08 0)
+					(length 5.08)
+					(name "SDQ"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 0 -10.16 0)
+					(length 5.08)
+					(name "ADDR"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 43.18 -15.24 180)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 43.18 -7.62 180)
+					(length 5.08)
+					(name "IO3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 43.18 0 180)
+					(length 5.08)
+					(name "IO0"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 43.18 -2.54 180)
+					(length 5.08)
+					(name "IO1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 43.18 -5.08 180)
+					(length 5.08)
+					(name "IO2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 43.18 -12.7 180)
+					(length 5.08)
+					(name "Thermal_Pad"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "power:+3V3"
 			(power)
 			(pin_numbers hide)
@@ -1276,33 +1567,124 @@
 			)
 		)
 		(pin "7"
-			(uuid "3314d15b-a005-43fe-92fd-c077bc2574fe")
+			(uuid "3314d15b-a005-43fe-92fd-c077bc2574ff")
 		)
 		(pin "2"
-			(uuid "d927abc2-5642-4b39-860d-f4c7f85e5078")
+			(uuid "d927abc2-5642-4b39-860d-f4c7f85e5079")
 		)
 		(pin "1"
-			(uuid "f30c0dfa-0555-401c-9cb1-66bc42cc6208")
+			(uuid "f30c0dfa-0555-401c-9cb1-66bc42cc6209")
 		)
 		(pin "4"
-			(uuid "c5010f06-f62f-4b5a-8f37-9ecd5ca04bdb")
+			(uuid "c5010f06-f62f-4b5a-8f37-9ecd5ca04bdc")
 		)
 		(pin "5"
-			(uuid "a16a361d-52b5-4ab7-b023-fcfb74546e87")
+			(uuid "a16a361d-52b5-4ab7-b023-fcfb74546e88")
 		)
 		(pin "8"
-			(uuid "09d12c46-ea7e-4308-a27c-fe44c9b3f9ab")
+			(uuid "09d12c46-ea7e-4308-a27c-fe44c9b3f9ac")
 		)
 		(pin "6"
-			(uuid "f6ad52bb-7496-45dd-83bc-5c18a1c6183a")
+			(uuid "f6ad52bb-7496-45dd-83bc-5c18a1c6183b")
 		)
 		(pin "3"
-			(uuid "a6fdb3a0-82ca-4aaa-bc80-d8c3402e53c9")
+			(uuid "a6fdb3a0-82ca-4aaa-bc80-d8c3402e53ca")
 		)
 		(instances
 			(project ""
 				(path "/df100556-b288-4cb1-b69f-c0734132cb90/8a24c5c7-3a1e-4ea3-b8af-25956c30237e"
 					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Library:PTMP1827NGRT")
+		(at 179.07 54.61 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c02dbe5c-fa8b-45c1-944b-aa7a596e9d90")
+		(property "Reference" "U5"
+			(at 200.66 44.45 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "PTMP1827NGRT"
+			(at 200.66 46.99 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Footprint" "Library:NGR0008B-IPC_A"
+			(at 179.07 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "PTMP1827NGRT"
+			(at 179.07 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 179.07 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "2d29ee52-5608-4aa5-97ab-81b8f5bbbbd9")
+		)
+		(pin "3"
+			(uuid "a615e9a5-86e4-48f4-89bf-3be2fdda536c")
+		)
+		(pin "7"
+			(uuid "870886a9-4eef-4b9d-84c1-5f22b6f3c12a")
+		)
+		(pin "6"
+			(uuid "07c3b7eb-f020-4c17-8724-68896c3d5edf")
+		)
+		(pin "1"
+			(uuid "5f4709fe-925d-40cc-8984-8316dbe9e155")
+		)
+		(pin "4"
+			(uuid "a87e216b-4a03-4642-bc46-c6e7351d7633")
+		)
+		(pin "2"
+			(uuid "b960e277-71db-4c6d-99e6-10a2efd3bc64")
+		)
+		(pin "8"
+			(uuid "0f1a9975-9b59-48cd-8803-eed71b27b837")
+		)
+		(pin "9"
+			(uuid "8d1b5f9b-f787-49f3-bd64-257d3b3bb090")
+		)
+		(instances
+			(project ""
+				(path "/df100556-b288-4cb1-b69f-c0734132cb90/8a24c5c7-3a1e-4ea3-b8af-25956c30237e"
+					(reference "U5")
 					(unit 1)
 				)
 			)

@@ -24,18 +24,6 @@
 		(uuid "56c71a9d-e2d0-4e53-9729-53aa46630c90")
 	)
 	(junction
-		(at 228.6 57.15)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "75c1640f-762e-4f8f-8aa4-f59abdd770c3")
-	)
-	(junction
-		(at 228.6 53.34)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "791c9310-9691-431e-ac45-939ac2510dc7")
-	)
-	(junction
 		(at 129.54 52.07)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -93,16 +81,6 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 53.34) (xy 228.6 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5582961c-6c66-49ac-801c-57678fd83b3b")
-	)
-	(wire
-		(pts
 			(xy 129.54 52.07) (xy 144.78 52.07)
 		)
 		(stroke
@@ -120,6 +98,16 @@
 			(type default)
 		)
 		(uuid "57d2837f-f872-4d46-ab4e-4af7e290ee98")
+	)
+	(wire
+		(pts
+			(xy 59.69 104.14) (xy 73.66 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d29246a-6f1b-422d-88fb-af5c966c6d7d")
 	)
 	(wire
 		(pts
@@ -143,6 +131,16 @@
 	)
 	(wire
 		(pts
+			(xy 78.74 68.58) (xy 73.66 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d12a144-6baf-4cb3-ba20-8593b2cbe234")
+	)
+	(wire
+		(pts
 			(xy 64.77 57.15) (xy 78.74 57.15)
 		)
 		(stroke
@@ -150,16 +148,6 @@
 			(type default)
 		)
 		(uuid "6f7391d5-adc4-4800-bacd-13dd280b2b85")
-	)
-	(wire
-		(pts
-			(xy 194.31 53.34) (xy 228.6 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "74075346-72a2-43ea-a657-8bb38f2c544e")
 	)
 	(wire
 		(pts
@@ -193,13 +181,13 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 104.14) (xy 144.78 104.14)
+			(xy 73.66 68.58) (xy 73.66 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "93701801-2418-4422-ab84-f19d5edda56f")
+		(uuid "a1d18807-773f-47a7-8293-bb0a7a95239a")
 	)
 	(wire
 		(pts
@@ -253,16 +241,6 @@
 	)
 	(wire
 		(pts
-			(xy 194.31 57.15) (xy 228.6 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c83781ae-39de-49d8-bc76-5c65e6e1852f")
-	)
-	(wire
-		(pts
 			(xy 67.31 54.61) (xy 78.74 54.61)
 		)
 		(stroke
@@ -280,26 +258,6 @@
 			(type default)
 		)
 		(uuid "dc896465-4c4c-421e-92c9-4759582a2db8")
-	)
-	(wire
-		(pts
-			(xy 194.31 62.23) (xy 228.6 62.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ddb04e19-e823-4976-aab6-413c2b881320")
-	)
-	(wire
-		(pts
-			(xy 194.31 66.04) (xy 228.6 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e7be1ffc-be57-4453-b6f6-50986aff72d6")
 	)
 	(wire
 		(pts
@@ -472,7 +430,7 @@
 		(instances
 			(project "jkembedded-audio-board"
 				(path "/df100556-b288-4cb1-b69f-c0734132cb90"
-					(page "6")
+					(page "5")
 				)
 			)
 		)
@@ -567,88 +525,20 @@
 			)
 			(uuid "82ecd71d-438a-41c5-9e4b-d086e6b43f48")
 		)
+		(pin "TS" output
+			(at 78.74 68.58 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "7e45d783-bd22-4ded-b37a-4063f25de299")
+		)
 		(instances
 			(project "jkembedded-audio-board"
 				(path "/df100556-b288-4cb1-b69f-c0734132cb90"
 					(page "3")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 228.6 48.26)
-		(size 13.97 67.31)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "f0b146c1-6597-43d1-a034-e1a9c8d997f5")
-		(property "Sheetname" "Audio Connectors"
-			(at 228.6 47.5484 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "audio-connectors.kicad_sch"
-			(at 228.6 116.1546 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(pin "IN_RIGHT" output
-			(at 228.6 53.34 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "2fbd0846-681d-450b-82ed-012971794757")
-		)
-		(pin "IN_LEFT" output
-			(at 228.6 57.15 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "86f954a0-f12c-4173-91e3-223ef12d55af")
-		)
-		(pin "OUT_LEFT" input
-			(at 228.6 66.04 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "77ca14a4-548b-4b08-a157-c853051a93ed")
-		)
-		(pin "OUT_RIGHT" input
-			(at 228.6 62.23 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "1a90f8c7-238d-4ec5-a97b-0197de959429")
-		)
-		(instances
-			(project "jkembedded-audio-board"
-				(path "/df100556-b288-4cb1-b69f-c0734132cb90"
-					(page "5")
 				)
 			)
 		)
@@ -753,55 +643,15 @@
 			)
 			(uuid "0fe4ccb7-168c-450c-8048-7a342ecbc40d")
 		)
-		(pin "TS" output
-			(at 144.78 104.14 180)
+		(pin "INT" output
+			(at 144.78 107.95 180)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "abd8b703-7b74-4a96-8797-2ee8c5cc97f5")
-		)
-		(pin "IN_LEFT" input
-			(at 194.31 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-			(uuid "d49f8960-d68b-4cab-9408-145e6e06268b")
-		)
-		(pin "OUT_LEFT" output
-			(at 194.31 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-			(uuid "32e8a6f1-8e1f-41ba-b226-02673832804b")
-		)
-		(pin "OUT_RIGHT" output
-			(at 194.31 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-			(uuid "a613220d-c73d-411c-899f-f368500aef16")
-		)
-		(pin "IN_RIGHT" input
-			(at 194.31 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-			(uuid "005ba36b-5ebf-4cf9-82fa-2743432d1a24")
+			(uuid "b5118c4e-951d-4aee-8661-71eeaafefe8f")
 		)
 		(instances
 			(project "jkembedded-audio-board"

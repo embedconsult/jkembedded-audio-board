@@ -466,7 +466,12 @@
       "/Audio CODEC/BIT": "50ohm",
       "/Audio CODEC/MCLK": "50ohm",
       "/Audio CODEC/WRD": "50ohm",
-      "/Clock Generation/COUNTER_FB": "50ohm"
+      "/Clock Generation/COUNTER_FB": "50ohm",
+      "/Clock Generation/TS": "50ohm",
+      "/mikroBus HAT/Clock Generation/COUNTER_FB": "50ohm",
+      "/mikroBus HAT/Clock Generation/OSC_LRCLK": "50ohm",
+      "/mikroBus HAT/Clock Generation/OSC_MCLK": "50ohm",
+      "/mikroBus HAT/Clock Generation/OSC_SCLK": "50ohm"
     },
     "netclass_patterns": [
       {
@@ -604,10 +609,6 @@
     [
       "f904953f-335e-4512-b297-b8d4a411c7e1",
       "Audio CODEC"
-    ],
-    [
-      "f0b146c1-6597-43d1-a034-e1a9c8d997f5",
-      "Audio Connectors"
     ],
     [
       "a140926a-0a3b-478a-a548-a5c24f46f46e",
