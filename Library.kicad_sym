@@ -3431,7 +3431,7 @@
 				)
 			)
 		)
-		(property "Footprint" "DCU8"
+		(property "Footprint" "Library:DCU8"
 			(at 0 0 0)
 			(effects
 				(font
@@ -3458,14 +3458,6 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
-			)
-		)
-		(property "ki_locked" ""
-			(at 0 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
 			)
 		)
 		(property "ki_keywords" "TS5A3359DCUR"
