@@ -7181,9 +7181,9 @@
 		(at 121.92 113.03 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "9d21ca1f-0e1b-4006-8712-6eebf19365c0")
 		(property "Reference" "TP1"
