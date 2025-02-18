@@ -2647,7 +2647,6 @@
 	)
 	(label "IN_RIGHT"
 		(at 87.63 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2658,7 +2657,6 @@
 	)
 	(label "OUT_RIGHT"
 		(at 91.44 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2669,7 +2667,6 @@
 	)
 	(label "OUT_LEFT"
 		(at 91.44 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2680,7 +2677,6 @@
 	)
 	(label "IN_LEFT"
 		(at 87.63 71.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2692,7 +2688,6 @@
 	(hierarchical_label "DI"
 		(shape input)
 		(at 209.55 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2704,7 +2699,6 @@
 	(hierarchical_label "SCL"
 		(shape bidirectional)
 		(at 209.55 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2716,7 +2710,6 @@
 	(hierarchical_label "WRD"
 		(shape input)
 		(at 209.55 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2728,7 +2721,6 @@
 	(hierarchical_label "SDA"
 		(shape bidirectional)
 		(at 209.55 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2740,7 +2732,6 @@
 	(hierarchical_label "BIT"
 		(shape input)
 		(at 209.55 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2752,7 +2743,6 @@
 	(hierarchical_label "INT"
 		(shape output)
 		(at 107.95 59.69 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2764,7 +2754,6 @@
 	(hierarchical_label "DO"
 		(shape output)
 		(at 209.55 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2776,7 +2765,6 @@
 	(hierarchical_label "MCLK"
 		(shape input)
 		(at 107.95 67.31 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

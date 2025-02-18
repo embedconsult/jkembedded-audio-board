@@ -4983,7 +4983,6 @@
 	)
 	(label "VClock"
 		(at 148.59 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4995,7 +4994,6 @@
 	(hierarchical_label "SDA"
 		(shape bidirectional)
 		(at 53.34 121.92 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5007,7 +5005,6 @@
 	(hierarchical_label "OSC_LRCLK"
 		(shape output)
 		(at 234.95 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5019,7 +5016,6 @@
 	(hierarchical_label "COUNTER_FB"
 		(shape output)
 		(at 234.95 107.95 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5031,7 +5027,6 @@
 	(hierarchical_label "OSC_MCLK"
 		(shape output)
 		(at 234.95 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5043,7 +5038,6 @@
 	(hierarchical_label "SCL"
 		(shape bidirectional)
 		(at 168.91 118.11 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5055,7 +5049,6 @@
 	(hierarchical_label "SCL"
 		(shape bidirectional)
 		(at 53.34 119.38 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5067,7 +5060,6 @@
 	(hierarchical_label "OSC_SCLK"
 		(shape output)
 		(at 234.95 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5079,7 +5071,6 @@
 	(hierarchical_label "TS"
 		(shape output)
 		(at 234.95 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5091,7 +5082,6 @@
 	(hierarchical_label "SDA"
 		(shape bidirectional)
 		(at 168.91 115.57 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

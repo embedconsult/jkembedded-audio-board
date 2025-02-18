@@ -4949,7 +4949,6 @@
 	)
 	(label "PWM_BIT_B"
 		(at 300.99 181.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4960,7 +4959,6 @@
 	)
 	(label "CS_MB1"
 		(at 332.74 116.84 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4971,7 +4969,6 @@
 	)
 	(label "PWM_MB1"
 		(at 243.84 138.43 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4982,7 +4979,6 @@
 	)
 	(label "RST_WRD_B"
 		(at 144.78 153.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4993,7 +4989,6 @@
 	)
 	(label "COPI_MB1"
 		(at 281.94 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5004,7 +4999,6 @@
 	)
 	(label "RX_MB1"
 		(at 312.42 151.13 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5015,7 +5009,6 @@
 	)
 	(label "CIPO_CNT_B"
 		(at 345.44 214.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5026,7 +5019,6 @@
 	)
 	(label "HAT_SDA"
 		(at 278.13 171.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5037,7 +5029,6 @@
 	)
 	(label "TX_MB1"
 		(at 312.42 153.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5048,7 +5039,6 @@
 	)
 	(label "CIPO_CNT_A"
 		(at 345.44 212.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5059,7 +5049,6 @@
 	)
 	(label "HAT_SCL"
 		(at 278.13 173.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5070,7 +5059,6 @@
 	)
 	(label "RST_WRD_A"
 		(at 299.72 212.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5081,7 +5069,6 @@
 	)
 	(label "SCK_MB1"
 		(at 300.99 196.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5092,7 +5079,6 @@
 	)
 	(label "PWM_BIT_A"
 		(at 344.17 181.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5103,7 +5089,6 @@
 	)
 	(label "CIPO_MB1"
 		(at 219.71 267.97 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6336,22 +6321,22 @@
 			)
 		)
 		(pin "5"
-			(uuid "51f38346-5ea7-4c94-bca9-622cb109e71c")
+			(uuid "51f38346-5ea7-4c94-bca9-622cb109e71d")
 		)
 		(pin "2"
-			(uuid "87f42daa-4cab-4077-9dce-ab1422a3f8ab")
+			(uuid "87f42daa-4cab-4077-9dce-ab1422a3f8ac")
 		)
 		(pin "6"
-			(uuid "26137799-9f18-4a5e-b7dc-cdf4b6567b2f")
+			(uuid "26137799-9f18-4a5e-b7dc-cdf4b6567b30")
 		)
 		(pin "4"
-			(uuid "052f1faa-e582-4d66-ba70-fc9451314f03")
+			(uuid "052f1faa-e582-4d66-ba70-fc9451314f04")
 		)
 		(pin "3"
-			(uuid "5fbd2c35-ae09-490b-91ee-f7a61e87a985")
+			(uuid "5fbd2c35-ae09-490b-91ee-f7a61e87a986")
 		)
 		(pin "1"
-			(uuid "e509fb97-cc2d-4235-95b9-e442d3ed1b0d")
+			(uuid "e509fb97-cc2d-4235-95b9-e442d3ed1b0e")
 		)
 		(instances
 			(project ""
