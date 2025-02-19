@@ -4,6 +4,10 @@
 	(generator_version "8.0")
 	(uuid "13437f4e-228b-46fb-acaa-15cf30aed506")
 	(paper "C")
+	(title_block
+		(title "JKEmbedded Audio Board")
+		(company "JKEmbedded, LLC")
+	)
 	(lib_symbols
 		(symbol "74xGxx:74LVC1G3157"
 			(exclude_from_sim no)

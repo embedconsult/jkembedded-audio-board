@@ -4,6 +4,10 @@
 	(generator_version "8.0")
 	(uuid "13f8ad31-2537-41ad-8e71-38a3b46b2f66")
 	(paper "USLetter")
+	(title_block
+		(title "JKEmbedded Audio Board")
+		(company "JKEmbedded, LLC")
+	)
 	(lib_symbols
 		(symbol "Connector:Conn_01x08_Pin"
 			(pin_names
@@ -1754,6 +1758,16 @@
 		)
 		(uuid "fe0efdd3-775e-4d22-bfc9-2f560635f273")
 	)
+	(text "5V"
+		(exclude_from_sim no)
+		(at 67.056 53.848 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "21c00d1e-e333-4fc4-aa5d-22d34d045578")
+	)
 	(text "RST"
 		(exclude_from_sim no)
 		(at 68.326 95.504 0)
@@ -1774,6 +1788,16 @@
 		)
 		(uuid "48344234-08d9-4d80-a850-34644acb7864")
 	)
+	(text "3V3"
+		(exclude_from_sim no)
+		(at 68.072 108.458 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "56579ddb-7e05-4656-a17c-cbfd37747707")
+	)
 	(text "SCK"
 		(exclude_from_sim no)
 		(at 68.072 100.838 0)
@@ -1784,6 +1808,26 @@
 		)
 		(uuid "6b8470a2-848c-4d7f-87f2-b6b2cf30bd39")
 	)
+	(text "SDA"
+		(exclude_from_sim no)
+		(at 66.802 51.308 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8a59c12e-f64e-4755-8c6a-3efa8d11426f")
+	)
+	(text "GND"
+		(exclude_from_sim no)
+		(at 68.326 110.998 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "92128efa-104a-4d36-9b2d-af9718cdc207")
+	)
 	(text "AN"
 		(exclude_from_sim no)
 		(at 68.326 92.964 0)
@@ -1793,6 +1837,16 @@
 			)
 		)
 		(uuid "afa30f1a-786d-4390-8392-4c57dc5ed5d4")
+	)
+	(text "SCL"
+		(exclude_from_sim no)
+		(at 66.802 48.768 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ba65816a-b743-4975-ace7-ebbf37116ee5")
 	)
 	(text "INT"
 		(exclude_from_sim no)
@@ -1823,6 +1877,16 @@
 			)
 		)
 		(uuid "c90ac13e-cd81-41aa-874a-66116c42c0ad")
+	)
+	(text "GND"
+		(exclude_from_sim no)
+		(at 67.31 56.642 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "c9ea1241-7396-4a4e-ba92-af207dfbf21b")
 	)
 	(text "PICO"
 		(exclude_from_sim no)

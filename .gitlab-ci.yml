@@ -1,4 +1,6 @@
-image: kicad/kicad:8.0.5
+image: kicad/kicad:8.0.8
+variables:
+  CI_PROJECT_NAME: "jkembedded-audio-board"
 
 stages:
   - print

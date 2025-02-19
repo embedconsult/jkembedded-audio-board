@@ -4,6 +4,10 @@
 	(generator_version "8.0")
 	(uuid "4407b04a-5621-439f-b4f3-3876874730ce")
 	(paper "USLetter")
+	(title_block
+		(title "JKEmbedded Audio Board")
+		(company "JKEmbedded, LLC")
+	)
 	(lib_symbols
 		(symbol "Connector:TestPoint"
 			(pin_numbers hide)
