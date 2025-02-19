@@ -1390,16 +1390,6 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 106.68) (xy 88.9 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "157b8240-675e-4aa3-813f-6e19685c5603")
-	)
-	(wire
-		(pts
 			(xy 63.5 49.53) (xy 88.9 49.53)
 		)
 		(stroke
@@ -1928,17 +1918,6 @@
 			(justify left)
 		)
 		(uuid "152a1afb-2e98-414b-a6b3-bd6fcd4b60c5")
-	)
-	(hierarchical_label "TS"
-		(shape input)
-		(at 88.9 106.68 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "289d749a-cf41-43e6-8323-695b6d64fe5c")
 	)
 	(hierarchical_label "DO"
 		(shape input)

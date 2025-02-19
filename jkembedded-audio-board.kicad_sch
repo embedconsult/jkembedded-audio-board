@@ -105,16 +105,6 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 104.14) (xy 73.66 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5d29246a-6f1b-422d-88fb-af5c966c6d7d")
-	)
-	(wire
-		(pts
 			(xy 124.46 80.01) (xy 124.46 59.69)
 		)
 		(stroke
@@ -132,16 +122,6 @@
 			(type default)
 		)
 		(uuid "616a26eb-f7be-49cc-ad2e-caec623f7e6a")
-	)
-	(wire
-		(pts
-			(xy 78.74 68.58) (xy 73.66 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6d12a144-6baf-4cb3-ba20-8593b2cbe234")
 	)
 	(wire
 		(pts
@@ -182,16 +162,6 @@
 			(type default)
 		)
 		(uuid "7fa40b8f-5860-4410-a21f-8197d765ef79")
-	)
-	(wire
-		(pts
-			(xy 73.66 68.58) (xy 73.66 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a1d18807-773f-47a7-8293-bb0a7a95239a")
 	)
 	(wire
 		(pts
@@ -363,16 +333,6 @@
 			)
 			(uuid "46d24c20-a964-4fd7-a8c0-ad9204cd98ed")
 		)
-		(pin "TS" input
-			(at 59.69 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-			(uuid "4d2e8841-5fa7-45d9-b115-dd95cb48fbcd")
-		)
 		(pin "DI" output
 			(at 59.69 97.79 0)
 			(effects
@@ -528,16 +488,6 @@
 				(justify right)
 			)
 			(uuid "82ecd71d-438a-41c5-9e4b-d086e6b43f48")
-		)
-		(pin "TS" output
-			(at 78.74 68.58 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "7e45d783-bd22-4ded-b37a-4063f25de299")
 		)
 		(instances
 			(project "jkembedded-audio-board"
