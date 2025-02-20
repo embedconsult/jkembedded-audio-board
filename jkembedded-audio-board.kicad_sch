@@ -362,8 +362,8 @@
 		)
 	)
 	(sheet
-		(at 44.45 143.51)
-		(size 72.39 36.83)
+		(at 40.64 124.46)
+		(size 106.68 68.58)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -374,7 +374,7 @@
 		)
 		(uuid "a140926a-0a3b-478a-a548-a5c24f46f46e")
 		(property "Sheetname" "mikroBus HAT"
-			(at 44.45 142.7984 0)
+			(at 40.64 123.7484 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -383,7 +383,7 @@
 			)
 		)
 		(property "Sheetfile" "mikroBus-HAT.kicad_sch"
-			(at 44.45 180.9246 0)
+			(at 40.64 193.6246 0)
 			(effects
 				(font
 					(size 1.27 1.27)
