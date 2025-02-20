@@ -1580,6 +1580,16 @@
 	)
 	(wire
 		(pts
+			(xy 63.5 106.68) (xy 88.9 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7af90d1f-febe-475f-a8bd-41ff84a569c4")
+	)
+	(wire
+		(pts
 			(xy 156.21 43.18) (xy 167.64 43.18)
 		)
 		(stroke
@@ -1747,6 +1757,25 @@
 			(type default)
 		)
 		(uuid "fe0efdd3-775e-4d22-bfc9-2f560635f273")
+	)
+	(text_box "Single Wire EEPROM for ClickID"
+		(exclude_from_sim no)
+		(at 217.17 31.75 0)
+		(size 21.59 12.7)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "dc96b43d-8244-4b69-aef6-e8b6d87c094b")
 	)
 	(text "5V"
 		(exclude_from_sim no)
@@ -1940,6 +1969,17 @@
 			(justify left)
 		)
 		(uuid "7023a712-5211-4711-952a-545308f8c82f")
+	)
+	(hierarchical_label "TS"
+		(shape input)
+		(at 88.9 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7582d725-2a61-4f6c-ae42-17cd8d9087a5")
 	)
 	(hierarchical_label "WRD"
 		(shape input)

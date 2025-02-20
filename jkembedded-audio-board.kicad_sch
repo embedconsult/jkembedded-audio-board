@@ -28,6 +28,12 @@
 		(uuid "56c71a9d-e2d0-4e53-9729-53aa46630c90")
 	)
 	(junction
+		(at 189.23 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8126f9de-207a-46fe-89ed-f341f2d6e461")
+	)
+	(junction
 		(at 191.77 39.37)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -42,6 +48,26 @@
 			(type default)
 		)
 		(uuid "0125b446-f839-4e1d-b8ea-ae6ea96dcfdd")
+	)
+	(wire
+		(pts
+			(xy 189.23 69.85) (xy 189.23 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06444bc7-3fd9-44db-b755-b408dbaa7146")
+	)
+	(wire
+		(pts
+			(xy 121.92 74.93) (xy 189.23 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "08a1ea03-7ff7-4907-a3d9-db095c88dc73")
 	)
 	(wire
 		(pts
@@ -3241,6 +3267,16 @@
 				(justify right)
 			)
 			(uuid "f4630b61-b19d-44f8-b58c-852fc0c49ac9")
+		)
+		(pin "TS" input
+			(at 121.92 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "bccd6aca-838d-46e1-b417-7f5fd3da19c5")
 		)
 		(instances
 			(project "jkembedded-audio-board"
