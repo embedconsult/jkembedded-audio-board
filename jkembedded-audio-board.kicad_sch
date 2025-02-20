@@ -597,16 +597,6 @@
 			)
 			(uuid "0fe4ccb7-168c-450c-8048-7a342ecbc40d")
 		)
-		(pin "INT" output
-			(at 144.78 107.95 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "b5118c4e-951d-4aee-8661-71eeaafefe8f")
-		)
 		(instances
 			(project "jkembedded-audio-board"
 				(path "/df100556-b288-4cb1-b69f-c0734132cb90"

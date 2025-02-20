@@ -7020,16 +7020,16 @@
 			(uuid "a0601825-e993-4a80-b794-547f49c93ebe")
 		)
 		(pin "6"
-			(uuid "26137799-9f18-4a5e-b7dc-cdf4b6567b2f")
+			(uuid "26137799-9f18-4a5e-b7dc-cdf4b6567b30")
 		)
 		(pin "4"
-			(uuid "052f1faa-e582-4d66-ba70-fc9451314f03")
+			(uuid "052f1faa-e582-4d66-ba70-fc9451314f04")
 		)
 		(pin "3"
-			(uuid "5fbd2c35-ae09-490b-91ee-f7a61e87a985")
+			(uuid "5fbd2c35-ae09-490b-91ee-f7a61e87a986")
 		)
 		(pin "1"
-			(uuid "e509fb97-cc2d-4235-95b9-e442d3ed1b0d")
+			(uuid "e509fb97-cc2d-4235-95b9-e442d3ed1b0e")
 		)
 		(instances
 			(project "jkembedded-audio-board"
@@ -8498,22 +8498,22 @@
 			)
 		)
 		(pin "5"
-			(uuid "51f38346-5ea7-4c94-bca9-622cb109e71d")
+			(uuid "51f38346-5ea7-4c94-bca9-622cb109e71e")
 		)
 		(pin "2"
-			(uuid "87f42daa-4cab-4077-9dce-ab1422a3f8ac")
+			(uuid "87f42daa-4cab-4077-9dce-ab1422a3f8ad")
 		)
 		(pin "6"
-			(uuid "26137799-9f18-4a5e-b7dc-cdf4b6567b30")
+			(uuid "26137799-9f18-4a5e-b7dc-cdf4b6567b31")
 		)
 		(pin "4"
-			(uuid "052f1faa-e582-4d66-ba70-fc9451314f04")
+			(uuid "052f1faa-e582-4d66-ba70-fc9451314f05")
 		)
 		(pin "3"
-			(uuid "5fbd2c35-ae09-490b-91ee-f7a61e87a986")
+			(uuid "5fbd2c35-ae09-490b-91ee-f7a61e87a987")
 		)
 		(pin "1"
-			(uuid "e509fb97-cc2d-4235-95b9-e442d3ed1b0e")
+			(uuid "e509fb97-cc2d-4235-95b9-e442d3ed1b0f")
 		)
 		(instances
 			(project ""
@@ -8714,19 +8714,19 @@
 			(uuid "8a87be9b-146c-465a-a305-719c06169295")
 		)
 		(pin "6"
-			(uuid "0aae74b0-0c6d-4ba9-ac3f-53ebfe1fb899")
+			(uuid "0aae74b0-0c6d-4ba9-ac3f-53ebfe1fb89a")
 		)
 		(pin "5"
 			(uuid "9123d5d4-d882-41cc-a292-2226b61b8e7a")
 		)
 		(pin "4"
-			(uuid "33dab879-0727-45bd-86e6-d0a207718556")
+			(uuid "33dab879-0727-45bd-86e6-d0a207718557")
 		)
 		(pin "3"
-			(uuid "801a7de4-1fd5-43a5-8a87-65d2d1edb9b5")
+			(uuid "801a7de4-1fd5-43a5-8a87-65d2d1edb9b6")
 		)
 		(pin "1"
-			(uuid "9ec42a22-8766-48a3-9487-a9806272b005")
+			(uuid "9ec42a22-8766-48a3-9487-a9806272b006")
 		)
 		(instances
 			(project ""
@@ -8991,10 +8991,10 @@
 			)
 		)
 		(pin "5"
-			(uuid "51f38346-5ea7-4c94-bca9-622cb109e71d")
+			(uuid "51f38346-5ea7-4c94-bca9-622cb109e71f")
 		)
 		(pin "2"
-			(uuid "87f42daa-4cab-4077-9dce-ab1422a3f8ac")
+			(uuid "87f42daa-4cab-4077-9dce-ab1422a3f8ae")
 		)
 		(pin "6"
 			(uuid "e5a0991f-5b0c-4eda-bad2-2a2076d9d8c6")
