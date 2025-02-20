@@ -2342,22 +2342,20 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at -10.16 22.86 0)
+			(property "Reference" "MB1"
+				(at -0.2382 26.67 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left bottom)
 				)
 			)
 			(property "Value" "MIKROBUS_SMD_BLACK"
-				(at 2.54 22.86 0)
+				(at -0.2382 24.13 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left bottom)
 				)
 			)
 			(property "Footprint" "Library:MIKROBUS_SMD_BLACK"
@@ -2390,8 +2388,8 @@
 			)
 			(symbol "MIKROBUS_SMD_BLACK_0_0"
 				(rectangle
-					(start -10.6363 21.1138)
-					(end 9.6838 -11.9063)
+					(start -10.16 20.32)
+					(end 10.1601 -12.7001)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -2709,7 +2707,7 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
+			(property "Reference" "U6"
 				(at 33.02 10.16 0)
 				(effects
 					(font
@@ -3091,24 +3089,6 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at 66.04 -5.08 180)
-					(length 7.62)
-					(name "VCORE"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "23"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin bidirectional line
 					(at 66.04 -2.54 180)
 					(length 7.62)
@@ -3127,24 +3107,6 @@
 						)
 					)
 				)
-				(pin power_out line
-					(at 66.04 0 180)
-					(length 7.62)
-					(name "VSS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "25"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin power_in line
 					(at 0 -5.08 0)
 					(length 7.62)
@@ -3156,24 +3118,6 @@
 						)
 					)
 					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_out line
-					(at 0 -7.62 0)
-					(length 7.62)
-					(name "VSS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3264,6 +3208,62 @@
 						)
 					)
 					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "MSPM0L1105TRGER_1_1"
+				(pin power_in line
+					(at 66.04 -5.08 180)
+					(length 7.62)
+					(name "VCORE"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "23"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 66.04 0 180)
+					(length 7.62)
+					(name "VSS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "25"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -7.62 0)
+					(length 7.62)
+					(name "VSS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4085,6 +4085,94 @@
 		(color 0 0 0 0)
 		(uuid "fff231ea-cc4a-4604-bad5-23eae60c8f97")
 	)
+	(no_connect
+		(at 440.69 204.47)
+		(uuid "2a0e687b-d0da-4a63-bc38-18d4ff0fab8d")
+	)
+	(no_connect
+		(at 440.69 184.15)
+		(uuid "46b6c5c6-5b1c-456a-9aad-77fce068123d")
+	)
+	(no_connect
+		(at 255.27 326.39)
+		(uuid "51649624-06d7-4800-9cef-7ecb45a9a6dc")
+	)
+	(no_connect
+		(at 440.69 176.53)
+		(uuid "5fccd8c1-5de2-4ed0-ac0a-4d8a2a042341")
+	)
+	(no_connect
+		(at 440.69 201.93)
+		(uuid "695dc9e1-2b7a-4d78-b1cf-5b2562dde56e")
+	)
+	(no_connect
+		(at 440.69 194.31)
+		(uuid "6e80c68d-1990-456e-90cf-805a0b0f851d")
+	)
+	(no_connect
+		(at 255.27 331.47)
+		(uuid "70c004ca-602b-4d42-a92d-d09a5fa33349")
+	)
+	(no_connect
+		(at 453.39 207.01)
+		(uuid "76130ac5-c158-4114-a228-c6c63c9d8fde")
+	)
+	(no_connect
+		(at 453.39 199.39)
+		(uuid "8445dd88-f79c-4bc0-88d2-9d4dbafa8c4e")
+	)
+	(no_connect
+		(at 255.27 328.93)
+		(uuid "8f3dc87c-4157-41c3-a0c4-bea91a2cb9da")
+	)
+	(no_connect
+		(at 440.69 214.63)
+		(uuid "8f63b95b-c11d-4342-ac8c-11cb828e639a")
+	)
+	(no_connect
+		(at 440.69 207.01)
+		(uuid "94e1c400-b576-4bc5-83aa-87ba0dc6122b")
+	)
+	(no_connect
+		(at 255.27 323.85)
+		(uuid "9b0a90fa-65d6-4f71-8776-9459217a084d")
+	)
+	(no_connect
+		(at 255.27 318.77)
+		(uuid "a4c4d6eb-7617-4a22-b2eb-b37843e9f749")
+	)
+	(no_connect
+		(at 255.27 334.01)
+		(uuid "ad28b38f-0dee-4205-8ee0-8ebba4929eae")
+	)
+	(no_connect
+		(at 453.39 186.69)
+		(uuid "ae5ade23-2d5e-4648-8dc1-9e5d036254f6")
+	)
+	(no_connect
+		(at 255.27 321.31)
+		(uuid "c44aba73-55b4-4278-b2ea-cba0f043de12")
+	)
+	(no_connect
+		(at 189.23 339.09)
+		(uuid "c481c6b6-b13a-4786-adac-ec1f6a663c6d")
+	)
+	(no_connect
+		(at 255.27 341.63)
+		(uuid "d4534bab-d6ac-49a3-9ea1-8c20d787ce8a")
+	)
+	(no_connect
+		(at 255.27 336.55)
+		(uuid "e34f06e8-ab22-44bc-beed-fda7d94f1c97")
+	)
+	(no_connect
+		(at 440.69 186.69)
+		(uuid "ef83adcc-9d36-42d0-a6aa-9f5069beb6b6")
+	)
+	(no_connect
+		(at 453.39 201.93)
+		(uuid "f57766f6-6003-4ebd-b6ce-54e437c5c620")
+	)
 	(wire
 		(pts
 			(xy 241.3 228.6) (xy 345.44 228.6)
@@ -4297,7 +4385,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 163.83) (xy 234.95 170.18)
+			(xy 234.95 163.83) (xy 234.95 167.64)
 		)
 		(stroke
 			(width 0)
@@ -4617,7 +4705,7 @@
 	)
 	(wire
 		(pts
-			(xy 233.68 163.83) (xy 234.95 163.83)
+			(xy 234.95 163.83) (xy 233.68 163.83)
 		)
 		(stroke
 			(width 0)
@@ -5587,7 +5675,7 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 163.83) (xy 200.66 170.18)
+			(xy 200.66 163.83) (xy 200.66 167.64)
 		)
 		(stroke
 			(width 0)
@@ -6326,7 +6414,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 234.95 170.18 0)
+		(at 234.95 167.64 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6334,7 +6422,7 @@
 		(dnp no)
 		(uuid "01060bd0-9e26-4f71-80da-e20bb9a6f41f")
 		(property "Reference" "#PWR048"
-			(at 234.95 176.53 0)
+			(at 234.95 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6343,7 +6431,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 230.886 170.688 0)
+			(at 230.886 168.148 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6351,7 +6439,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 234.95 170.18 0)
+			(at 234.95 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6360,7 +6448,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 234.95 170.18 0)
+			(at 234.95 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6369,7 +6457,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 234.95 170.18 0)
+			(at 234.95 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6416,7 +6504,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical_SMD"
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical"
 			(at 387.35 170.18 0)
 			(effects
 				(font
@@ -7243,7 +7331,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 187.96 392.43 0)
 			(effects
 				(font
@@ -7325,7 +7413,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 152.4 392.43 0)
 			(effects
 				(font
@@ -7405,7 +7493,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 271.78 315.2648 0)
 			(effects
 				(font
@@ -7475,7 +7563,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 127.762 289.56 90)
 			(effects
 				(font
@@ -7676,7 +7764,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 259.08 392.43 0)
 			(effects
 				(font
@@ -8138,7 +8226,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 151.13 309.118 90)
 			(effects
 				(font
@@ -8276,7 +8364,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 328.93 213.36 0)
 			(effects
 				(font
@@ -8809,7 +8897,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 355.6 194.31 0)
 			(effects
 				(font
@@ -9022,7 +9110,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 223.52 392.43 0)
 			(effects
 				(font
@@ -9102,7 +9190,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SOD-323"
 			(at 222.25 355.6 0)
 			(effects
 				(font
@@ -9164,7 +9252,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 200.66 170.18 0)
+		(at 200.66 167.64 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9172,7 +9260,7 @@
 		(dnp no)
 		(uuid "d6d68552-2cc7-4180-8d49-f20080067fe4")
 		(property "Reference" "#PWR047"
-			(at 200.66 176.53 0)
+			(at 200.66 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9181,7 +9269,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 196.596 170.688 0)
+			(at 196.596 168.148 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9189,7 +9277,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 200.66 170.18 0)
+			(at 200.66 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9198,7 +9286,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 200.66 170.18 0)
+			(at 200.66 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9207,7 +9295,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 200.66 170.18 0)
+			(at 200.66 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9388,7 +9476,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 355.6 228.6 0)
 			(effects
 				(font
@@ -9467,7 +9555,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
 			(at 328.93 181.61 0)
 			(effects
 				(font

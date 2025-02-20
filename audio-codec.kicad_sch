@@ -1680,6 +1680,18 @@
 		(color 0 0 0 0)
 		(uuid "f9bd2afe-e2c0-4c2b-a885-495bc79e04e6")
 	)
+	(no_connect
+		(at 123.19 64.77)
+		(uuid "a9d7c4d1-2eeb-4f0e-992c-ed20b8ada9d6")
+	)
+	(no_connect
+		(at 123.19 62.23)
+		(uuid "b13766bf-d5b3-468c-990e-fbaaccde918e")
+	)
+	(no_connect
+		(at 123.19 59.69)
+		(uuid "f881037b-56be-43f7-ae68-e1481b5e44c5")
+	)
 	(wire
 		(pts
 			(xy 87.63 109.22) (xy 93.98 109.22)
@@ -2659,6 +2671,16 @@
 		)
 		(uuid "63af2f2a-9e00-4196-854e-f1749ae25da5")
 	)
+	(label "INT"
+		(at 110.49 59.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "da05a315-2005-4c65-bf99-bef9651ea519")
+	)
 	(label "OUT_RIGHT"
 		(at 91.44 91.44 0)
 		(effects
@@ -2743,17 +2765,6 @@
 			(justify left)
 		)
 		(uuid "80a90c41-136d-4e2e-91d4-c13042dd4fc2")
-	)
-	(hierarchical_label "INT"
-		(shape output)
-		(at 107.95 59.69 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "a2f61a9c-e33b-4e32-825b-d2550a068db6")
 	)
 	(hierarchical_label "DO"
 		(shape output)
