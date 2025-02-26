@@ -5713,15 +5713,15 @@
 	(symbol
 		(lib_id "Device:C")
 		(at 242.57 73.66 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "342bd706-6e95-4fa8-a728-ffae4db1e640")
 		(property "Reference" "C12"
-			(at 246.38 72.3899 0)
+			(at 238.76 72.3899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5730,7 +5730,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 246.38 74.9299 0)
+			(at 238.76 74.9299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5739,7 +5739,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 243.5352 77.47 0)
+			(at 241.6048 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5805,7 +5805,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 222.25 106.172 90)
 			(effects
 				(font
@@ -6257,7 +6257,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 222.25 96.012 90)
 			(effects
 				(font
@@ -7495,7 +7495,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 222.25 101.092 90)
 			(effects
 				(font
@@ -8298,7 +8298,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 222.25 90.932 90)
 			(effects
 				(font
