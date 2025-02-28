@@ -3,8 +3,8 @@
 ## Tasks
 
 - [X] A. Requirement analysis (2 days)
-- [ ] B. Schematic entry (1 weeks after A approval)
-- [ ] C. Layout (1 weeks after B approval)
+- [X] B. Schematic entry (1 weeks after A approval)
+- [X] C. Layout (1 weeks after B approval)
 - [ ] D. Prototype coordination (3 days after C approval)
 - [ ] E. Test code development (2 weeks after C approval)
 - [ ] F. Test bench materials (2 weeks after C approval)
