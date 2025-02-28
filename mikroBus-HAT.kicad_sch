@@ -3882,6 +3882,12 @@
 		(uuid "0fb07bd2-d84a-43ef-8cde-98c08f22427d")
 	)
 	(junction
+		(at 363.22 170.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1116e2d4-e3e6-474a-8174-5e24c8f03c3a")
+	)
+	(junction
 		(at 129.54 299.72)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4096,10 +4102,6 @@
 	(no_connect
 		(at 255.27 326.39)
 		(uuid "51649624-06d7-4800-9cef-7ecb45a9a6dc")
-	)
-	(no_connect
-		(at 440.69 176.53)
-		(uuid "5fccd8c1-5de2-4ed0-ac0a-4d8a2a042341")
 	)
 	(no_connect
 		(at 440.69 201.93)
@@ -4425,6 +4427,16 @@
 	)
 	(wire
 		(pts
+			(xy 363.22 180.34) (xy 369.57 180.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e8341ed-99a8-4fee-ba5d-5c62d4583544")
+	)
+	(wire
+		(pts
 			(xy 255.27 339.09) (xy 488.95 339.09)
 		)
 		(stroke
@@ -4532,6 +4544,16 @@
 			(type default)
 		)
 		(uuid "2d4e9493-9c69-40d8-8cf6-8231e5121175")
+	)
+	(wire
+		(pts
+			(xy 440.69 176.53) (xy 403.86 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2dd13d87-37af-4b2f-b40c-935ea0155952")
 	)
 	(wire
 		(pts
@@ -5165,6 +5187,16 @@
 	)
 	(wire
 		(pts
+			(xy 363.22 180.34) (xy 363.22 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8cbf023d-8a1b-4ec7-b68a-36966f5889e0")
+	)
+	(wire
+		(pts
 			(xy 142.24 292.1) (xy 158.75 292.1)
 		)
 		(stroke
@@ -5545,6 +5577,16 @@
 	)
 	(wire
 		(pts
+			(xy 403.86 176.53) (xy 403.86 180.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3c02a26-5f8e-403a-8ec0-49d0999a8e87")
+	)
+	(wire
+		(pts
 			(xy 203.2 146.05) (xy 195.58 146.05)
 		)
 		(stroke
@@ -5735,6 +5777,16 @@
 	)
 	(wire
 		(pts
+			(xy 363.22 170.18) (xy 382.27 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cf52b5e9-47d8-4a9e-a3cb-c93eb38d3784")
+	)
+	(wire
+		(pts
 			(xy 246.38 402.59) (xy 223.52 402.59)
 		)
 		(stroke
@@ -5892,6 +5944,16 @@
 			(type default)
 		)
 		(uuid "e2f2fe2d-e75d-4849-b131-98af3a6ea61d")
+	)
+	(wire
+		(pts
+			(xy 403.86 180.34) (xy 377.19 180.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e313fb6d-7064-4b28-8031-df5a6856565f")
 	)
 	(wire
 		(pts
@@ -6065,7 +6127,7 @@
 	)
 	(wire
 		(pts
-			(xy 344.17 170.18) (xy 382.27 170.18)
+			(xy 344.17 170.18) (xy 363.22 170.18)
 		)
 		(stroke
 			(width 0)
@@ -6182,6 +6244,16 @@
 		)
 		(uuid "30701037-b48a-4358-9c88-372fca2a5b0b")
 	)
+	(label "RST_MB1"
+		(at 287.02 181.61 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3834f0d3-5ab9-4893-8419-2f473b5ade0d")
+	)
 	(label "RX_MB1"
 		(at 431.8 151.13 0)
 		(effects
@@ -6221,6 +6293,16 @@
 			(justify left bottom)
 		)
 		(uuid "46443a68-4238-4afa-8475-5d564b964a0a")
+	)
+	(label "RST_WRD_B_HAT"
+		(at 410.21 176.53 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4c804f32-9ed3-49cf-b497-c3be0cc180f2")
 	)
 	(label "INT_MB1"
 		(at 287.02 228.6 0)
@@ -6832,6 +6914,73 @@
 			(project "jkembedded-audio-board"
 				(path "/df100556-b288-4cb1-b69f-c0734132cb90/a140926a-0a3b-478a-a548-a5c24f46f46e"
 					(reference "C25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 373.38 180.34 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3618bb34-ec25-42eb-b614-e6000fc77080")
+		(property "Reference" "R23"
+			(at 373.38 182.88 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0"
+			(at 373.38 185.42 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 373.38 178.562 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 373.38 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 373.38 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "3b486780-5a1d-49ab-abe9-650f3d0fafd4")
+		)
+		(pin "1"
+			(uuid "a9e06d98-556c-415a-8dd2-85c531b0c853")
+		)
+		(instances
+			(project "jkembedded-audio-board"
+				(path "/df100556-b288-4cb1-b69f-c0734132cb90/a140926a-0a3b-478a-a548-a5c24f46f46e"
+					(reference "R23")
 					(unit 1)
 				)
 			)

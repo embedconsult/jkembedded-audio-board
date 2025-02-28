@@ -3072,7 +3072,7 @@
 			"wAEC/w/42qeF5QfNWQAAAABJRU5ErkJggg=="
 		)
 	)
-	(text_box "AM62 Starter Kit\n\n\n3 - SDA\n5 - SCL\n\n\n\n\n\n\n38 - CNT\nJ7 pin - WRD\n11 - BIT\n19 - TS\n\n\n\n\n\n33 - DI\n36 - DO\n"
+	(text_box "AM62 Starter Kit\n\n\n3 - SDA\n5 - SCL\n\n\n\n\n\n\n38 - CNT\n7 - WRD\n11 - BIT\n19 - TS\n\n\n\n\n\n33 - DI\n36 - DO\n"
 		(exclude_from_sim no)
 		(at 24.13 29.21 0)
 		(size 21.59 76.2)
