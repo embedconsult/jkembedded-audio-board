@@ -6430,7 +6430,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GND_HAT"
 			(at 230.886 168.148 0)
 			(effects
 				(font
@@ -6562,7 +6562,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
+		(property "Value" "+3V3_HAT"
 			(at 129.54 275.59 0)
 			(effects
 				(font
@@ -6925,7 +6925,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GND_HAT"
 			(at 125.476 307.848 0)
 			(effects
 				(font
@@ -6990,7 +6990,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GND_HAT"
 			(at 455.676 221.488 0)
 			(effects
 				(font
@@ -7055,7 +7055,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GND_HAT"
 			(at 135.636 406.908 0)
 			(effects
 				(font
@@ -7121,7 +7121,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
+		(property "Value" "+3V3_HAT"
 			(at 139.7 373.38 0)
 			(effects
 				(font
@@ -7186,7 +7186,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GND_HAT"
 			(at 318.516 253.238 0)
 			(effects
 				(font
@@ -7623,7 +7623,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GND_HAT"
 			(at 432.816 221.488 0)
 			(effects
 				(font
@@ -7689,7 +7689,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
+		(property "Value" "+3V3_HAT"
 			(at 322.58 240.03 0)
 			(effects
 				(font
@@ -7976,7 +7976,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+5V_HAT"
 			(at 468.63 162.56 0)
 			(effects
 				(font
@@ -8153,7 +8153,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
+		(property "Value" "+3V3_HAT"
 			(at 200.66 132.08 0)
 			(effects
 				(font
@@ -8436,7 +8436,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GND_HAT"
 			(at 329.946 279.908 0)
 			(effects
 				(font
@@ -8572,7 +8572,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+5V_HAT"
 			(at 238.76 132.08 0)
 			(effects
 				(font
@@ -8970,7 +8970,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
+		(property "Value" "+3V3_HAT"
 			(at 427.99 162.56 0)
 			(effects
 				(font
@@ -9035,7 +9035,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GND_HAT"
 			(at 138.176 292.608 0)
 			(effects
 				(font
@@ -9268,7 +9268,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GND_HAT"
 			(at 196.596 168.148 0)
 			(effects
 				(font
@@ -9333,7 +9333,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "GND_HAT"
 			(at 274.066 316.738 0)
 			(effects
 				(font
