@@ -1,0 +1,27 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,9.0.0*%
+%TF.CreationDate,2025-04-10T14:52:18+00:00*%
+%TF.ProjectId,jkembedded-audio-board,6a6b656d-6265-4646-9465-642d61756469,rev?*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,NonPlated,1,4,NPTH,Drill*%
+%TF.FilePolarity,Positive*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 9.0.0) date 2025-04-10 14:52:18*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,ComponentDrill*%
+%ADD10C,1.700000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+%TO.C,J2*%
+X56500000Y-70000000D03*
+%TO.C,J1*%
+X56500000Y-84000000D03*
+%TO.C,J2*%
+X63500000Y-70000000D03*
+%TO.C,J1*%
+X63500000Y-84000000D03*
+M02*

@@ -1,0 +1,38 @@
+Description	ID	Manufacturer	Manufacturer Part Number	Supplier	Supplier Part Number	Reference Designators	Line Quantity	Order Quantity	Unit Price	Order Price	Legacy ID	Mounting Type
+SMT GPIO Header for Raspberry Pi HAT - 2x20 Short Female Header | Adafruit Industries 2187	AI/2187	Adafruit Industries	2187	Mouser	485-2187	J5	1	11	2.7300	30.0300		Surface mount
+3.5 mm, Stereo, Right Angle, Surface Mount (SMT), Audio Jack Connector	CD9/SJ-3523-SMT-TR	CUI Devices	SJ-3523-SMT-TR	Mouser	490-SJ-3523-SMT-TR	J1,J2	2	20	1.1984	23.9680		Surface mount
+Rectifier Diode Small Signal Switching 75V 0.3A 4ns 2-Pin SOD-323 T/R	DIODES/1N4148WS-7-F	Diodes Inc.	1N4148WS-7-F	Newark	12T2305	D1	1	100	0.0266	2.6600		Surface mount
+DNP	DNP					R21,R22,J7						
+Surface Mount Tantalum Capacitor, 10 ï¿½F, 6.3 V, 1206 [3216 Metric], ï¿½ 20%, 4 ohm, A	KEMET1/T491A106M006AT	KEMET	T491A106M006AT	Newark	57K1638	C9	1	12	0.0308	0.3696		Surface mount
+	MIK/SOCKET MIKROBUS 16 SMD	mikroElektronika	SOCKET MIKROBUS 16 SMD	user-1615	Consign	MB1	1	8		0.0000	MIK/SOCKET%20MIKROBUS%2016%20SMD	Surface mount
+Conn Unshrouded Header HDR 8 POS 2.54mm Solder ST Top Entry Thru-Hole	MULTICOMP/2213S-08G	Multicomp	2213S-08G			J4,J3	2	100	0.1428	14.2800		Through hole
+Clock Generator 25MHz to 27MHz-IN 200MHz-OUT 20-Pin QFN EP Bulk	SS2/SI5351B-B-GM	Skyworks Solutions	SI5351B-B-GM	Digi-Key	336-2401-ND	U1	1	11	5.6000	61.6000		Surface mount
+10-bit, 2-channel low-power voltage/current output smart DAC with Hi-Z, EEPROM, waveform generator 16-WQFN -40 to 125	TI/DAC53002RTER	Texas Instruments	DAC53002RTER	Mouser	595-DAC53002RTER	U3	1	11	4.5500	50.0500		Surface mount
+32-MHz Arm® Cortex®-M0+ MCU with 32-KB flash, 4-KB SRAM, 12-bit ADC 24-VQFN -40 to 105	TI/MSPM0L1105TRGER	Texas Instruments	MSPM0L1105TRGER	Digi-Key	296-MSPM0L1105TRGERDKR-ND	U6	1	12	1.2390	14.8680		Surface mount
+5-V, 2: 1 (SPDT), 1-channel general-purpose analog switch 6-SOT-23 -40 to 125	TI/SN74LVC1G3157DBVR	Texas Instruments	SN74LVC1G3157DBVR	Digi-Key	296-14908-1-ND	U11,U7,U8,U9	4	100	0.0988	9.8840		Surface mount
+Low-power stereo audio codec with 105dB dynamic range ADC and 114dB dynamic range DAC 24-VQFN -40 to 125	TI/TAC5112IRGER	Texas Instruments	TAC5112IRGER	user-1615	Consign	U4	1	8		0.0000		Surface mount
+SHA-256 authenticator & 2Kbit EEPROM, integrated ±0.2°C temp sensor compatible with 1-Wire® protocol 8-WSON -55 to 150	TI/TMP1827NGRR	Texas Instruments	TMP1827NGRR	Mouser	595-TMP1827NGRR	U5	1	11	3.0800	33.8800		Surface mount
+LDO Regulator Pos 1.2V to 5.5V 0.2A 6-Pin SOT-23 T/R	TI/TPS79301DBVREP	Texas Instruments	TPS79301DBVREP	Mouser	595-TPS79301DBVREP	U2	1	11	2.3660	26.0260		Surface mount
+1-Ω on-state resistance, 5-V, 3: 1 (SP3T), 1-channel analog multiplexer 8-VSSOP -40 to 85	TI/TS5A3359DCUR	Texas Instruments	TS5A3359DCUR	Digi-Key	296-21193-1-ND	U10	1	12	0.6720	8.0640		Surface mount
+7M Series 27 MHz ±10 ppm 10 pF -20°C to 70°C 3.2 x 2.5 mm Quartz Crystal	TXC/7M-27.000MEEQ-T	TXC	7M-27.000MEEQ-T	Mouser	717-7M-27.000MEEQ-T	Y1	1	12	1.1396	13.6752		Surface mount
+STANDARD THICK FILM CHIP RESISTOR Metal Glaze/thick Film, 0.1W, 0ohm, Surface Mount, 0603	VISHAY/CRCW06030000Z0EA	Vishay	CRCW06030000Z0EA			R17,R18,R19,R20,R23	5	100	0.0112	1.1200		Surface mount
+Res Thick Film 0603 100K Ohm 1% 1/10W ±100ppm/°C Molded SMD Paper T/R	VISHAY/CRCW0603100KFKEA	Vishay	CRCW0603100KFKEA	Newark	62M4094	R2	1	100	0.0126	1.2600		Surface mount
+100mW Thick Film Resistors ±1% ±100ppm/℃ 10kΩ 0603 Chip Resistor - Surface Mount ROHS	VISHAY/CRCW060310K0FKEA	Vishay	CRCW060310K0FKEA			R4,R5	2	100	0.0126	1.2600		Surface mount
+SMD Chip Resistor, 10 ohm, ï¿½ 5%, 100 mW, 0603 [1608 Metric], Thick Film, General Purpose	VISHAY/CRCW060310R0JNEA	Vishay	CRCW060310R0JNEA	Newark	59M6762	R10,R11,R8,R9	4	100	0.0028	0.2800		Surface mount
+SMD Chip Resistor, 1 kohm, ï¿½ 5%, 100 mW, 0603 [1608 Metric], Thick Film, General Purpose	VISHAY/CRCW06031K00JNEA	Vishay	CRCW06031K00JNEA	Newark	11AC2851	R12,R13	2	100	0.0112	1.1200		Surface mount
+SMD Chip Resistor, 22 kohm, ï¿½ 5%, 100 mW, 0603 [1608 Metric], Thick Film, General Purpose	VISHAY/CRCW060322K0JNEA	Vishay	CRCW060322K0JNEA	Newark	59M6786	R15	1	100	0.0098	0.9800		Surface mount
+SMD Chip Resistor, 28 kohm, ï¿½ 1%, 100 mW, 0603 [1608 Metric], Thick Film, General Purpose	VISHAY/CRCW060328K0FKEA	Vishay	CRCW060328K0FKEA	Newark	52K8356	R3	1	100	0.0168	1.6800		Surface mount
+Res Thick Film 0603 30.1K Ohm 1% 1/10W ±100ppm/°C Molded SMD Paper T/R	VISHAY/CRCW060330K1FKEA	Vishay	CRCW060330K1FKEA	Newark	52K8401	R7	1	100	0.0140	1.4000		Surface mount
+Res Thick Film 0603 47K Ohm 1% 0.1W(1/10W) ±100ppm/C Pad SMD T/R Automotive AEC-Q200	VISHAY/CRCW060347K0FKEA	Vishay	CRCW060347K0FKEA	Newark	52K8548	R14,R16	2	100	0.0196	1.9600		Surface mount
+Res Thick Film 0603 51.1K Ohm 1% 1/10W ±100ppm/°C Molded SMD Paper T/R	VISHAY/CRCW060351K1FKEA	Vishay	CRCW060351K1FKEA	Mouser	71-CRCW0603-51.1K-E3	R6	1	100	0.0182	1.8200		Surface mount
+PTN0603 10PPM 500 0.1% S T1 E1	VISHAY/PTN0603Y5000BST1	Vishay	PTN0603Y5000BST1	Mouser	71-PTN0603Y5000BST1	R1	1	12	1.7080	20.4960		Surface mount
+Multilayer Ceramic Capacitor, 15 Pf, 50 V, ½ 5%, C0G (NP0), 0603 [1608 Metric]	YAGEO/CC0603JRNPO9BN150	Yageo	CC0603JRNPO9BN150	Newark	46WX082	C6	1	100	0.0196	1.9600		Surface mount
+0603 0.1 uF 16 V ±10 % Tolerance X7R SMT Multilayer Ceramic Capacitor	YAGEO/CC0603KRX7R7BB104	Yageo	CC0603KRX7R7BB104	Digi-Key	311-1088-1-ND	C18,C20,C22	3	100	0.0202	2.0160		Surface mount
+0603 1 uF 16 V ±10 % Tolerance X7R SMT Multilayer Ceramic Capacitor	YAGEO/CC0603KRX7R7BB105	Yageo	CC0603KRX7R7BB105			C13,C16,C5,C8	4	100	0.0336	3.3600		Surface mount
+Ceramic Capacitor, Ceramic, 25V, 10% +Tol, 10% -Tol, X7R, 15% TC, 0.1uF, Surface Mount, 0603	YAGEO/CC0603KRX7R8BB104	Yageo	CC0603KRX7R8BB104	Digi-Key	311-1341-1-ND	C10,C11,C12	3	100	0.0168	1.6800		Surface mount
+CC Series 0603 25 V 0.47 uF ±10% Tolerance X7R Multilayer Ceramic Chip Capacitor	YAGEO/CC0603KRX7R8BB474	Yageo	CC0603KRX7R8BB474	Newark	40AJ6448	C27	1	100	0.0560	5.6000		Surface mount
+0603 10 nF 50 V ±10 % Tolerance X7R SMT Multilayer Ceramic Capacitor	YAGEO/CC0603KRX7R9BB103	Yageo	CC0603KRX7R9BB103			C1,C26,C7	3	100	0.0154	1.5400		Surface mount
+Multilayer Ceramic Capacitor, CC Series, 0.1 - F, - 10%, X7R, 50 V, 0603 [1608 Metric]	YAGEO/CC0603KRX7R9BB104	Yageo	CC0603KRX7R9BB104	Digi-Key	311-1344-1-ND	C2,C23,C25,C28,C29,C30,C31,C32,C4	9	122	0.0157	1.9130		Surface mount
+Surface Mount Ceramic Multilayer Capacitor 0.0047uF 10% X7R 50V 0603 Paper T/R	YAGEO/CC0603KRX7R9BB472	Yageo	CC0603KRX7R9BB472	Digi-Key	311-1083-1-ND	C14,C15	2	100	0.0202	2.0160		Surface mount
+SMD Multilayer Ceramic Capacitor, 10 ï¿½F, 16 V, 0603 [1608 Metric], ï¿½ 20%, X5R	YAGEO/CC0603MRX5R7BB106	Yageo	CC0603MRX5R7BB106	Newark	26AK1911	C17,C19,C21,C24	4	50	0.2254	11.2700		Surface mount
+Multilayer Ceramic Capacitor, 1.5 uF, 10 V, ± 10%, X7R, 1206 [3216 Metric]	YAGEO/CC1206KKX7R6BB155	Yageo	CC1206KKX7R6BB155	Digi-Key	311-3452-6-ND	C3	1	18	0.3262	5.8716		Surface mount
