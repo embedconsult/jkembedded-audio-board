@@ -6567,7 +6567,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "0fc9b512-a865-4d73-8ef1-3dc64bb160aa")
 		(property "Reference" "J7"
@@ -6605,6 +6605,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 387.35 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" ""
+			(at 387.35 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
 			(at 387.35 170.18 0)
 			(effects
 				(font
@@ -6746,6 +6764,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R8BB104"
+			(at 175.26 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 175.26 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "eed7bb55-15bc-403d-9ee8-fc3daa05dfb2")
 		)
@@ -6808,6 +6844,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 336.55 259.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "TS5A3359DCUR"
+			(at 336.55 259.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
 			(at 336.55 259.08 0)
 			(effects
 				(font
@@ -6904,6 +6958,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R8BB104"
+			(at 158.75 288.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 158.75 288.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c2e62051-ef47-4556-a2be-045808cc1999")
 		)
@@ -6963,6 +7035,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 373.38 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CRCW06030000Z0EA"
+			(at 373.38 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
 			(at 373.38 180.34 0)
 			(effects
 				(font
@@ -7033,6 +7123,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 129.54 303.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CC0603KRX7R9BB103"
+			(at 129.54 303.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
 			(at 129.54 303.53 0)
 			(effects
 				(font
@@ -7437,6 +7545,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R8BB104"
+			(at 210.82 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 210.82 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ee1194bd-7433-446e-8f37-328c221553c4")
 		)
@@ -7499,6 +7625,24 @@
 			)
 		)
 		(property "Description" "SPDT Analog Switch, Low-Voltage CMOS"
+			(at 187.96 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SN74LVC1G3157DBVR"
+			(at 187.96 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
 			(at 187.96 392.43 0)
 			(effects
 				(font
@@ -7589,6 +7733,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "SN74LVC1G3157DBVR"
+			(at 152.4 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 152.4 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "5"
 			(uuid "6ee7200b-5392-4c69-b2ea-7dd0b215f7ee")
 		)
@@ -7669,6 +7831,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R8BB474"
+			(at 267.97 316.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 267.97 316.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5b83284c-25c4-4043-b856-55d1b869c0ff")
 		)
@@ -7731,6 +7911,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 129.54 289.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CRCW060347K0FKEA"
+			(at 129.54 289.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
 			(at 129.54 289.56 0)
 			(effects
 				(font
@@ -7940,6 +8138,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "SN74LVC1G3157DBVR"
+			(at 259.08 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 259.08 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "343550ba-6345-4f38-9a10-49228a1c8ef6")
 		)
@@ -8014,6 +8230,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 189.23 311.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "MSPM0L1105TRGER"
+			(at 189.23 311.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
 			(at 189.23 311.15 0)
 			(effects
 				(font
@@ -8226,6 +8460,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "SOCKET MIKROBUS 16 SMD"
+			(at 218.44 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "mikroElektronika"
+			(at 218.44 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "P$2"
 			(uuid "b2165a40-1e7d-4c02-9646-c1b93bb35387")
 		)
@@ -8402,6 +8654,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CRCW060347K0FKEA"
+			(at 151.13 307.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
+			(at 151.13 307.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1c256619-4ada-415e-b184-1debe1ee4563")
 		)
@@ -8472,6 +8742,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R8BB104"
+			(at 246.38 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 246.38 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5635d5bc-7220-461a-8518-d3f5dee3e93c")
 		)
@@ -8532,6 +8820,24 @@
 			)
 		)
 		(property "Description" "SPDT Analog Switch, Low-Voltage CMOS"
+			(at 328.93 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SN74LVC1G3157DBVR"
+			(at 328.93 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
 			(at 328.93 213.36 0)
 			(effects
 				(font
@@ -8687,6 +8993,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R8BB104"
+			(at 322.58 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 322.58 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d788be27-d4dd-472c-9ee7-da496fbae85b")
 		)
@@ -8813,6 +9137,24 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 even  numbers, row 2 odd numbers), modified from script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 445.77 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "REF-182665-03"
+			(at 445.77 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samtec"
 			(at 445.77 191.77 0)
 			(effects
 				(font
@@ -9005,6 +9347,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603KRX7R8BB104"
+			(at 139.7 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 139.7 391.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0fb9e24e-831e-4d90-8bc9-a975a584a64d")
 		)
@@ -9065,6 +9425,24 @@
 			)
 		)
 		(property "Description" "SPDT Analog Switch, Low-Voltage CMOS"
+			(at 355.6 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SN74LVC1G3157DBVR"
+			(at 355.6 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
 			(at 355.6 194.31 0)
 			(effects
 				(font
@@ -9286,6 +9664,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "SN74LVC1G3157DBVR"
+			(at 223.52 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 223.52 392.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "8a87be9b-146c-465a-a305-719c06169295")
 		)
@@ -9376,6 +9772,24 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 222.25 355.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "1N4148WS-7-F"
+			(at 222.25 355.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Diodes Inc."
 			(at 222.25 355.6 0)
 			(effects
 				(font
@@ -9584,6 +9998,24 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "CC0603MRX5R7BB106"
+			(at 142.24 288.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 142.24 288.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "fcc4e0ab-86f9-4aa8-87d2-73d11b20119c")
 		)
@@ -9644,6 +10076,24 @@
 			)
 		)
 		(property "Description" "SPDT Analog Switch, Low-Voltage CMOS"
+			(at 355.6 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SN74LVC1G3157DBVR"
+			(at 355.6 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
 			(at 355.6 228.6 0)
 			(effects
 				(font
@@ -9723,6 +10173,24 @@
 			)
 		)
 		(property "Description" "SPDT Analog Switch, Low-Voltage CMOS"
+			(at 328.93 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SN74LVC1G3157DBVR"
+			(at 328.93 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
 			(at 328.93 181.61 0)
 			(effects
 				(font
