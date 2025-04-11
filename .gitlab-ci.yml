@@ -6,6 +6,7 @@ stages:
   - print
   - fab
   - view
+  - package
 
 print:
   stage: print
@@ -34,6 +35,7 @@ fab:
     - kicad-cli pcb export drill --output fab/${CI_PROJECT_NAME}_drill ${CI_PROJECT_NAME}.kicad_pcb
     - kicad-cli pcb export gerbers --output fab/gerbers ${CI_PROJECT_NAME}.kicad_pcb
     - kicad-cli pcb export step --output step/${CI_PROJECT_NAME}.step ${CI_PROJECT_NAME}.kicad_pcb
+    - cat ${CI_PROJECT_NAME}.kicad_pcb
   artifacts:
     name: "${CI_PROJECT_NAME}-fab"
     paths:
@@ -60,3 +62,16 @@ view:
     paths:
       - public
 
+package:
+  stage: package
+  script:
+    # Simple collection of only files used with CircuitHub
+    - mkdir -p package
+    - kicad-cli sch export bom --format-preset CSV --group-by Value --exclude-dnp --output package/${CI_PROJECT_NAME}_assy_bom.csv ${CI_PROJECT_NAME}.kicad_sch
+    - cp *.kicad_sch package/
+    - cp ${CI_PROJECT_NAME}.kicad_pcb package/
+    - cp ${CI_PROJECT_NAME}.kicad_pro package/
+  artifacts:
+    name: "${CI_PROJECT_NAME}-fab"
+    paths:
+      - package
