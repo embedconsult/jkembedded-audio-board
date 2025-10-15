@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "df100556-b288-4cb1-b69f-c0734132cb90")
 	(paper "USLetter")
 	(title_block
@@ -9,276 +9,6 @@
 		(company "JKEmbedded, LLC")
 	)
 	(lib_symbols)
-	(junction
-		(at 127 44.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1b7624e9-13b9-4b1a-82c4-561c35431b52")
-	)
-	(junction
-		(at 129.54 41.91)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "491b6286-ac41-460a-b616-911ce47d6b17")
-	)
-	(junction
-		(at 189.23 41.91)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "56c71a9d-e2d0-4e53-9729-53aa46630c90")
-	)
-	(junction
-		(at 189.23 69.85)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8126f9de-207a-46fe-89ed-f341f2d6e461")
-	)
-	(junction
-		(at 191.77 39.37)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "941aa105-4101-4feb-80da-95dc505da9aa")
-	)
-	(wire
-		(pts
-			(xy 121.92 69.85) (xy 189.23 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0125b446-f839-4e1d-b8ea-ae6ea96dcfdd")
-	)
-	(wire
-		(pts
-			(xy 189.23 69.85) (xy 189.23 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "06444bc7-3fd9-44db-b755-b408dbaa7146")
-	)
-	(wire
-		(pts
-			(xy 121.92 74.93) (xy 189.23 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "08a1ea03-7ff7-4907-a3d9-db095c88dc73")
-	)
-	(wire
-		(pts
-			(xy 129.54 78.74) (xy 207.01 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0bbf45fc-f5be-451a-aa2b-610ff703e024")
-	)
-	(wire
-		(pts
-			(xy 121.92 87.63) (xy 207.01 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "11dbf796-dc61-43f8-b8df-4d38e3a8edf2")
-	)
-	(wire
-		(pts
-			(xy 191.77 72.39) (xy 191.77 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2e96b7c1-b8a3-4de6-9e6b-edb3dc988002")
-	)
-	(wire
-		(pts
-			(xy 121.92 72.39) (xy 191.77 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "30cc3953-4775-4b92-b8ac-5ec6bb2cecc3")
-	)
-	(wire
-		(pts
-			(xy 191.77 39.37) (xy 207.01 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5624112c-14d6-4a29-995f-06399dc89744")
-	)
-	(wire
-		(pts
-			(xy 121.92 85.09) (xy 207.01 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "57d2837f-f872-4d46-ab4e-4af7e290ee98")
-	)
-	(wire
-		(pts
-			(xy 186.69 67.31) (xy 186.69 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5fa6ebae-6927-452c-9251-4ef2ccd72039")
-	)
-	(wire
-		(pts
-			(xy 121.92 67.31) (xy 186.69 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "616a26eb-f7be-49cc-ad2e-caec623f7e6a")
-	)
-	(wire
-		(pts
-			(xy 127 44.45) (xy 140.97 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6f7391d5-adc4-4800-bacd-13dd280b2b85")
-	)
-	(wire
-		(pts
-			(xy 186.69 46.99) (xy 181.61 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7caf69a0-c897-4e5c-b80b-ecfb4737a354")
-	)
-	(wire
-		(pts
-			(xy 181.61 39.37) (xy 191.77 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7db6cf65-8dac-4c89-b552-787bd25d9dd0")
-	)
-	(wire
-		(pts
-			(xy 121.92 44.45) (xy 127 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7fa40b8f-5860-4410-a21f-8197d765ef79")
-	)
-	(wire
-		(pts
-			(xy 121.92 41.91) (xy 129.54 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a39baf85-346b-4b97-8b44-4b6d6888fc91")
-	)
-	(wire
-		(pts
-			(xy 127 81.28) (xy 207.01 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a9eaebda-9654-4de5-abd1-ad9039b7c58c")
-	)
-	(wire
-		(pts
-			(xy 129.54 41.91) (xy 129.54 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "adc58e43-c927-45b6-918d-f2f1df1a787b")
-	)
-	(wire
-		(pts
-			(xy 189.23 41.91) (xy 207.01 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b094fce4-a898-468e-88cd-688640890741")
-	)
-	(wire
-		(pts
-			(xy 127 44.45) (xy 127 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b1cb65fd-ba06-457d-bb95-d4d866dc74cf")
-	)
-	(wire
-		(pts
-			(xy 129.54 41.91) (xy 140.97 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c9f703bd-018b-4493-bce5-99772cccad5b")
-	)
-	(wire
-		(pts
-			(xy 189.23 41.91) (xy 181.61 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dc896465-4c4c-421e-92c9-4759582a2db8")
-	)
-	(wire
-		(pts
-			(xy 189.23 69.85) (xy 189.23 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5e91248-a079-4c30-a166-5595ad09381b")
-	)
-	(wire
-		(pts
-			(xy 181.61 44.45) (xy 207.01 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f9108642-c792-42a5-b4de-fbde5dfd12bf")
-	)
 	(circle
 		(center 234.95 41.91)
 		(radius 5.2363)
@@ -326,6 +56,454 @@
 			(type none)
 		)
 		(uuid ed5b91dc-6cda-41ab-842d-37b5fc89a8ad)
+	)
+	(text "Stereo Line/HP Out"
+		(exclude_from_sim no)
+		(at 251.46 41.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "52714c1a-de13-430e-8f5f-c48913325bd9")
+	)
+	(text "Stereo Line/Mic In"
+		(exclude_from_sim no)
+		(at 251.46 57.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "646efdfa-9954-4fd8-8c02-303f9d9b8b1d")
+	)
+	(text_box "AM62 Starter Kit\n\n\n3 - SDA\n5 - SCL\n\n\n\n\n\n\n38 - CNT\n7 - WRD\n11 - BIT\n\n\n\n\n\n\n33 - DI\n36 - DO\n"
+		(exclude_from_sim no)
+		(at 24.13 29.21 0)
+		(size 21.59 76.2)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "3416fb07-c413-4f32-bb74-02e481840ca9")
+	)
+	(text_box "AM68/9 Starter Kit\n\n\n3 - SDA\n5 - SCL\n\n\n\n\n\n\n11 - CNT\n35 - WRD\n12 - BIT\n\n\n\n\n\n\n38 - DI\n40 - DO\n"
+		(exclude_from_sim no)
+		(at 50.8 29.21 0)
+		(size 21.59 76.2)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "4ffe3aae-e049-47de-9ca4-a987bf10e8e3")
+	)
+	(text_box "AM67A BeagleY-AI\n\n\n3 - SDA\n5 - SCL\n\n\n\n\n\n\n36 - CNT\n35 - WRD\n12 - BIT\n\n\n\n\n\n\n38 - DI\n40 - DO\n"
+		(exclude_from_sim no)
+		(at 77.47 29.21 0)
+		(size 20.32 76.2)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "74302913-2667-4305-8acd-8fa611e26794")
+	)
+	(text_box "AM62 BeaglePlay"
+		(exclude_from_sim no)
+		(at 104.14 27.94 0)
+		(size 22.86 77.47)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "a0daa131-f91d-4db0-baeb-e7929b074e48")
+	)
+	(junction
+		(at 129.54 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1b7624e9-13b9-4b1a-82c4-561c35431b52")
+	)
+	(junction
+		(at 196.85 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "49199bba-5375-4353-a4d3-154b60ab3ba7")
+	)
+	(junction
+		(at 132.08 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "491b6286-ac41-460a-b616-911ce47d6b17")
+	)
+	(junction
+		(at 189.23 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "56c71a9d-e2d0-4e53-9729-53aa46630c90")
+	)
+	(junction
+		(at 179.07 67.31)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "669d69cd-3b70-4bef-a667-86caa90a355e")
+	)
+	(junction
+		(at 195.58 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8536af07-995f-42e9-8f90-3d1561bb542f")
+	)
+	(junction
+		(at 191.77 39.37)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "941aa105-4101-4feb-80da-95dc505da9aa")
+	)
+	(junction
+		(at 194.31 39.37)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a57119e9-c005-4b52-997e-10c7ad0a76b3")
+	)
+	(wire
+		(pts
+			(xy 121.92 69.85) (xy 189.23 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0125b446-f839-4e1d-b8ea-ae6ea96dcfdd")
+	)
+	(wire
+		(pts
+			(xy 132.08 78.74) (xy 207.01 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0bbf45fc-f5be-451a-aa2b-610ff703e024")
+	)
+	(wire
+		(pts
+			(xy 121.92 87.63) (xy 207.01 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "11dbf796-dc61-43f8-b8df-4d38e3a8edf2")
+	)
+	(wire
+		(pts
+			(xy 194.31 25.4) (xy 194.31 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21afc173-991d-4b8a-b1ee-354ff92010a1")
+	)
+	(wire
+		(pts
+			(xy 191.77 72.39) (xy 191.77 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e96b7c1-b8a3-4de6-9e6b-edb3dc988002")
+	)
+	(wire
+		(pts
+			(xy 121.92 72.39) (xy 191.77 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "30cc3953-4775-4b92-b8ac-5ec6bb2cecc3")
+	)
+	(wire
+		(pts
+			(xy 195.58 27.94) (xy 195.58 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3230f4d8-893b-48dc-bb29-8bd6642ef9ce")
+	)
+	(wire
+		(pts
+			(xy 196.85 44.45) (xy 207.01 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32eced8e-3318-4d15-8869-2ec04205c39b")
+	)
+	(wire
+		(pts
+			(xy 195.58 41.91) (xy 207.01 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e83b396-2ab0-4a73-bb0a-62d32a496af0")
+	)
+	(wire
+		(pts
+			(xy 179.07 66.04) (xy 179.07 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "512c7950-91a6-4722-922a-5c5cd4bf18e2")
+	)
+	(wire
+		(pts
+			(xy 191.77 39.37) (xy 194.31 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5624112c-14d6-4a29-995f-06399dc89744")
+	)
+	(wire
+		(pts
+			(xy 121.92 85.09) (xy 207.01 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "57d2837f-f872-4d46-ab4e-4af7e290ee98")
+	)
+	(wire
+		(pts
+			(xy 186.69 67.31) (xy 186.69 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5fa6ebae-6927-452c-9251-4ef2ccd72039")
+	)
+	(wire
+		(pts
+			(xy 179.07 67.31) (xy 186.69 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6153acde-528f-4954-8915-5526a77c0eb5")
+	)
+	(wire
+		(pts
+			(xy 121.92 67.31) (xy 179.07 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "616a26eb-f7be-49cc-ad2e-caec623f7e6a")
+	)
+	(wire
+		(pts
+			(xy 129.54 44.45) (xy 140.97 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6f7391d5-adc4-4800-bacd-13dd280b2b85")
+	)
+	(wire
+		(pts
+			(xy 186.69 46.99) (xy 181.61 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7caf69a0-c897-4e5c-b80b-ecfb4737a354")
+	)
+	(wire
+		(pts
+			(xy 181.61 39.37) (xy 191.77 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7db6cf65-8dac-4c89-b552-787bd25d9dd0")
+	)
+	(wire
+		(pts
+			(xy 121.92 44.45) (xy 129.54 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7fa40b8f-5860-4410-a21f-8197d765ef79")
+	)
+	(wire
+		(pts
+			(xy 196.85 30.48) (xy 196.85 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9fb399a4-070b-41ef-b638-267a3e5551b4")
+	)
+	(wire
+		(pts
+			(xy 121.92 41.91) (xy 132.08 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a39baf85-346b-4b97-8b44-4b6d6888fc91")
+	)
+	(wire
+		(pts
+			(xy 129.54 81.28) (xy 207.01 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a9eaebda-9654-4de5-abd1-ad9039b7c58c")
+	)
+	(wire
+		(pts
+			(xy 132.08 41.91) (xy 132.08 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "adc58e43-c927-45b6-918d-f2f1df1a787b")
+	)
+	(wire
+		(pts
+			(xy 189.23 41.91) (xy 195.58 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b094fce4-a898-468e-88cd-688640890741")
+	)
+	(wire
+		(pts
+			(xy 129.54 44.45) (xy 129.54 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1cb65fd-ba06-457d-bb95-d4d866dc74cf")
+	)
+	(wire
+		(pts
+			(xy 132.08 41.91) (xy 140.97 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c9f703bd-018b-4493-bce5-99772cccad5b")
+	)
+	(wire
+		(pts
+			(xy 194.31 39.37) (xy 207.01 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1691601-c424-4ece-a3d0-10bf0a7c8c30")
+	)
+	(wire
+		(pts
+			(xy 189.23 41.91) (xy 181.61 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dc896465-4c4c-421e-92c9-4759582a2db8")
+	)
+	(wire
+		(pts
+			(xy 189.23 69.85) (xy 189.23 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5e91248-a079-4c30-a166-5595ad09381b")
+	)
+	(wire
+		(pts
+			(xy 181.61 44.45) (xy 196.85 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f9108642-c792-42a5-b4de-fbde5dfd12bf")
 	)
 	(image
 		(at 88.9 156.21)
@@ -3072,105 +3250,137 @@
 			"wAEC/w/42qeF5QfNWQAAAABJRU5ErkJggg=="
 		)
 	)
-	(text_box "AM62 Starter Kit\n\n\n3 - SDA\n5 - SCL\n\n\n\n\n\n\n38 - CNT\n7 - WRD\n11 - BIT\n19 - TS\n\n\n\n\n\n33 - DI\n36 - DO\n"
-		(exclude_from_sim no)
-		(at 24.13 29.21 0)
-		(size 21.59 76.2)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
+		(at 195.58 27.94 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left top)
+			(justify left bottom)
 		)
-		(uuid "3416fb07-c413-4f32-bb74-02e481840ca9")
+		(uuid "34a793da-3c86-4e7b-9194-bd5c22bb4a3b")
+		(property "Netclass" "50ohm"
+			(at 196.2785 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Component Class" ""
+			(at -1.27 -13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
 	)
-	(text_box "AM68/9 Starter Kit\n\n\n3 - SDA\n5 - SCL\n\n\n\n\n\n\n11 - CNT\n35 - WRD\n12 - BIT\n19 - TS\n\n\n\n\n\n38 - DI\n40 - DO\n"
-		(exclude_from_sim no)
-		(at 50.8 29.21 0)
-		(size 21.59 76.2)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
+		(at 196.85 30.48 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left top)
+			(justify left bottom)
 		)
-		(uuid "4ffe3aae-e049-47de-9ca4-a987bf10e8e3")
+		(uuid "74229b2d-2c9f-4a36-8e46-be6ccdc88d15")
+		(property "Netclass" "50ohm"
+			(at 197.5485 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Component Class" ""
+			(at 0 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
 	)
-	(text_box "AM67A BeagleY-AI\n\n\n3 - SDA\n5 - SCL\n\n\n\n\n\n\n36 - CNT\n35 - WRD\n12 - BIT\n19 - TS\n\n\n\n\n\n38 - DI\n40 - DO\n"
-		(exclude_from_sim no)
-		(at 77.47 29.21 0)
-		(size 20.32 76.2)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
+		(at 194.31 25.4 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left top)
+			(justify left bottom)
 		)
-		(uuid "74302913-2667-4305-8acd-8fa611e26794")
+		(uuid "d0dfc345-0975-4eb8-8757-f009b435a13a")
+		(property "Netclass" "50ohm"
+			(at 195.0085 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Component Class" ""
+			(at 123.19 -20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
 	)
-	(text_box "AM62 BeaglePlay"
-		(exclude_from_sim no)
-		(at 104.14 27.94 0)
-		(size 22.86 77.47)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
+		(at 179.07 66.04 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left top)
+			(justify left bottom)
 		)
-		(uuid "a0daa131-f91d-4db0-baeb-e7929b074e48")
-	)
-	(text "Stereo Line/HP Out"
-		(exclude_from_sim no)
-		(at 251.46 41.91 0)
-		(effects
-			(font
-				(size 1.27 1.27)
+		(uuid "d3146ad3-6059-41ba-b100-e8916c295885")
+		(property "Netclass" "50ohm"
+			(at 179.7685 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
-		(uuid "52714c1a-de13-430e-8f5f-c48913325bd9")
-	)
-	(text "Stereo Line/Mic In"
-		(exclude_from_sim no)
-		(at 251.46 57.15 0)
-		(effects
-			(font
-				(size 1.27 1.27)
+		(property "Component Class" ""
+			(at -17.78 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
 			)
 		)
-		(uuid "646efdfa-9954-4fd8-8c02-303f9d9b8b1d")
 	)
 	(sheet
 		(at 109.22 34.29)
 		(size 12.7 64.77)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -3200,83 +3410,73 @@
 		)
 		(pin "SDA" bidirectional
 			(at 121.92 41.91 0)
+			(uuid "31c395ec-624d-4e6a-a5a2-a8003415aab4")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "31c395ec-624d-4e6a-a5a2-a8003415aab4")
 		)
 		(pin "SCL" bidirectional
 			(at 121.92 44.45 0)
+			(uuid "ec537336-a97b-4142-a7a3-f95b3ab737b0")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "ec537336-a97b-4142-a7a3-f95b3ab737b0")
 		)
 		(pin "BIT" input
 			(at 121.92 72.39 0)
+			(uuid "759b5f1f-c3bd-4ad6-b57f-e85654a8f00b")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "759b5f1f-c3bd-4ad6-b57f-e85654a8f00b")
 		)
 		(pin "CNT" input
 			(at 121.92 67.31 0)
+			(uuid "90f8c60b-7cf5-47b3-af07-69dddffa6187")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "90f8c60b-7cf5-47b3-af07-69dddffa6187")
 		)
 		(pin "WRD" input
 			(at 121.92 69.85 0)
+			(uuid "46d24c20-a964-4fd7-a8c0-ad9204cd98ed")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "46d24c20-a964-4fd7-a8c0-ad9204cd98ed")
 		)
 		(pin "DI" output
 			(at 121.92 85.09 0)
+			(uuid "f9964b2a-3628-4cdb-b058-4237d2a63d77")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "f9964b2a-3628-4cdb-b058-4237d2a63d77")
 		)
 		(pin "DO" input
 			(at 121.92 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
 			(uuid "f4630b61-b19d-44f8-b58c-852fc0c49ac9")
-		)
-		(pin "TS" input
-			(at 121.92 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "bccd6aca-838d-46e1-b417-7f5fd3da19c5")
 		)
 		(instances
 			(project "jkembedded-audio-board"
@@ -3289,6 +3489,10 @@
 	(sheet
 		(at 19.05 25.4)
 		(size 81.28 82.55)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -3327,6 +3531,10 @@
 	(sheet
 		(at 140.97 34.29)
 		(size 40.64 24.13)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -3356,63 +3564,63 @@
 		)
 		(pin "SDA" bidirectional
 			(at 140.97 41.91 180)
+			(uuid "b8226a02-58fa-4258-882c-2acb8d301462")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "b8226a02-58fa-4258-882c-2acb8d301462")
 		)
 		(pin "SCL" bidirectional
 			(at 140.97 44.45 180)
+			(uuid "0f8306fe-8c06-470b-8c23-176d3eb8d553")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "0f8306fe-8c06-470b-8c23-176d3eb8d553")
 		)
 		(pin "OSC_SCLK" output
 			(at 181.61 39.37 0)
+			(uuid "d8dbe683-3986-4a0a-ad58-c7469f0517a8")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "d8dbe683-3986-4a0a-ad58-c7469f0517a8")
 		)
 		(pin "OSC_LRCLK" output
 			(at 181.61 41.91 0)
+			(uuid "bb22b681-31b3-4009-ac1d-e36350cea191")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "bb22b681-31b3-4009-ac1d-e36350cea191")
 		)
 		(pin "OSC_MCLK" output
 			(at 181.61 44.45 0)
+			(uuid "c009fc2d-a846-4264-b5a8-54e67e8fb923")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "c009fc2d-a846-4264-b5a8-54e67e8fb923")
 		)
 		(pin "COUNTER_FB" output
 			(at 181.61 46.99 0)
+			(uuid "82ecd71d-438a-41c5-9e4b-d086e6b43f48")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "82ecd71d-438a-41c5-9e4b-d086e6b43f48")
 		)
 		(instances
 			(project "jkembedded-audio-board"
@@ -3425,6 +3633,10 @@
 	(sheet
 		(at 207.01 35.56)
 		(size 16.51 68.58)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -3454,73 +3666,73 @@
 		)
 		(pin "DI" input
 			(at 207.01 85.09 180)
+			(uuid "1d632b17-ac56-42f4-8de0-2c40c30740ca")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "1d632b17-ac56-42f4-8de0-2c40c30740ca")
 		)
 		(pin "DO" output
 			(at 207.01 87.63 180)
+			(uuid "7c0148c2-a733-42d1-88b7-d3710c115cda")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "7c0148c2-a733-42d1-88b7-d3710c115cda")
 		)
 		(pin "BIT" input
 			(at 207.01 39.37 180)
+			(uuid "cf1a4c10-3c8d-4f75-8274-50e6cb73c561")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "cf1a4c10-3c8d-4f75-8274-50e6cb73c561")
 		)
 		(pin "WRD" input
 			(at 207.01 41.91 180)
+			(uuid "162229f9-e065-48cc-a1b8-78a227600039")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "162229f9-e065-48cc-a1b8-78a227600039")
 		)
 		(pin "SDA" bidirectional
 			(at 207.01 78.74 180)
+			(uuid "55e3100f-9893-4c4b-96ee-7ce34ec4fc01")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "55e3100f-9893-4c4b-96ee-7ce34ec4fc01")
 		)
 		(pin "SCL" bidirectional
 			(at 207.01 81.28 180)
+			(uuid "ef1ef34c-6c18-4f69-838d-7366eb904afc")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "ef1ef34c-6c18-4f69-838d-7366eb904afc")
 		)
 		(pin "MCLK" input
 			(at 207.01 44.45 180)
+			(uuid "0fe4ccb7-168c-450c-8048-7a342ecbc40d")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "0fe4ccb7-168c-450c-8048-7a342ecbc40d")
 		)
 		(instances
 			(project "jkembedded-audio-board"
@@ -3535,4 +3747,5 @@
 			(page "1")
 		)
 	)
+	(embedded_fonts no)
 )
