@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: structure
     container:
-      image: kicad/kicad:8.0.8
+      image: kicad/kicad:9.0.3-full
       options: --user root
     steps:
       - name: Checkout
