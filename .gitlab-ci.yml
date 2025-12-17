@@ -1,12 +1,22 @@
-image: kicad/kicad:8.0.8
+image: kicad/kicad:9.0.3-full
+
 variables:
   CI_PROJECT_NAME: "jkembedded-audio-board"
 
 stages:
+  - prepare
   - print
   - fab
   - view
   - package
+
+structure:
+  stage: prepare
+  image: alpine:3.19
+  before_script:
+    - apk add --no-cache bash
+  script:
+    - ./ci/check-project-structure.sh
 
 print:
   stage: print
@@ -54,7 +64,7 @@ view:
     - |
         if [ -n "$ANIMATION" ]; then
           render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND" -a "$ANIMATION";
-        else 
+        else
           render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND"
         fi
   artifacts:

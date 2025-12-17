@@ -1,5 +1,7 @@
 # JK-Embedded Audio Board
 
+KiCad design files, firmware plans, and host-side utilities for the JK-Embedded Audio Board and its mikroBUS HAT companion. The design targets multiple SBC hosts (BeaglePlay, BeagleY-AI, TI AM62/68/69 SK-EVM) and uses an MSPM0L1105TRGER as a GPO-extender for configuring the analog muxes.
+
 ## Tasks
 
 - [X] A. Requirement analysis (2 days)
@@ -12,6 +14,22 @@
 - [ ] F. Sign-off on production design
 - [ ] G. First production units ship (12 weeks after F approval)
 
+## Project scope
+- **Hardware**: KiCad schematics/PCB for the audio board, mikroBUS HAT, and reference bring-up materials.
+- **Firmware**: MSPM0 GPO-extender for mux control (Zephyr preferred; TI SDK acceptable) plus host-side programming utilities and sample integrations for Linux/Zephyr-based hosts.
+- **Host integration**: Device-tree overlays and minimal driver/configuration routines for the Si5351 clock generator and the audio codec. Aim to upstream DTS fragments where possible.
+- **Production/test utilities**: Board programmers and validation helpers for all target hosts except BeaglePlay (which does not use the mikroBUS HAT).
+
+## Repository layout
+- `AGENTS.md` — contribution expectations (scope, CI, documentation rules).
+- `docs/` — high-level design notes, firmware/utility plans, and host integration checklists.
+- `firmware/` — all firmware and host-side utilities.
+  - `mspm0-gpo-extender/` — Zephyr/TI SDK project for the MSPM0L1105TRGER mux controller.
+  - `host-programmers/` — Rust/Crystal utilities to program the MSPM0 over I2C/BSL from aarch64 Linux hosts.
+  - `host-integration/` — device-tree overlays, clock generator configuration helpers, and sample host code.
+- `ci/` — shared CI scripts (e.g., structure checks) used by GitLab and GitHub workflows.
+- KiCad sources remain at the repository root for the board and HAT designs.
+
 ## Requirements
 
 1. Compatible with RPi HAT connector
@@ -23,14 +41,29 @@
    * ACLKX (BIT) - bit clock (audio board -> SBC)
    * AXR0 (DI) - data in (SBC -> audio board)
    * AXR1 (DO) - data out (audio board -> SBC)
-   * EQEP\_A (CNT) - clock counting (audio board -> SBC)
-   * CPTSx\_HWnTSPUSH or GPIO (TS) - timestamp event (audio board -> SBC)
+   * EQEP_A (CNT) - clock counting (audio board -> SBC)
+   * CPTSx_HWnTSPUSH or GPIO (TS) - timestamp event (audio board -> SBC)
    * SDA - I<sup>2</sup>C data I/O
    * SCL - I<sup>2</sup>C clock I/O
 6. Audio signals:
    * Jacks for stereo in and out at line level (1V<sub>RMS</sub> @ 100Ω) or better
    * Additional I/Os over 3-pin headers
 7. Texas Instruments MSPM0C1103 for header signal mapping
+
+## MSPM0 GPO-extender goals
+- Mimic a simple I2C GPO-expander interface for host control while optionally auto-selecting mux states per detected host.
+- Use BOOTLOADER_SEL and RESET signals to enter the MSPM0 ROM BSL for programming via I2C.
+- Keep the binary footprint small and configuration-driven to ease host integration.
+
+## Host programmer expectations
+- Produce statically linked aarch64 binaries (Rust or Crystal) with no runtime dependencies beyond the Linux kernel.
+- Discover GPIO line names and I2C controller symlinks when available; otherwise fall back to board-specific static mappings or CLI arguments.
+- Include board profiles for BeagleY-AI, TI AM62 SK-EVM, TI AM68 SK-EVM, and TI AM69 SK-EVM; BeaglePlay is excluded from programming because it does not use the mikroBUS HAT.
+
+## CI overview
+- **GitLab CI**: Generates PDFs, BOMs, fabrication outputs, renders, and packaging assets from the KiCad sources, plus layout sanity checks. See `.gitlab-ci.yml`.
+- **GitHub Actions**: Mirrors the layout checks and KiCad artifact generation for GitHub users. See `.github/workflows/ci.yml`.
+- Shared CI logic lives in `ci/check-project-structure.sh`. Update both pipelines when adding new build steps.
 
 ## HAT signal mapping
 
@@ -52,3 +85,8 @@
 | tbd        | SCK (A20)  | 23 (A9)    | 23 (A14)  | 23        |
 | SDQ        | CS (E19)   | 24 (C12)   | 24 (A13)  | 24        |
 
+## Next steps
+- Finalize the MSPM0 Zephyr/TI SDK project in `firmware/mspm0-gpo-extender/`.
+- Implement the host programmer utility and board detection logic in `firmware/host-programmers/`.
+- Add device-tree overlays and minimal driver hooks in `firmware/host-integration/` for clock generator initialization and codec wiring.
+- Integrate firmware and utility builds into both CI systems.
