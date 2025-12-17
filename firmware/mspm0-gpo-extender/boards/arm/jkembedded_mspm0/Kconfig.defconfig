@@ -1,0 +1,18 @@
+if BOARD_JKEMBEDDED_MSPM0
+
+config BOARD
+default "jkembedded_mspm0"
+
+config GPIO
+default y
+
+config I2C
+default y
+
+config I2C_TARGET
+default y
+
+config PINCTRL
+default y
+
+endif

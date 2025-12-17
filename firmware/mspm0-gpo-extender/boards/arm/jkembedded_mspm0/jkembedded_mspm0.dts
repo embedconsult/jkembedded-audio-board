@@ -1,0 +1,71 @@
+/dts-v1/;
+
+#include <arm/ti/mspm0/mspm0l11xx.dtsi>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+model = "JK-Embedded MSPM0 mux controller";
+compatible = "jkembedded,mspm0-gpo-extender";
+
+aliases {
+i2c-target = &i2c0;
+gpio-0 = &gpioa;
+};
+
+chosen {
+zephyr,console = &uart0;
+};
+
+mux_pins: mux-pins {
+compatible = "zephyr,gpio-map";
+rst-wrd-sel-gpios = <&gpioa 3 GPIO_ACTIVE_HIGH>;
+pwm-bit-sel-gpios = <&gpioa 4 GPIO_ACTIVE_HIGH>;
+an-di-sel-gpios = <&gpioa 9 GPIO_ACTIVE_HIGH>;
+int-do-sel-gpios = <&gpioa 10 GPIO_ACTIVE_HIGH>;
+cipo-cnt-sel0-gpios = <&gpioa 11 GPIO_ACTIVE_HIGH>;
+cipo-cnt-sel1-gpios = <&gpioa 15 GPIO_ACTIVE_HIGH>;
+bootloader-sel-gpios = <&gpioa 18 GPIO_ACTIVE_HIGH>;
+};
+};
+
+&i2c0 {
+status = "okay";
+clock-frequency = <I2C_BITRATE_FAST>;
+pinctrl-0 = <&i2c0_sda_pa0 &i2c0_scl_pa1>;
+pinctrl-names = "default";
+
+pca9538: gpio@20 {
+compatible = "nxp,pca9538";
+reg = <0x20>;
+gpio-controller;
+#gpio-cells = <2>;
+ngpios = <8>;
+line-names = "rst_wrd_sel", "pwm_bit_sel", "an_di_sel", "int_do_sel",
+      "cipo_cnt_sel0", "cipo_cnt_sel1", "reserve0", "reserve1";
+};
+};
+
+&pinctrl {
+i2c0_scl_pa1: i2c0_scl_pa1 {
+pinmux = <PA1>; /* HAT_SCL */
+bias-pull-up;
+drive-open-drain;
+};
+
+i2c0_sda_pa0: i2c0_sda_pa0 {
+pinmux = <PA0>; /* HAT_SDA */
+bias-pull-up;
+drive-open-drain;
+};
+
+mux_outputs: mux_outputs {
+pinmux = <PA3>, <PA4>, <PA9>, <PA10>, <PA11>, <PA15>;
+drive-push-pull;
+bias-pull-down;
+};
+
+bootloader_sel: bootloader_sel {
+pinmux = <PA18>;
+bias-pull-down;
+};
+};
