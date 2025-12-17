@@ -36,14 +36,13 @@ jobs:
           kicad-cli pcb export pdf --output ${CI_PROJECT_NAME}_pcb_inner2.pdf --layers In2.Cu,Edge.Cuts,User.Comments --ibt ${CI_PROJECT_NAME}.kicad_pcb
       - name: Generate fabrication assets
         run: |
-          mkdir -p fab/gerbers
+          mkdir -p fab/gerbers step
           kicad-cli sch export bom --format-preset CSV --group-by Value --exclude-dnp --output fab/${CI_PROJECT_NAME}_assy_bom.csv ${CI_PROJECT_NAME}.kicad_sch
           kicad-cli pcb drc --format report --output fab/${CI_PROJECT_NAME}_drc.txt ${CI_PROJECT_NAME}.kicad_pcb
           kicad-cli pcb export pos --output fab/${CI_PROJECT_NAME}_assy_pos.pos ${CI_PROJECT_NAME}.kicad_pcb
           kicad-cli pcb export drill --output fab/${CI_PROJECT_NAME}_drill ${CI_PROJECT_NAME}.kicad_pcb
           kicad-cli pcb export gerbers --output fab/gerbers ${CI_PROJECT_NAME}.kicad_pcb
           kicad-cli pcb export step --output step/${CI_PROJECT_NAME}.step ${CI_PROJECT_NAME}.kicad_pcb
-          cat ${CI_PROJECT_NAME}.kicad_pcb
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
