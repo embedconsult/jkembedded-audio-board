@@ -1,7 +1,7 @@
-if BOARD_JKEMBEDDED_MSPM0
+if BOARD_JKEMBEDDED_MIKROBUS_HAT_MSPM0
 
 config BOARD
-default "jkembedded_mspm0"
+default "jkembedded_mikrobus_hat_mspm0"
 
 config GPIO
 default y

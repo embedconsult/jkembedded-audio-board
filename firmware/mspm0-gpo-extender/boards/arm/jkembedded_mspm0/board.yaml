@@ -1,5 +1,5 @@
-identifier: jkembedded_mspm0
-name: JK-Embedded MSPM0 mux controller
+identifier: jkembedded_mikrobus_hat_mspm0
+name: JK-Embedded mikroBUS HAT MSPM0 mux controller
 type: mcu
 arch: arm
 toolchain:

@@ -18,8 +18,8 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
 
 ## Zephyr board configuration
 
-- **Board identifier**: `jkembedded_mspm0` (see `boards/arm/jkembedded_mspm0/`).
-- **I2C role**: target/peripheral that mimics an 8-bit `pca9538` GPIO expander at address `0x20` so existing Linux `pca953x` drivers can toggle the mux selects without changes.
+- **Board identifier**: `jkembedded_mikrobus_hat_mspm0` (see `boards/arm/jkembedded_mspm0/`).
+- **I2C role**: target/peripheral that emulates an 8-bit `pca9538` GPIO expander at address `0x20` so existing Linux `pca953x` drivers can toggle the mux selects without changes.
 - **I2C pins**: `PA0` = SDA (`HAT_SDA`), `PA1` = SCL (`HAT_SCL`).
 - **Bootloader pins**: `PA18` = `MCU_BOOTLOADER_SEL`, `NRST` exposed via the reset net shared with the programming header.
 - **Mux GPIO assignments (PCA9538 bit order)**:
@@ -32,4 +32,4 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
   6. reserved for future use
   7. reserved for future use
 
-The device tree in `boards/arm/jkembedded_mspm0/jkembedded_mspm0.dts` declares the PCA9538-compatible target, pinctrl defaults for I2C, and a `gpio-map` group documenting the mux outputs. These bindings allow the firmware to expose a register map already understood by Linux while keeping the Zephyr build reproducible via the board definition.
+The device tree in `boards/arm/jkembedded_mspm0/jkembedded_mspm0.dts` documents pinctrl defaults for I2C and the mux GPIO map. The PCA9538 compatibility is consumed on the host side; the firmware should expose that register map over I2C so existing `pca953x` drivers work without modification.
