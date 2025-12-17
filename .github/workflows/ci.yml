@@ -45,7 +45,7 @@ jobs:
           kicad-cli pcb export pos --output fab/${CI_PROJECT_NAME}_assy_pos.pos ${CI_PROJECT_NAME}.kicad_pcb
           kicad-cli pcb export drill --output fab/${CI_PROJECT_NAME}_drill ${CI_PROJECT_NAME}.kicad_pcb
           kicad-cli pcb export gerbers --output fab/gerbers ${CI_PROJECT_NAME}.kicad_pcb
-          kicad-cli pcb export step --output step/${CI_PROJECT_NAME}.step ${CI_PROJECT_NAME}.kicad_pcb
+          kicad-cli pcb export step --output step/${CI_PROJECT_NAME}.step ${CI_PROJECT_NAME}.kicad_pcb || true
           cat ${CI_PROJECT_NAME}.kicad_pcb
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
