@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+set -x
 
 REPO_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 export PATH="$HOME/.local/bin:${PATH}"
@@ -16,6 +17,8 @@ rm -rf "${BUILD_DIR}"
 
 if [ ! -d "${REPO_ROOT}/.west" ]; then
 	west init -l "${REPO_ROOT}"
+else
+	echo "Skipping west init; existing workspace at ${REPO_ROOT}/.west"
 fi
 
 west update --narrow --fetch-opt=--depth=1
