@@ -25,7 +25,7 @@ west update --narrow --fetch-opt=--depth=1
 west zephyr-export
 
 python3 -m pip install --user --upgrade pip
-python3 -m pip install --user -r zephyr/scripts/requirements-base.txt
+python3 -m pip install --user -r "${ZEPHYR_BASE}/scripts/requirements-base.txt"
 
 find "${BOARD_ROOT}" -type f \( -name '*.c' -o -name '*.h' \) -print0 \
 	| xargs -0 -r clang-format --style=file --dry-run --Werror
