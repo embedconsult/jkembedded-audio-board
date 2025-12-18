@@ -14,7 +14,9 @@ export ZEPHYR_SDK_INSTALL_DIR="${ZEPHYR_SDK_INSTALL_DIR:-/opt/zephyr-sdk}"
 
 rm -rf "${BUILD_DIR}"
 
-west init -l "${REPO_ROOT}"
+if [ ! -d "${REPO_ROOT}/.west" ]; then
+	west init -l "${REPO_ROOT}"
+fi
 
 west update --narrow --fetch-opt=--depth=1
 west zephyr-export
