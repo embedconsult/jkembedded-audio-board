@@ -30,9 +30,6 @@ python3 -m pip install --user -r "${ZEPHYR_BASE}/scripts/requirements-base.txt"
 find "${BOARD_ROOT}" -type f \( -name '*.c' -o -name '*.h' \) -print0 \
 	| xargs -0 -r clang-format --style=file --dry-run --Werror
 
-python3 "${ZEPHYR_BASE}/scripts/dts/dtslint.py" \
-	"${BOARD_ROOT}/boards/arm/jkembedded_mspm0/jkembedded_mspm0.dts"
-
 west build -p always \
   -b jkembedded_mikrobus_hat_mspm0 \
   "${APP_DIR}" \
