@@ -8,7 +8,6 @@ export PATH="$HOME/.local/bin:${PATH}"
 BUILD_DIR="${REPO_ROOT}/build/mspm0-zephyr"
 APP_DIR="${REPO_ROOT}/firmware/mspm0-gpo-extender/app"
 BOARD_ROOT="${REPO_ROOT}/firmware/mspm0-gpo-extender"
-ZEPHYR_BASE="${ZEPHYR_BASE:-${REPO_ROOT}/zephyr}"
 
 export ZEPHYR_TOOLCHAIN_VARIANT="${ZEPHYR_TOOLCHAIN_VARIANT:-zephyr}"
 export ZEPHYR_SDK_INSTALL_DIR="${ZEPHYR_SDK_INSTALL_DIR:-/opt/zephyr-sdk}"
@@ -23,6 +22,7 @@ fi
 
 west update --narrow --fetch-opt=--depth=1
 west zephyr-export
+export ZEPHYR_BASE="$(west list -f '{abspath}' zephyr)"
 
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user -r "${ZEPHYR_BASE}/scripts/requirements-base.txt"
