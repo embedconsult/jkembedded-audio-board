@@ -44,15 +44,14 @@ The Zephyr build smoke test lives in `app/` and targets `jkembedded_mikrobus_hat
 The script initializes an isolated west workspace under `build/`, uses the Zephyr SDK toolchain if it is installed at `/opt/zephyr-sdk` (as in CI containers), and rebuilds from a clean tree to catch board or configuration regressions. You can perform the same steps manually:
 
 ```sh
-west init -l . build/zephyr-ws
-cd build/zephyr-ws
+west init -l .
 west update --narrow --fetch-opt=--depth=1
 west build -p always \
   -b jkembedded_mikrobus_hat_mspm0 \
-  "$PWD/../../firmware/mspm0-gpo-extender/app" \
-  --build-dir "$PWD/../mspm0-zephyr" \
+  "$PWD/firmware/mspm0-gpo-extender/app" \
+  --build-dir "$PWD/build/mspm0-zephyr" \
   -- \
-  -DBOARD_ROOT="$PWD/../../firmware/mspm0-gpo-extender"
+  -DBOARD_ROOT="$PWD/firmware/mspm0-gpo-extender"
 ```
 
 CI also runs `clang-format` (using `.clang-format` from Zephyr) and `dtslint.py` on the board DTS before building.

@@ -72,8 +72,7 @@ jobs:
           toolchains: arm-zephyr-eabi
       - name: Initialize west workspace
         run: |
-          west init -l . build/zephyr-ws
-          cd build/zephyr-ws
+          west init -l .
           west update --narrow --fetch-opt=--depth=1
           west zephyr-export
       - name: clang-format check (MSPM0 mux firmware)
@@ -86,7 +85,6 @@ jobs:
             firmware/mspm0-gpo-extender/boards/arm/jkembedded_mspm0/jkembedded_mspm0.dts
       - name: Build MSPM0 mux firmware (Zephyr)
         run: |
-          cd build/zephyr-ws
           west build -p always \
             -b jkembedded_mikrobus_hat_mspm0 \
             "$GITHUB_WORKSPACE/firmware/mspm0-gpo-extender/app" \
