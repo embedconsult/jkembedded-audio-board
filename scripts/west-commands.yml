@@ -1,0 +1,3 @@
+# Placeholder for custom west commands. This repository currently defines no
+# additional west commands but reserves the path so the manifest remains valid.
+west-commands: []

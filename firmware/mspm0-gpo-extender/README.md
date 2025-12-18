@@ -35,10 +35,24 @@ The device tree in `boards/arm/jkembedded_mspm0/jkembedded_mspm0.dts` documents 
 
 ## Build and CI smoke test
 
-The Zephyr build smoke test lives in `app/` and targets `jkembedded_mikrobus_hat_mspm0`. CI uses `ci/build-zephyr-mspm0.sh` to fetch Zephyr v4.0.0, point `BOARD_ROOT` at this repository, and build the stub firmware with the `zephyrprojectrtos/zephyr-build:v0.28.6` container. Run the same script locally from the repo root:
+The Zephyr build smoke test lives in `app/` and targets `jkembedded_mikrobus_hat_mspm0`. CI uses the local `west.yml` (Zephyr v4.3.0) plus `ci/build-zephyr-mspm0.sh` to fetch only the required Zephyr modules (CMSIS and hal_ti), point `BOARD_ROOT` at this repository, and build the stub firmware. Run the same script locally from the repo root:
 
 ```sh
 ./ci/build-zephyr-mspm0.sh
 ```
 
-The script initializes an isolated west workspace under `build/`, uses the Zephyr SDK toolchain if it is installed at `/opt/zephyr-sdk` (as in CI containers), and rebuilds from a clean tree to catch board or configuration regressions.
+The script initializes an isolated west workspace under `build/`, uses the Zephyr SDK toolchain if it is installed at `/opt/zephyr-sdk` (as in CI containers), and rebuilds from a clean tree to catch board or configuration regressions. You can perform the same steps manually:
+
+```sh
+west init -l . build/zephyr-ws
+cd build/zephyr-ws
+west update --narrow --fetch-opt=--depth=1
+west build -p always \
+  -b jkembedded_mikrobus_hat_mspm0 \
+  "$PWD/../../firmware/mspm0-gpo-extender/app" \
+  --build-dir "$PWD/../mspm0-zephyr" \
+  -- \
+  -DBOARD_ROOT="$PWD/../../firmware/mspm0-gpo-extender"
+```
+
+CI also runs `clang-format` (using `.clang-format` from Zephyr) and `dtslint.py` on the board DTS before building.
