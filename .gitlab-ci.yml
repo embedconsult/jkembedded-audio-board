@@ -89,7 +89,7 @@ package:
 
 zephyr_mspm0:
   stage: firmware
-  image: zephyrprojectrtos/zephyr-build:latest
+  image: zephyrprojectrtos/zephyr-build:v0.28.6
   needs:
     - structure
   script:

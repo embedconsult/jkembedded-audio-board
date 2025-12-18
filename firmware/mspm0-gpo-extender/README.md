@@ -35,7 +35,7 @@ The device tree in `boards/arm/jkembedded_mspm0/jkembedded_mspm0.dts` documents 
 
 ## Build and CI smoke test
 
-The Zephyr build smoke test lives in `app/` and targets `jkembedded_mikrobus_hat_mspm0`. CI uses `ci/build-zephyr-mspm0.sh` to fetch Zephyr v4.0.0, point `BOARD_ROOT` at this repository, and build the stub firmware. Run the same script locally from the repo root:
+The Zephyr build smoke test lives in `app/` and targets `jkembedded_mikrobus_hat_mspm0`. CI uses `ci/build-zephyr-mspm0.sh` to fetch Zephyr v4.0.0, point `BOARD_ROOT` at this repository, and build the stub firmware with the `zephyrprojectrtos/zephyr-build:v0.28.6` container. Run the same script locally from the repo root:
 
 ```sh
 ./ci/build-zephyr-mspm0.sh
