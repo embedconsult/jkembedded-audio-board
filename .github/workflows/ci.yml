@@ -70,11 +70,6 @@ jobs:
         with:
           zephyr-version: v4.3.0
           toolchains: arm-zephyr-eabi
-      - name: Initialize west workspace
-        run: |
-          west init -l .
-          west update --narrow --fetch-opt=--depth=1
-          west zephyr-export
       - name: clang-format check (MSPM0 mux firmware)
         run: |
           find firmware/mspm0-gpo-extender -type f \( -name '*.c' -o -name '*.h' \) \
@@ -84,10 +79,4 @@ jobs:
           python3 $ZEPHYR_BASE/scripts/dts/dtslint.py \
             firmware/mspm0-gpo-extender/boards/arm/jkembedded_mspm0/jkembedded_mspm0.dts
       - name: Build MSPM0 mux firmware (Zephyr)
-        run: |
-          west build -p always \
-            -b jkembedded_mikrobus_hat_mspm0 \
-            "$GITHUB_WORKSPACE/firmware/mspm0-gpo-extender/app" \
-            --build-dir "$GITHUB_WORKSPACE/build/mspm0-zephyr" \
-            -- \
-            -DBOARD_ROOT=$GITHUB_WORKSPACE/firmware/mspm0-gpo-extender
+        run: ./ci/build-zephyr-mspm0.sh
