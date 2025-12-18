@@ -15,10 +15,10 @@ export ZEPHYR_SDK_INSTALL_DIR="${ZEPHYR_SDK_INSTALL_DIR:-/opt/zephyr-sdk}"
 
 rm -rf "${BUILD_DIR}"
 
-if [ ! -d "${REPO_ROOT}/.west" ]; then
-	west init -l "${REPO_ROOT}"
+if west topdir >/dev/null 2>&1; then
+	echo "Reusing existing west workspace at $(west topdir)"
 else
-	echo "Skipping west init; existing workspace at ${REPO_ROOT}/.west"
+	west init -l "${REPO_ROOT}"
 fi
 
 west update --narrow --fetch-opt=--depth=1
