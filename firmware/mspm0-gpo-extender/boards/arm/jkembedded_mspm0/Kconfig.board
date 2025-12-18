@@ -1,7 +1,7 @@
 # JK-Embedded mikroBUS HAT MSPM0 mux controller board configuration
 config BOARD_JKEMBEDDED_MIKROBUS_HAT_MSPM0
 bool "JK-Embedded mikroBUS HAT MSPM0 mux controller"
-depends on SOC_FAMILY_TEXAS_INSTRUMENTS
+depends on SOC_SERIES_MSPM0L
 
 config PCA953X_TARGET
 bool "Expose PCA953x-compatible I2C target"
