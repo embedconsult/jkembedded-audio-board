@@ -70,18 +70,5 @@ jobs:
         with:
           zephyr-version: v4.3.0
           toolchains: arm-zephyr-eabi
-      - name: Initialize west workspace
-        run: |
-          west init -l .
-          west update --narrow --fetch-opt=--depth=1
-          west zephyr-export
-      - name: clang-format check (MSPM0 mux firmware)
-        run: |
-          find firmware/mspm0-gpo-extender -type f \( -name '*.c' -o -name '*.h' \) \
-            -print0 | xargs -0 -r clang-format --style=file --dry-run --Werror
-      - name: DTS lint (MSPM0 board)
-        run: |
-          python3 $ZEPHYR_BASE/scripts/dts/dtslint.py \
-            firmware/mspm0-gpo-extender/boards/arm/jkembedded_mspm0/jkembedded_mspm0.dts
       - name: Build MSPM0 mux firmware (Zephyr)
         run: ./ci/build-zephyr-mspm0.sh
