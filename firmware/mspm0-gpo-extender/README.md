@@ -14,7 +14,6 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
 ## TODO
 - Define Zephyr board configuration and pin assignments.
 - Establish the GPO register map and host profile table.
-- Add build scripts and CI integration.
 
 ## Zephyr board configuration
 
@@ -33,3 +32,13 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
   7. reserved for future use
 
 The device tree in `boards/arm/jkembedded_mspm0/jkembedded_mspm0.dts` documents pinctrl defaults for I2C and the mux GPIO map. The PCA9538 compatibility is consumed on the host side; the firmware should expose that register map over I2C so existing `pca953x` drivers work without modification.
+
+## Build and CI smoke test
+
+The Zephyr build smoke test lives in `app/` and targets `jkembedded_mikrobus_hat_mspm0`. CI uses `ci/build-zephyr-mspm0.sh` to fetch Zephyr v4.0.0, point `BOARD_ROOT` at this repository, and build the stub firmware. Run the same script locally from the repo root:
+
+```sh
+./ci/build-zephyr-mspm0.sh
+```
+
+The script initializes an isolated west workspace under `build/`, uses the Zephyr SDK toolchain if it is installed at `/opt/zephyr-sdk` (as in CI containers), and rebuilds from a clean tree to catch board or configuration regressions.
