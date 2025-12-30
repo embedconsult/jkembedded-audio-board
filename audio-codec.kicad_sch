@@ -1798,6 +1798,16 @@
 	)
 	(wire
 		(pts
+			(xy 96.52 71.12) (xy 123.19 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0eb0c46f-82a9-4e85-962c-f1dfdfb1bebe")
+	)
+	(wire
+		(pts
 			(xy 195.58 78.74) (xy 209.55 78.74)
 		)
 		(stroke
@@ -1818,7 +1828,17 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 85.09) (xy 91.44 85.09)
+			(xy 96.52 80.01) (xy 104.14 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1c8f87dd-d517-4f5e-805d-76485dcb74e5")
+	)
+	(wire
+		(pts
+			(xy 71.12 85.09) (xy 88.9 85.09)
 		)
 		(stroke
 			(width 0)
@@ -1898,7 +1918,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 91.44) (xy 123.19 91.44)
+			(xy 96.52 91.44) (xy 123.19 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1918,7 +1938,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 91.44) (xy 91.44 91.44)
+			(xy 78.74 91.44) (xy 88.9 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2248,7 +2268,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 80.01) (xy 104.14 80.01)
+			(xy 49.53 80.01) (xy 88.9 80.01)
 		)
 		(stroke
 			(width 0)
@@ -2378,7 +2398,7 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 71.12) (xy 123.19 71.12)
+			(xy 54.61 71.12) (xy 88.9 71.12)
 		)
 		(stroke
 			(width 0)
@@ -2578,7 +2598,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 85.09) (xy 123.19 85.09)
+			(xy 96.52 85.09) (xy 123.19 85.09)
 		)
 		(stroke
 			(width 0)
@@ -2797,7 +2817,7 @@
 		(uuid "139853bb-a40d-4b44-8e33-54784d357e7a")
 	)
 	(label "IN_RIGHT"
-		(at 78.74 77.47 0)
+		(at 73.66 77.47 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2827,7 +2847,7 @@
 		(uuid "da05a315-2005-4c65-bf99-bef9651ea519")
 	)
 	(label "OUT_RIGHT"
-		(at 78.74 91.44 0)
+		(at 73.66 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2837,7 +2857,7 @@
 		(uuid "dcdd45aa-ab96-4337-af1a-cb660bc9514b")
 	)
 	(label "OUT_LEFT"
-		(at 78.74 85.09 0)
+		(at 73.66 85.09 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2847,7 +2867,7 @@
 		(uuid "f6b2c151-5b3a-47e6-8518-6cf5b0799cc0")
 	)
 	(label "IN_LEFT"
-		(at 78.74 71.12 0)
+		(at 73.66 71.12 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3737,6 +3757,91 @@
 			(project ""
 				(path "/df100556-b288-4cb1-b69f-c0734132cb90/f904953f-335e-4512-b297-b8d4a411c7e1"
 					(reference "#PWR028")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 92.71 71.12 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4bed613e-0b38-4a45-a4be-e8ea1bff85de")
+		(property "Reference" "R40"
+			(at 87.884 69.85 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0 Ohm"
+			(at 98.806 69.85 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 92.71 72.898 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 92.71 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 92.71 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CRCW06030000Z0EA"
+			(at 92.71 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
+			(at 92.71 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "54987694-9ee5-428b-9765-95e7c279f0c9")
+		)
+		(pin "1"
+			(uuid "d6705413-436d-4153-a1ba-56ce447e11cb")
+		)
+		(instances
+			(project "jkembedded-audio-board"
+				(path "/df100556-b288-4cb1-b69f-c0734132cb90/f904953f-335e-4512-b297-b8d4a411c7e1"
+					(reference "R40")
 					(unit 1)
 				)
 			)
@@ -4761,7 +4866,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 95.25 85.09 90)
+		(at 92.71 85.09 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4769,7 +4874,7 @@
 		(dnp no)
 		(uuid "9d113f0b-dfe9-4414-b5e4-7fb5639dff70")
 		(property "Reference" "C33"
-			(at 91.694 83.82 90)
+			(at 89.154 83.82 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4777,7 +4882,7 @@
 			)
 		)
 		(property "Value" "47 µF"
-			(at 99.568 83.82 90)
+			(at 97.028 83.82 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4785,7 +4890,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 99.06 84.1248 0)
+			(at 96.52 84.1248 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4794,7 +4899,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 95.25 85.09 0)
+			(at 92.71 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4803,7 +4908,7 @@
 			)
 		)
 		(property "Description" "CAP CER 47UF 10V 20% X5R 0805"
-			(at 95.25 85.09 0)
+			(at 92.71 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4812,7 +4917,7 @@
 			)
 		)
 		(property "MPN" "GRM21BR61A476ME15L"
-			(at 95.25 85.09 0)
+			(at 92.71 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4821,7 +4926,7 @@
 			)
 		)
 		(property "Manufacturer" "Murata Electronics"
-			(at 95.25 85.09 0)
+			(at 92.71 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4978,7 +5083,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 95.25 91.44 90)
+		(at 92.71 91.44 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4986,7 +5091,7 @@
 		(dnp no)
 		(uuid "b0e87002-c6e1-482a-a50d-61e31eca20f2")
 		(property "Reference" "C34"
-			(at 91.694 90.17 90)
+			(at 89.154 90.17 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4994,7 +5099,7 @@
 			)
 		)
 		(property "Value" "47 µF"
-			(at 99.568 90.17 90)
+			(at 97.028 90.17 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5002,7 +5107,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 99.06 90.4748 0)
+			(at 96.52 90.4748 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5011,7 +5116,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 95.25 91.44 0)
+			(at 92.71 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5020,7 +5125,7 @@
 			)
 		)
 		(property "Description" "CAP CER 47UF 10V 20% X5R 0805"
-			(at 95.25 91.44 0)
+			(at 92.71 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5029,7 +5134,7 @@
 			)
 		)
 		(property "MPN" "GRM21BR61A476ME15L"
-			(at 95.25 91.44 0)
+			(at 92.71 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5038,7 +5143,7 @@
 			)
 		)
 		(property "Manufacturer" "Murata Electronics"
-			(at 95.25 91.44 0)
+			(at 92.71 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5209,6 +5314,91 @@
 			(project ""
 				(path "/df100556-b288-4cb1-b69f-c0734132cb90/f904953f-335e-4512-b297-b8d4a411c7e1"
 					(reference "C17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 92.71 80.01 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c4322c79-74c3-45cb-b2bd-d3b17fde66fe")
+		(property "Reference" "R41"
+			(at 87.884 78.74 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0 Ohm"
+			(at 98.806 78.994 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 92.71 81.788 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 92.71 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 92.71 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CRCW06030000Z0EA"
+			(at 92.71 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay"
+			(at 92.71 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "2cb79247-566e-4aff-bd4a-c735836a692c")
+		)
+		(pin "1"
+			(uuid "a6a6e010-0ebb-47c0-ade2-316c139eca6a")
+		)
+		(instances
+			(project "jkembedded-audio-board"
+				(path "/df100556-b288-4cb1-b69f-c0734132cb90/f904953f-335e-4512-b297-b8d4a411c7e1"
+					(reference "R41")
 					(unit 1)
 				)
 			)
