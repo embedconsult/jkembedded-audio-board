@@ -1828,16 +1828,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 80.01) (xy 104.14 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1c8f87dd-d517-4f5e-805d-76485dcb74e5")
-	)
-	(wire
-		(pts
 			(xy 71.12 85.09) (xy 88.9 85.09)
 		)
 		(stroke
@@ -2028,7 +2018,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 77.47) (xy 123.19 77.47)
+			(xy 63.5 77.47) (xy 88.9 77.47)
 		)
 		(stroke
 			(width 0)
@@ -2045,6 +2035,16 @@
 			(type default)
 		)
 		(uuid "3dce9b89-3855-404a-b28f-08f9878fab69")
+	)
+	(wire
+		(pts
+			(xy 96.52 77.47) (xy 123.19 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "446fbc90-133f-474b-9784-d6be02976a60")
 	)
 	(wire
 		(pts
@@ -2268,7 +2268,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 80.01) (xy 88.9 80.01)
+			(xy 49.53 80.01) (xy 104.14 80.01)
 		)
 		(stroke
 			(width 0)
@@ -5321,7 +5321,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 92.71 80.01 90)
+		(at 92.71 77.47 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5329,7 +5329,7 @@
 		(dnp no)
 		(uuid "c4322c79-74c3-45cb-b2bd-d3b17fde66fe")
 		(property "Reference" "R41"
-			(at 87.884 78.74 90)
+			(at 87.884 76.2 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5337,7 +5337,7 @@
 			)
 		)
 		(property "Value" "0 Ohm"
-			(at 98.806 78.994 90)
+			(at 98.806 76.454 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5345,7 +5345,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 92.71 81.788 90)
+			(at 92.71 79.248 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5354,7 +5354,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 92.71 80.01 0)
+			(at 92.71 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5363,7 +5363,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 92.71 80.01 0)
+			(at 92.71 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5372,7 +5372,7 @@
 			)
 		)
 		(property "MPN" "CRCW06030000Z0EA"
-			(at 92.71 80.01 0)
+			(at 92.71 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5381,7 +5381,7 @@
 			)
 		)
 		(property "Manufacturer" "Vishay"
-			(at 92.71 80.01 0)
+			(at 92.71 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
