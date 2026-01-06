@@ -14,8 +14,14 @@ export ZEPHYR_SDK_INSTALL_DIR="${ZEPHYR_SDK_INSTALL_DIR:-/opt/zephyr-sdk}"
 
 rm -rf "${BUILD_DIR}"
 
-if west topdir >/dev/null 2>&1; then
-	echo "Reusing existing west workspace at $(west topdir)"
+WEST_TOPDIR_CURRENT="$(west topdir 2>/dev/null || true)"
+if [ -n "${WEST_TOPDIR_CURRENT}" ] && [ "${WEST_TOPDIR_CURRENT}" != "${REPO_ROOT}" ]; then
+	export WEST_TOPDIR="${REPO_ROOT}"
+	WEST_TOPDIR_CURRENT=""
+fi
+
+if [ -n "${WEST_TOPDIR_CURRENT}" ]; then
+	echo "Reusing existing west workspace at ${WEST_TOPDIR_CURRENT}"
 else
 	west init -l "${REPO_ROOT}"
 fi
