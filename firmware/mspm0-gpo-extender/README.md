@@ -14,4 +14,44 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
 ## TODO
 - Define Zephyr board configuration and pin assignments.
 - Establish the GPO register map and host profile table.
-- Add build scripts and CI integration.
+
+## Zephyr board configuration
+
+- **Board identifier**: `jkembedded_mikrobus_hat_mspm0` (see `boards/arm/jkembedded_mikrobus_hat_mspm0/`).
+- **I2C role**: target/peripheral that emulates an 8-bit `pca9538` GPIO expander at address `0x20` so existing Linux `pca953x` drivers can toggle the mux selects without changes.
+- **I2C pins**: `PA0` = SDA (`HAT_SDA`), `PA1` = SCL (`HAT_SCL`).
+- **Bootloader pins**: `PA18` = `MCU_BOOTLOADER_SEL`, `NRST` exposed via the reset net shared with the programming header.
+- **Mux GPIO assignments (PCA9538 bit order)**:
+  0. `PA3` → `RST_WRD_SEL`
+  1. `PA4` → `PWM_BIT_SEL`
+  2. `PA9` → `AN_DI_SEL`
+  3. `PA10` → `INT_DO_SEL`
+  4. `PA11` → `CIPO_CNT_SEL0`
+  5. `PA15` → `CIPO_CNT_SEL1`
+  6. reserved for future use
+  7. reserved for future use
+
+The device tree in `boards/arm/jkembedded_mikrobus_hat_mspm0/jkembedded_mikrobus_hat_mspm0.dts` documents pinctrl defaults for the mux GPIO map. The PCA9538 compatibility is consumed on the host side; the firmware should expose that register map over I2C so existing `pca953x` drivers work without modification. I2C pinctrl will be added once the MSPM0 I2C controller binding is available.
+
+## Build and CI smoke test
+
+The Zephyr build smoke test lives in `app/` and targets `jkembedded_mikrobus_hat_mspm0`. CI uses the local `west.yml` (Zephyr v4.3.0) plus `ci/build-zephyr-mspm0.sh` to fetch only the required Zephyr modules (CMSIS and hal_ti), point `BOARD_ROOT` at this repository, and build the stub firmware. Run the same script locally from the repo root:
+
+```sh
+./ci/build-zephyr-mspm0.sh
+```
+
+The script initializes an isolated west workspace under `build/`, uses the Zephyr SDK toolchain if it is installed at `/opt/zephyr-sdk` (as in CI containers), and rebuilds from a clean tree to catch board or configuration regressions. You can perform the same steps manually:
+
+```sh
+west init -l .
+west update --narrow --fetch-opt=--depth=1
+west build -p always \
+  -b jkembedded_mikrobus_hat_mspm0 \
+  "$PWD/firmware/mspm0-gpo-extender/app" \
+  --build-dir "$PWD/build/mspm0-zephyr" \
+  -- \
+  -DBOARD_ROOT="$PWD/firmware/mspm0-gpo-extender"
+```
+
+CI also runs `clang-format` (using `.clang-format` from Zephyr) and `dtslint.py` on the board DTS before building.

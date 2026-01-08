@@ -57,3 +57,18 @@ jobs:
             ${CI_PROJECT_NAME}_pcb*.pdf
             fab
             step
+
+  firmware-zephyr:
+    name: MSPM0 Zephyr build
+    runs-on: ubuntu-latest
+    needs: structure
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Zephyr
+        uses: zephyrproject-rtos/action-zephyr-setup@v1
+        with:
+          zephyr-version: v4.3.0
+          toolchains: arm-zephyr-eabi
+      - name: Build MSPM0 mux firmware (Zephyr)
+        run: ./ci/build-zephyr-mspm0.sh
