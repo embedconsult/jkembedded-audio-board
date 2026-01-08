@@ -1250,24 +1250,24 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Reference" "U"
-			(at 14.986 -23.114 0)
+		(property "Reference" "U3"
+			(at 17.272 1.524 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" ""
-			(at 3.81 1.27 0)
+		(property "Value" "DAC53002RTER"
+			(at 19.558 -22.352 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 3.81 1.27 0)
+		(property "Footprint" "Package_DFN_QFN:WQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm_ThermalVias"
+			(at 0 0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1276,7 +1276,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 3.81 1.27 0)
+			(at 0 0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1285,7 +1285,25 @@
 			)
 		)
 		(property "Description" ""
-			(at 3.81 1.27 0)
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "DAC53002RTER"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 0 0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1528,7 +1546,7 @@
 				)
 			)
 			(pin output line
-				(at 25.4 -3.81 180)
+				(at 25.4 -2.54 180)
 				(length 2.54)
 				(name "OUT0"
 					(effects
@@ -1546,7 +1564,7 @@
 				)
 			)
 			(pin input line
-				(at 25.4 -6.35 180)
+				(at 25.4 -5.08 180)
 				(length 2.54)
 				(name "FB0"
 					(effects
@@ -1564,7 +1582,7 @@
 				)
 			)
 			(pin output line
-				(at 25.4 -13.97 180)
+				(at 25.4 -10.16 180)
 				(length 2.54)
 				(name "OUT1"
 					(effects
@@ -1582,7 +1600,7 @@
 				)
 			)
 			(pin input line
-				(at 25.4 -16.51 180)
+				(at 25.4 -12.7 180)
 				(length 2.54)
 				(name "FB1"
 					(effects
@@ -1592,6 +1610,24 @@
 					)
 				)
 				(number "12"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 25.4 -17.78 180)
+				(length 2.54)
+				(name "TP"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "17"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1627,7 +1663,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "Library:MIKROBUS_SMD_BLACK"
+		(property "Footprint" "Library:MIKROBUS_SOCKET_SMD_BLACK"
 			(at 0 0 0)
 			(effects
 				(font
@@ -2977,7 +3013,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(property "Reference" "U"
-			(at 0 2.54 0)
+			(at 20.955 9.525 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -2985,15 +3021,15 @@
 			)
 		)
 		(property "Value" "PTMP1827NGRT"
-			(at 0 0 0)
+			(at 20.32 6.985 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Footprint" "NGR0008B-IPC_A"
-			(at 0 0 0)
+		(property "Footprint" "Package_SON:WSON-8-1EP_3x2.5mm_P0.5mm_EP1.2x1.5mm_PullBack_ThermalVias"
+			(at 20.32 6.985 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3003,7 +3039,7 @@
 			)
 		)
 		(property "Datasheet" "PTMP1827NGRT"
-			(at 0 0 0)
+			(at 20.32 6.985 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3019,14 +3055,6 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
-			)
-		)
-		(property "ki_locked" ""
-			(at 0 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
 			)
 		)
 		(property "ki_keywords" "PTMP1827NGRT"

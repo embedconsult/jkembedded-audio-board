@@ -1186,7 +1186,7 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "U3"
-				(at 15.24 -22.098 0)
+				(at 17.272 1.524 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1194,14 +1194,14 @@
 				)
 			)
 			(property "Value" "DAC53002RTER"
-				(at 21.082 -24.384 0)
+				(at 19.558 -22.352 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Footprint" "Library:IC_BQ25306RTER"
+			(property "Footprint" "Package_DFN_QFN:WQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm_ThermalVias"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1220,6 +1220,24 @@
 				)
 			)
 			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "DAC53002RTER"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer" "Texas Instruments"
 				(at 0 0 0)
 				(effects
 					(font
@@ -5403,7 +5421,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Library:IC_BQ25306RTER"
+		(property "Footprint" "Package_DFN_QFN:WQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm_ThermalVias"
 			(at 66.04 110.49 0)
 			(effects
 				(font

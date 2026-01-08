@@ -2746,23 +2746,25 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "MB1"
-				(at -0.2382 26.67 0)
+			(property "Reference" "U"
+				(at -10.16 22.86 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left bottom)
 				)
 			)
 			(property "Value" "MIKROBUS_SMD_BLACK"
-				(at -0.2382 24.13 0)
+				(at 2.54 22.86 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left bottom)
 				)
 			)
-			(property "Footprint" "Library:MIKROBUS_SMD_BLACK"
+			(property "Footprint" "Library:MIKROBUS_SOCKET_SMD_BLACK"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2792,8 +2794,8 @@
 			)
 			(symbol "MIKROBUS_SMD_BLACK_0_0"
 				(rectangle
-					(start -10.16 20.32)
-					(end 10.1601 -12.7001)
+					(start -10.6363 21.1138)
+					(end 9.6838 -11.9063)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -11711,7 +11713,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Library:MIKROBUS_SMD_BLACK"
+		(property "Footprint" "Library:MIKROBUS_SOCKET_SMD_BLACK"
 			(at 80.01 127 0)
 			(effects
 				(font

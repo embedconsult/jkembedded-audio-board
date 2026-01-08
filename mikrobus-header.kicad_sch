@@ -1116,7 +1116,7 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "U"
-				(at 0 2.54 0)
+				(at 20.955 9.525 0)
 				(effects
 					(font
 						(size 1.524 1.524)
@@ -1124,15 +1124,15 @@
 				)
 			)
 			(property "Value" "PTMP1827NGRT"
-				(at 0 0 0)
+				(at 20.32 6.985 0)
 				(effects
 					(font
 						(size 1.524 1.524)
 					)
 				)
 			)
-			(property "Footprint" "NGR0008B-IPC_A"
-				(at 0 0 0)
+			(property "Footprint" "Package_SON:WSON-8-1EP_3x2.5mm_P0.5mm_EP1.2x1.5mm_PullBack_ThermalVias"
+				(at 20.32 6.985 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1142,7 +1142,7 @@
 				)
 			)
 			(property "Datasheet" "PTMP1827NGRT"
-				(at 0 0 0)
+				(at 20.32 6.985 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1158,14 +1158,6 @@
 						(size 1.27 1.27)
 					)
 					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
 				)
 			)
 			(property "ki_keywords" "PTMP1827NGRT"
@@ -2877,22 +2869,23 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "aed3a2b7-0257-4718-b8b8-a21c0ee44070")
 		(property "Reference" "J3"
-			(at 59.055 27.94 0)
+			(at 57.15 40.6399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Value" "MIKRO_LEFT"
-			(at 59.055 30.48 0)
+			(at 57.15 43.1799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Library:MIKROBUS_CLICK_LEFT_1x08_P2.54mm_Vertical"
@@ -2999,7 +2992,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Library:NGR0008B-IPC_A"
+		(property "Footprint" "Package_SON:WSON-8-1EP_3x2.5mm_P0.5mm_EP1.2x1.5mm_PullBack_ThermalVias"
 			(at 179.07 54.61 0)
 			(effects
 				(font
