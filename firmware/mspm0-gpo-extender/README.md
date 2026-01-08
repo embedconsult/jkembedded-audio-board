@@ -31,7 +31,7 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
   6. reserved for future use
   7. reserved for future use
 
-The device tree in `boards/arm/jkembedded_mikrobus_hat_mspm0/jkembedded_mikrobus_hat_mspm0.dts` documents pinctrl defaults for I2C and the mux GPIO map. The PCA9538 compatibility is consumed on the host side; the firmware should expose that register map over I2C so existing `pca953x` drivers work without modification.
+The device tree in `boards/arm/jkembedded_mikrobus_hat_mspm0/jkembedded_mikrobus_hat_mspm0.dts` documents pinctrl defaults for the mux GPIO map. The PCA9538 compatibility is consumed on the host side; the firmware should expose that register map over I2C so existing `pca953x` drivers work without modification. I2C pinctrl will be added once the MSPM0 I2C controller binding is available.
 
 ## Build and CI smoke test
 

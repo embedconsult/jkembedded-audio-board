@@ -1,18 +1,8 @@
-if BOARD_JKEMBEDDED_MIKROBUS_HAT_MSPM0
-
-config BOARD
-default "jkembedded_mikrobus_hat_mspm0"
-
-config GPIO
-default y
-
-config I2C
-default y
-
-config I2C_TARGET
-default y
-
-config PINCTRL
-default y
-
-endif
+CONFIG_GPIO=y
+CONFIG_I2C=y
+CONFIG_I2C_TARGET=y
+CONFIG_PINCTRL=y
+CONFIG_FLASH_BASE_ADDRESS=0x0
+CONFIG_FLASH_SIZE=128
+CONFIG_SRAM_BASE_ADDRESS=0x20000000
+CONFIG_SRAM_SIZE=16

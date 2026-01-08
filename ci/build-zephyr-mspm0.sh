@@ -10,7 +10,11 @@ APP_DIR="${REPO_ROOT}/firmware/mspm0-gpo-extender/app"
 BOARD_ROOT="${REPO_ROOT}/firmware/mspm0-gpo-extender"
 
 export ZEPHYR_TOOLCHAIN_VARIANT="${ZEPHYR_TOOLCHAIN_VARIANT:-zephyr}"
+if [ -z "${ZEPHYR_SDK_INSTALL_DIR:-}" ] && [ -d /opt/zephyr-toolchain/zephyr-sdk-0.17.4 ]; then
+	export ZEPHYR_SDK_INSTALL_DIR=/opt/zephyr-toolchain/zephyr-sdk-0.17.4
+fi
 export ZEPHYR_SDK_INSTALL_DIR="${ZEPHYR_SDK_INSTALL_DIR:-/opt/zephyr-sdk}"
+export CMAKE_PREFIX_PATH="${ZEPHYR_SDK_INSTALL_DIR}${CMAKE_PREFIX_PATH:+:${CMAKE_PREFIX_PATH}}"
 
 rm -rf "${BUILD_DIR}"
 
