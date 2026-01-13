@@ -1,6 +1,4 @@
-
-
-image: kicad/kicad:8.0.8
+image: kicad/kicad:9.0-full
 
 variables:
   CI_PROJECT_NAME: "jkembedded-audio-board"
