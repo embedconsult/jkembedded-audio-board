@@ -30,6 +30,7 @@ print:
     - kicad-cli pcb export pdf --output ${CI_PROJECT_NAME}_pcb_bottom.pdf --layers B.Cu,Edge.Cuts,User.Comments,B.Silkscreen --ibt ${CI_PROJECT_NAME}.kicad_pcb
     - kicad-cli pcb export pdf --output ${CI_PROJECT_NAME}_pcb_inner1.pdf --layers In1.Cu,Edge.Cuts,User.Comments --ibt ${CI_PROJECT_NAME}.kicad_pcb
     - kicad-cli pcb export pdf --output ${CI_PROJECT_NAME}_pcb_inner2.pdf --layers In2.Cu,Edge.Cuts,User.Comments --ibt ${CI_PROJECT_NAME}.kicad_pcb
+    - echo "CI_PROJECT_NAME is: ${CI_PROJECT_NAME}"
   artifacts:
     name: "${CI_PROJECT_NAME}-print"
     paths:
