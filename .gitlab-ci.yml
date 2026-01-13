@@ -1,15 +1,15 @@
-image: kicad/kicad:9.0-full
+image: kicad/kicad:9.0.7
 
 variables:
   CI_PROJECT_NAME: "jkembedded-audio-board"
 
 stages:
   - prepare
-  # - firmware
+  - firmware
   - print
-  # - fab
-  # - view
-  # - package
+  - fab
+  - view
+  - package
 
 
 structure:
@@ -38,62 +38,62 @@ print:
       - ${CI_PROJECT_NAME}_bom.csv
       - ${CI_PROJECT_NAME}_pcb*.pdf
 
-# fab:
-#   stage: fab
-#   script:
-#     - mkdir -p fab/gerbers step
-#     - kicad-cli sch export bom --format-preset CSV --group-by Value --exclude-dnp --output fab/${CI_PROJECT_NAME}_assy_bom.csv ${CI_PROJECT_NAME}.kicad_sch
-#     - kicad-cli pcb drc --format report --output fab/${CI_PROJECT_NAME}_drc.txt ${CI_PROJECT_NAME}.kicad_pcb
-#     - kicad-cli pcb export pos --output fab/${CI_PROJECT_NAME}_assy_pos.pos ${CI_PROJECT_NAME}.kicad_pcb
-#     - kicad-cli pcb export drill --output fab/${CI_PROJECT_NAME}_drill ${CI_PROJECT_NAME}.kicad_pcb
-#     - kicad-cli pcb export gerbers --output fab/gerbers ${CI_PROJECT_NAME}.kicad_pcb
-#     - kicad-cli pcb export step --output step/${CI_PROJECT_NAME}.step ${CI_PROJECT_NAME}.kicad_pcb
-#     - cat ${CI_PROJECT_NAME}.kicad_pcb
-#   artifacts:
-#     name: "${CI_PROJECT_NAME}-fab"
-#     paths:
-#       - fab
-#       - step
+fab:
+  stage: fab
+  script:
+    - mkdir -p fab/gerbers step
+    - kicad-cli sch export bom --format-preset CSV --group-by Value --exclude-dnp --output fab/${CI_PROJECT_NAME}_assy_bom.csv ${CI_PROJECT_NAME}.kicad_sch
+    - kicad-cli pcb drc --format report --output fab/${CI_PROJECT_NAME}_drc.txt ${CI_PROJECT_NAME}.kicad_pcb
+    - kicad-cli pcb export pos --output fab/${CI_PROJECT_NAME}_assy_pos.pos ${CI_PROJECT_NAME}.kicad_pcb
+    - kicad-cli pcb export drill --output fab/${CI_PROJECT_NAME}_drill ${CI_PROJECT_NAME}.kicad_pcb
+    - kicad-cli pcb export gerbers --output fab/gerbers ${CI_PROJECT_NAME}.kicad_pcb
+    - kicad-cli pcb export step --output step/${CI_PROJECT_NAME}.step ${CI_PROJECT_NAME}.kicad_pcb
+    - cat ${CI_PROJECT_NAME}.kicad_pcb
+  artifacts:
+    name: "${CI_PROJECT_NAME}-fab"
+    paths:
+      - fab
+      - step
 
-# view:
-#   stage: view
-#   image: ghcr.io/linalinn/kicad-render:nightly-2024-04-09-14-29
-#   variables:
-#     PCB_FILE: "${CI_PROJECT_NAME}.kicad_pcb"
-#     OUTPUT_PATH: public
-#     BACKGROUND: transparent
-#     ANIMATION: "gif"
-#   script:
-#     - |
-#       if [ -n "$ANIMATION" ]; then
-#         render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND" -a "$ANIMATION";
-#       else
-#         render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND";
-#       fi
-#   artifacts:
-#     name: "${CI_PROJECT_NAME}-view"
-#     paths:
-#       - public
+view:
+  stage: view
+  image: ghcr.io/linalinn/kicad-render:nightly-2024-04-09-14-29
+  variables:
+    PCB_FILE: "${CI_PROJECT_NAME}.kicad_pcb"
+    OUTPUT_PATH: public
+    BACKGROUND: transparent
+    ANIMATION: "gif"
+  script:
+    - |
+      if [ -n "$ANIMATION" ]; then
+        render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND" -a "$ANIMATION";
+      else
+        render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND";
+      fi
+  artifacts:
+    name: "${CI_PROJECT_NAME}-view"
+    paths:
+      - public
 
-# package:
-#   stage: package
-#   script:
-#     # Simple collection of only files used with CircuitHub
-#     - mkdir -p package
-#     - kicad-cli sch export bom --format-preset CSV --group-by Value --exclude-dnp --fields 'Reference,Value,Footprint,${QUANTITY},Manufacturer,MPN' --output package/${CI_PROJECT_NAME}_assy_bom.csv ${CI_PROJECT_NAME}.kicad_sch
-#     - cp *.kicad_sch package/
-#     - cp ${CI_PROJECT_NAME}.kicad_pcb package/
-#     - cp ${CI_PROJECT_NAME}.kicad_pro package/
-#   artifacts:
-#     name: "${CI_PROJECT_NAME}-package"
-#     paths:
-#       - package
+package:
+  stage: package
+  script:
+    # Simple collection of only files used with CircuitHub
+    - mkdir -p package
+    - kicad-cli sch export bom --format-preset CSV --group-by Value --exclude-dnp --fields 'Reference,Value,Footprint,${QUANTITY},Manufacturer,MPN' --output package/${CI_PROJECT_NAME}_assy_bom.csv ${CI_PROJECT_NAME}.kicad_sch
+    - cp *.kicad_sch package/
+    - cp ${CI_PROJECT_NAME}.kicad_pcb package/
+    - cp ${CI_PROJECT_NAME}.kicad_pro package/
+  artifacts:
+    name: "${CI_PROJECT_NAME}-package"
+    paths:
+      - package
 
-# zephyr_mspm0:
-#   stage: firmware
-#   image: zephyrprojectrtos/zephyr-build:v0.28.6
-#   needs:
-#     - structure
-#   script:
-#     - ./ci/build-zephyr-mspm0.sh
-#   allow_failure: true
+zephyr_mspm0:
+  stage: firmware
+  image: zephyrprojectrtos/zephyr-build:v0.28.6
+  needs:
+    - structure
+  script:
+    - ./ci/build-zephyr-mspm0.sh
+  allow_failure: true
