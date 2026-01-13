@@ -6,6 +6,8 @@
 	(paper "USLetter")
 	(title_block
 		(title "JKEmbedded Audio Board")
+		(date "2026-01-13")
+		(rev "0.2.4")
 		(company "JKEmbedded, LLC")
 	)
 	(lib_symbols)
@@ -137,7 +139,7 @@
 		)
 		(uuid "74302913-2667-4305-8acd-8fa611e26794")
 	)
-	(text_box "Revision Notes\n\n01/08/26: Changed codec rail to 3V3_Osc and addressed all DRCs\n01/04/26: Address wrong side MikroBUS assembly with updated footprints (per issue 13)\n12/30/25: Added SWD debug header (per issue 22)\n12/30/25: Added zero ohm resistors to XTAC5112 inputs (per issue 20)\n12/30/25: DNP on 4.7nF caps on OUT1P/OUT2P to GND (per issues 16, 19)\n12/30/25: Added series caps to Headphone Output (per issue 17)\n12/30/25: Added LEDs on Power and Mux select lines (per issues 12, 15)\n12/30/25: Aligned Pi-Hat connector with mounting hole (per issue 14)\n10/15/25: Updated PCB to KiCad 9 format"
+	(text_box "Revision Notes\n\nVersion 0.2.4 01/13/26\n- Changed codec rail to 3V3_Osc and addressed all DRCs\n- Address wrong side MikroBUS assembly with updated footprints (per issue 13)\n- Added SWD debug header (per issue 22)\n- Added zero ohm resistors to XTAC5112 inputs (per issue 20)\n- DNP on 4.7nF caps on OUT1P/OUT2P to GND (per issues 16, 19)\n- Added series caps to Headphone Output (per issue 17)\n- Added LEDs on Power and Mux select lines (per issues 12, 15)\n- Aligned Pi-Hat connector with mounting hole (per issue 14)"
 		(exclude_from_sim no)
 		(at 167.64 116.205 0)
 		(size 93.98 31.75)

@@ -7,6 +7,12 @@
 		(legacy_teardrops no)
 	)
 	(paper "A4")
+	(title_block
+		(title "JKEmbedded Audio Board")
+		(date "2026-01-13")
+		(rev "v0.2.4")
+		(company "JKEmbedded, LLC")
+	)
 	(layers
 		(0 "F.Cu" signal)
 		(4 "In1.Cu" signal)
@@ -59781,7 +59787,7 @@
 		(uuid "fdb2220b-a2fa-4660-ad74-2423d2913b9b")
 	)
 	(gr_text "JKEmbedded MikroBUS HAT"
-		(at 71.0708 97.8776 0)
+		(at 71.2 98.4 0)
 		(layer "F.SilkS")
 		(uuid "23b9529d-f175-4bda-80c0-8fbac0aaa49c")
 		(effects
@@ -59792,7 +59798,7 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "2025-01-05 v0.2.4"
+	(gr_text "${ISSUE_DATE} ${REVISION}"
 		(at 71.1708 100.1776 0)
 		(layer "F.SilkS")
 		(uuid "2fd7f5db-b721-4518-9d6a-7a95d6a0355d")
@@ -59852,8 +59858,8 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "JKEmbedded\n   Audio"
-		(at 106.8324 72.7456 270)
+	(gr_text "JKEmbedded\nLLC"
+		(at 106.95 73.25 -90)
 		(layer "F.SilkS")
 		(uuid "c6f77b9d-7c85-4be7-acf3-3f7bf5998ba0")
 		(effects
@@ -59888,8 +59894,8 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "2025-01-05 v0.2.4"
-		(at 108.2802 69.3166 90)
+	(gr_text "${ISSUE_DATE}\n${REVISION}"
+		(at 106.95 83.05 270)
 		(layer "B.SilkS")
 		(uuid "f224d721-351a-4825-a947-0e1347575795")
 		(effects
@@ -62137,7 +62143,7 @@
 		(uuid "44971f0d-52dc-4e79-890e-09eeb189fae1")
 	)
 	(via
-		(at 108.1786 76.8096)
+		(at 108.2 76.9)
 		(size 0.8)
 		(drill 0.4)
 		(layers "F.Cu" "B.Cu")
@@ -62260,7 +62266,7 @@
 		(uuid "cc8d34d8-cf08-448b-b725-467bfef4030c")
 	)
 	(via
-		(at 108.2294 74.168)
+		(at 105.7 75.15)
 		(size 0.8)
 		(drill 0.4)
 		(layers "F.Cu" "B.Cu")
@@ -62278,7 +62284,7 @@
 		(uuid "df881821-3b80-43d2-8045-124ebe07e212")
 	)
 	(via
-		(at 109.0422 82.55)
+		(at 108.35 82.4)
 		(size 0.8)
 		(drill 0.4)
 		(layers "F.Cu" "B.Cu")
@@ -62287,7 +62293,7 @@
 		(uuid "f0579d7c-098e-4a35-869a-ef4d87ae36b3")
 	)
 	(via
-		(at 107.95 79.9084)
+		(at 108.1 79.6)
 		(size 0.8)
 		(drill 0.4)
 		(layers "F.Cu" "B.Cu")

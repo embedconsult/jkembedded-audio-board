@@ -6,6 +6,8 @@
 	(paper "C")
 	(title_block
 		(title "JKEmbedded Audio Board")
+		(date "2026-01-13")
+		(rev "0.2.4")
 		(company "JKEmbedded, LLC")
 	)
 	(lib_symbols
