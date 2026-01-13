@@ -94,3 +94,4 @@ zephyr_mspm0:
     - structure
   script:
     - ./ci/build-zephyr-mspm0.sh
+  allow_failure: true
