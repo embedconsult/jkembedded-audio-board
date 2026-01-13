@@ -1,12 +1,23 @@
 image: kicad/kicad:8.0.8
+
 variables:
   CI_PROJECT_NAME: "jkembedded-audio-board"
 
 stages:
+  - prepare
+  - firmware
   - print
   - fab
   - view
   - package
+
+structure:
+  stage: prepare
+  image: alpine:3.19
+  before_script:
+    - apk add --no-cache bash
+  script:
+    - ./ci/check-project-structure.sh
 
 print:
   stage: print
@@ -28,7 +39,7 @@ print:
 fab:
   stage: fab
   script:
-    - mkdir -p fab/gerbers
+    - mkdir -p fab/gerbers step
     - kicad-cli sch export bom --format-preset CSV --group-by Value --exclude-dnp --output fab/${CI_PROJECT_NAME}_assy_bom.csv ${CI_PROJECT_NAME}.kicad_sch
     - kicad-cli pcb drc --format report --output fab/${CI_PROJECT_NAME}_drc.txt ${CI_PROJECT_NAME}.kicad_pcb
     - kicad-cli pcb export pos --output fab/${CI_PROJECT_NAME}_assy_pos.pos ${CI_PROJECT_NAME}.kicad_pcb
@@ -54,7 +65,7 @@ view:
     - |
         if [ -n "$ANIMATION" ]; then
           render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND" -a "$ANIMATION";
-        else 
+        else
           render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND"
         fi
   artifacts:
@@ -75,3 +86,11 @@ package:
     name: "${CI_PROJECT_NAME}-package"
     paths:
       - package
+
+zephyr_mspm0:
+  stage: firmware
+  image: zephyrprojectrtos/zephyr-build:v0.28.6
+  needs:
+    - structure
+  script:
+    - ./ci/build-zephyr-mspm0.sh

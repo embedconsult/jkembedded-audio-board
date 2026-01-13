@@ -1,0 +1,11 @@
+# JK-Embedded mikroBUS HAT MSPM0 mux controller board configuration
+config BOARD_JKEMBEDDED_MIKROBUS_HAT_MSPM0
+	bool "JK-Embedded mikroBUS HAT MSPM0 mux controller"
+	select SOC_MSPM0L1105
+
+config PCA953X_TARGET
+	bool "Expose PCA953x-compatible I2C target"
+	help
+	  Make the MSPM0 appear as an 8-bit PCA953x GPIO expander
+	  so that existing Linux drivers can control the mux pins.
+	default y

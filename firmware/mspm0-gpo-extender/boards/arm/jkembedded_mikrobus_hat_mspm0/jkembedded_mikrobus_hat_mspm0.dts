@@ -1,0 +1,75 @@
+/dts-v1/;
+
+#include <mem.h>
+#include <ti/mspm0/l/mspm0l1105.dtsi>
+#include <dt-bindings/pinctrl/mspm0-pinctrl.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	model = "JK-Embedded MSPM0 mux controller";
+	compatible = "jkembedded,mspm0-gpo-extender";
+
+	aliases {
+		gpio-0 = &gpioa;
+	};
+
+	chosen {
+		zephyr,console = &uart0;
+	};
+
+	mux_pins: mux-pins {
+		compatible = "zephyr,gpio-map";
+		rst-wrd-sel-gpios = <&gpioa 3 GPIO_ACTIVE_HIGH>;
+		pwm-bit-sel-gpios = <&gpioa 4 GPIO_ACTIVE_HIGH>;
+		an-di-sel-gpios = <&gpioa 9 GPIO_ACTIVE_HIGH>;
+		int-do-sel-gpios = <&gpioa 10 GPIO_ACTIVE_HIGH>;
+		cipo-cnt-sel0-gpios = <&gpioa 11 GPIO_ACTIVE_HIGH>;
+		cipo-cnt-sel1-gpios = <&gpioa 15 GPIO_ACTIVE_HIGH>;
+		bootloader-sel-gpios = <&gpioa 18 GPIO_ACTIVE_HIGH>;
+	};
+};
+
+&pinctrl {
+		rst_wrd_sel_pa3: rst_wrd_sel_pa3 {
+			pinmux = <MSP_PINMUX(4, MSPM0_PIN_FUNCTION_GPIO)>;
+			bias-pull-down;
+		};
+
+		pwm_bit_sel_pa4: pwm_bit_sel_pa4 {
+			pinmux = <MSP_PINMUX(5, MSPM0_PIN_FUNCTION_GPIO)>;
+			bias-pull-down;
+		};
+
+		an_di_sel_pa9: an_di_sel_pa9 {
+			pinmux = <MSP_PINMUX(10, MSPM0_PIN_FUNCTION_GPIO)>;
+			bias-pull-down;
+		};
+
+		int_do_sel_pa10: int_do_sel_pa10 {
+			pinmux = <MSP_PINMUX(11, MSPM0_PIN_FUNCTION_GPIO)>;
+			bias-pull-down;
+		};
+
+		cipo_cnt_sel0_pa11: cipo_cnt_sel0_pa11 {
+			pinmux = <MSP_PINMUX(12, MSPM0_PIN_FUNCTION_GPIO)>;
+			bias-pull-down;
+		};
+
+		cipo_cnt_sel1_pa15: cipo_cnt_sel1_pa15 {
+			pinmux = <MSP_PINMUX(16, MSPM0_PIN_FUNCTION_GPIO)>;
+			bias-pull-down;
+		};
+
+		bootloader_sel_pa18: bootloader_sel_pa18 {
+			pinmux = <MSP_PINMUX(19, MSPM0_PIN_FUNCTION_GPIO)>;
+			bias-pull-down;
+		};
+};
+
+&flash0 {
+	reg = <0x0 DT_SIZE_K(128)>;
+};
+
+&sram0 {
+	reg = <0x20000000 DT_SIZE_K(16)>;
+};
