@@ -48,6 +48,7 @@ fab:
     - kicad-cli pcb export drill --output fab/${CI_PROJECT_NAME}_drill ${CI_PROJECT_NAME}.kicad_pcb
     - kicad-cli pcb export gerbers --output fab/gerbers ${CI_PROJECT_NAME}.kicad_pcb
     - kicad-cli pcb export step --output step/${CI_PROJECT_NAME}.step ${CI_PROJECT_NAME}.kicad_pcb
+    - cat ${CI_PROJECT_NAME}.kicad_pcb
   artifacts:
     name: "${CI_PROJECT_NAME}-fab"
     paths:
@@ -63,12 +64,11 @@ view:
     BACKGROUND: transparent
     ANIMATION: "gif"
   script:
-    - |
-        if [ -n "$ANIMATION" ]; then
-          render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND" -a "$ANIMATION";
-        else
-          render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND"
-        fi
+    - if [ -n "$ANIMATION" ]; then
+    -   render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND" -a "$ANIMATION";
+    - else
+    -   render-pcb.sh -f "$PCB_FILE" -o "$OUTPUT_PATH" -b "$BACKGROUND";
+    - fi
   artifacts:
     name: "${CI_PROJECT_NAME}-view"
     paths:
