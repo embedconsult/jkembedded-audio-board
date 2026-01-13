@@ -57,7 +57,7 @@ fab:
 
 view:
   stage: view
-  image: ghcr.io/linalinn/kicad-render:nightly-2024-04-09-14-29
+  image: ghcr.io/linalinn/kicad-render:nightly-2026-01-01-13-02
   variables:
     PCB_FILE: "${CI_PROJECT_NAME}.kicad_pcb"
     OUTPUT_PATH: public
