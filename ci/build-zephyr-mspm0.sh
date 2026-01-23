@@ -18,16 +18,20 @@ export CMAKE_PREFIX_PATH="${ZEPHYR_SDK_INSTALL_DIR}${CMAKE_PREFIX_PATH:+:${CMAKE
 
 rm -rf "${BUILD_DIR}"
 
-WEST_TOPDIR_CURRENT="$(west topdir 2>/dev/null || true)"
-if [ -n "${WEST_TOPDIR_CURRENT}" ]; then
-	echo "Reusing existing west workspace at ${WEST_TOPDIR_CURRENT}"
+if [ -n "${ZEPHYR_BASE:-}" ] && [ -d "${ZEPHYR_BASE}" ]; then
+	echo "Using existing ZEPHYR_BASE at ${ZEPHYR_BASE}"
 else
-	west init -l "${REPO_ROOT}"
-fi
+	WEST_TOPDIR_CURRENT="$(west topdir 2>/dev/null || true)"
+	if [ -n "${WEST_TOPDIR_CURRENT}" ]; then
+		echo "Reusing existing west workspace at ${WEST_TOPDIR_CURRENT}"
+	else
+		west init -l "${REPO_ROOT}"
+	fi
 
-west update --narrow --fetch-opt=--depth=1
-west zephyr-export
-export ZEPHYR_BASE="$(west list -f '{abspath}' zephyr)"
+	west update --narrow --fetch-opt=--depth=1
+	west zephyr-export
+	export ZEPHYR_BASE="$(west list -f '{abspath}' zephyr)"
+fi
 
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user -r "${ZEPHYR_BASE}/scripts/requirements-base.txt"
