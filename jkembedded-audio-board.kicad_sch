@@ -6,6 +6,8 @@
 	(paper "USLetter")
 	(title_block
 		(title "JKEmbedded Audio Board")
+		(date "2026-01-13")
+		(rev "0.2.4")
 		(company "JKEmbedded, LLC")
 	)
 	(lib_symbols)
@@ -136,6 +138,27 @@
 			(justify left top)
 		)
 		(uuid "74302913-2667-4305-8acd-8fa611e26794")
+	)
+	(text_box "Revision Notes\n\nVersion 0.2.4 01/13/26\n- Changed codec rail to 3V3_Osc and addressed all DRCs\n- Address wrong side MikroBUS assembly with updated footprints (per issue 13)\n- Added SWD debug header (per issue 22)\n- Added zero ohm resistors to XTAC5112 inputs (per issue 20)\n- DNP on 4.7nF caps on OUT1P/OUT2P to GND (per issues 16, 19)\n- Added series caps to Headphone Output (per issue 17)\n- Added LEDs on Power and Mux select lines (per issues 12, 15)\n- Aligned Pi-Hat connector with mounting hole (per issue 14)"
+		(exclude_from_sim no)
+		(at 167.64 116.205 0)
+		(size 93.98 31.75)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.1588)
+			)
+			(justify left top)
+		)
+		(uuid "9db16f6f-a558-40b4-8680-508549acc965")
 	)
 	(text_box "AM62 BeaglePlay"
 		(exclude_from_sim no)
