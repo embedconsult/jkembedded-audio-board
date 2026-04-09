@@ -20,3 +20,23 @@ BeaglePlay is excluded because it does not use the mikroBUS HAT.
 - BSL entry via BOOTLOADER_SEL and RESET control.
 - Firmware image flashing and verification over I2C.
 - Optional dry-run mode for validation during production testing.
+
+## BeagleY-AI (current target) resource mapping
+
+### Image used for testing
+
+```
+$ cat /etc/dogtag
+BeagleBoard.org Debian Bookworm Xfce Image 2024-09-04
+```
+
+### HAT I2C
+
+/dev/i2c-1
+
+### HAT GPIO
+
+| Signal             | pin | linename | chip | line |
+| ------------------ | --- | -------- | ---- | ---- |
+| MCU_RESET          | 18  | GPIO24   | 0    | 10   |
+| MCU_BOOTLOADER_SEL | 22  | GPIO25   | 1    | 42   |
