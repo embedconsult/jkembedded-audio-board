@@ -67,14 +67,16 @@ KiCad design files, firmware plans, and host-side utilities for the JK-Embedded 
 
 ## HAT signal mapping
 
+Where do the various SBC signals need to go to the board connector for each board?
+
 | SBC signal | BP-AM62    | BYAI-AM67A | SK-AM62   | SK-AM68/9 |
 | ---------- | ---------- | ---------- | --------- | --------- |
 | WRD        | RST (D20)  | 35 (C26)   | N/A (D20) | 35        |
 | BIT        | PWM (B20)  | 12 (D25)   | 11 (B20)  | 12        |
 | DI         | AN (E18)   | 38 (F23)   | 33 (E18)  | 38        |
 | DO         | INT (B18)  | 40 (B25)   | 36 (B18)  | 40        |
-| CNT        | POCI (B19) | 36 (A25)   | 38 (B19)  | 11        |
-| TS         | PICO (A19) | 19 (B12)   | 19 (B13)  | 19        |
+| CNT        | CIPO (B19) | 36 (A25)   | 38 (B19)  | 11        |
+| TS         | COPI (A19) | 19 (B12)   | 19 (B13)  | 19        |
 | SDA        | SDA (B15)  | 3 (E11)    | 3 (K24)   | 3         |
 | SCL        | SCL (A15)  | 5 (B13)    | 5 (K22)   | 5         |
 | 3.3V       | +3.3V      | 1,17       | 1,17      | 1,17      |
@@ -84,6 +86,27 @@ KiCad design files, firmware plans, and host-side utilities for the JK-Embedded 
 | tbd        | TX (E15)   | 8 (F24)    | 8 (E15)   | 8         |
 | tbd        | SCK (A20)  | 23 (A9)    | 23 (A14)  | 23        |
 | SDQ        | CS (E19)   | 24 (C12)   | 24 (A13)  | 24        |
+
+## GPIO switches
+
+How should the GPIO expander be set to route those signals for each board?
+
+| MSPM0 signal | function    | 0  | 1    |
+| ------------ | ----------- | -- | ---- |
+| PA3          | RST_WRD_SEL | 35 | J7/7 |
+| PA4          | PWM_BIT_SEL | 12 | 11   |
+| PA9          | AN_DI_SEL   | 38 | 33   |
+| PA10         | INT_DO_SEL  | 40 | 36   |
+
+| MSPM0 signals | function     | 0  | 1  | 2  | 3  |
+| ------------- | ------------ | -- | -- | -- | -- |
+| PA15/PA11     | CIPO_CNT_SEL | NA | 36 | 38 | 11 |
+
+| Board      | PA15 | PA11 | PA10 | PA9 | PA4 | PA3 |
+| ---------- | ---- | ---- | ---- | --- | --- | --- |
+| BYAI-AM67A | 0    | 1    | 0    | 0   | 0   | 0   |
+| SK-AM62    | 1    | 0    | 1    | 1   | 1   | 1   |
+| SK-AM68/9  | 1    | 1    | 0    | 0   | 0   | 0   |
 
 ## Next steps
 - Finalize the MSPM0 Zephyr/TI SDK project in `firmware/mspm0-gpo-extender/`.
