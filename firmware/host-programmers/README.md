@@ -27,12 +27,25 @@ BeaglePlay is excluded because it does not use the mikroBUS HAT.
 
 ```
 $ cat /etc/dogtag
-BeagleBoard.org Debian Bookworm Xfce Image 2024-09-04
+BeagleBoard.org Debian Bookworm Xfce Image 2025-11-25
 ```
 
 ### HAT I2C
 
 /dev/i2c-1
+
+```
+beagle@beagle:~/jkembedded-audio-board$ i2cdetect -y -r 1
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- 47 48 -- -- -- -- -- -- -- 
+50: 50 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: 60 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+```
 
 ### HAT GPIO
 
