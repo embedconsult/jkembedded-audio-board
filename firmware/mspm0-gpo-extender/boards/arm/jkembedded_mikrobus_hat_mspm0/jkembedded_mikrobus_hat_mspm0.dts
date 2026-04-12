@@ -30,6 +30,8 @@
 };
 
 &pinctrl {
+		status = "okay";
+
 		rst_wrd_sel_pa3: rst_wrd_sel_pa3 {
 			pinmux = <MSP_PINMUX(4, MSPM0_PIN_FUNCTION_GPIO)>;
 			bias-pull-down;
@@ -67,6 +69,7 @@
 };
 
 &flash0 {
+	status = "okay";
 	reg = <0x0 DT_SIZE_K(128)>;
 };
 
