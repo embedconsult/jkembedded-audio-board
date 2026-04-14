@@ -6,6 +6,7 @@
 #define DEBUG_PA19 DL_GPIO_PIN_19
 #define DEBUG_PA20 DL_GPIO_PIN_20
 #define DEBUG_PINS (DEBUG_PA19 | DEBUG_PA20)
+#define TOGGLE_DELAY_CYCLES 200000
 
 static void configure_debug_outputs(void)
 {
@@ -25,7 +26,7 @@ int main(void)
 
 	while (true) {
 		DL_GPIO_togglePins(GPIOA, DEBUG_PINS);
-		k_msleep(100);
+		delay_cycles(TOGGLE_DELAY_CYCLES);
 	}
 
 	return 0;
