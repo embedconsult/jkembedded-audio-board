@@ -1,6 +1,7 @@
 #include <zephyr/kernel.h>
 
 #include <ti/driverlib/dl_gpio.h>
+#include <ti/driverlib/m0p/dl_sysctl.h>
 
 #define DEBUG_PA19 DL_GPIO_PIN_19
 #define DEBUG_PA20 DL_GPIO_PIN_20
@@ -8,6 +9,7 @@
 
 static void configure_debug_outputs(void)
 {
+	DL_SYSCTL_disableSWD();
 	DL_GPIO_initDigitalOutput(IOMUX_PINCM20);
 	DL_GPIO_initDigitalOutput(IOMUX_PINCM21);
 	DL_GPIO_clearPins(GPIOA, DEBUG_PINS);
