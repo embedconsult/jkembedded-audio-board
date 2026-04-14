@@ -1,12 +1,10 @@
-#include <zephyr/kernel.h>
-
 #include <ti/driverlib/dl_gpio.h>
 #include <ti/driverlib/m0p/dl_sysctl.h>
 
 #define DEBUG_PA19 DL_GPIO_PIN_19
 #define DEBUG_PA20 DL_GPIO_PIN_20
 #define DEBUG_PINS (DEBUG_PA19 | DEBUG_PA20)
-#define TOGGLE_DELAY_CYCLES 200000
+#define TOGGLE_DELAY_ITERATIONS 200000U
 
 static void configure_debug_outputs(void)
 {
@@ -25,8 +23,9 @@ int main(void)
 	configure_debug_outputs();
 
 	while (true) {
+		for (volatile uint32_t i = 0; i < TOGGLE_DELAY_ITERATIONS; ++i) {
+		}
 		DL_GPIO_togglePins(GPIOA, DEBUG_PINS);
-		delay_cycles(TOGGLE_DELAY_CYCLES);
 	}
 
 	return 0;
