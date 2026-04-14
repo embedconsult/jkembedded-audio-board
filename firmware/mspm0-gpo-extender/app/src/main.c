@@ -42,9 +42,7 @@ int main(void)
 	}
 
 	while (true) {
-		gpio_pin_toggle_dt(&debug_pa19);
-		gpio_pin_toggle_dt(&debug_pa20);
-		k_busy_wait(100000);
+		k_sleep(K_FOREVER);
 	}
 
 	return 0;
