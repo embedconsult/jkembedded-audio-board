@@ -1,31 +1,50 @@
-#include <ti/driverlib/dl_gpio.h>
+#include <zephyr/drivers/gpio.h>
+#include <zephyr/kernel.h>
+
 #include <ti/driverlib/m0p/dl_sysctl.h>
 
-#define DEBUG_PA19 DL_GPIO_PIN_19
-#define DEBUG_PA20 DL_GPIO_PIN_20
-#define DEBUG_PINS (DEBUG_PA19 | DEBUG_PA20)
-#define TOGGLE_DELAY_ITERATIONS 200000U
+#define USER_NODE DT_PATH(zephyr_user)
 
-static void configure_debug_outputs(void)
+static const struct gpio_dt_spec debug_pa19 =
+	GPIO_DT_SPEC_GET(USER_NODE, debug_pa19_gpios);
+static const struct gpio_dt_spec debug_pa20 =
+	GPIO_DT_SPEC_GET(USER_NODE, debug_pa20_gpios);
+
+static int configure_debug_gpio(void)
 {
-	DL_SYSCTL_disableSWD();
-	DL_GPIO_initDigitalOutput(IOMUX_PINCM20);
-	DL_GPIO_initDigitalOutput(IOMUX_PINCM21);
-	DL_GPIO_clearPins(GPIOA, DEBUG_PINS);
-	DL_GPIO_enableOutput(GPIOA, DEBUG_PINS);
+	int ret;
 
-	/* Start the two scope pins in opposite states to make them easy to distinguish. */
-	DL_GPIO_setPins(GPIOA, DEBUG_PA20);
+	DL_SYSCTL_disableSWD();
+
+	if (!gpio_is_ready_dt(&debug_pa19) || !gpio_is_ready_dt(&debug_pa20)) {
+		return -ENODEV;
+	}
+
+	ret = gpio_pin_configure_dt(&debug_pa19, GPIO_OUTPUT_INACTIVE);
+	if (ret < 0) {
+		return ret;
+	}
+
+	ret = gpio_pin_configure_dt(&debug_pa20, GPIO_OUTPUT_ACTIVE);
+	if (ret < 0) {
+		return ret;
+	}
+
+	return 0;
 }
 
 int main(void)
 {
-	configure_debug_outputs();
+	int ret = configure_debug_gpio();
+
+	if (ret < 0) {
+		return ret;
+	}
 
 	while (true) {
-		for (volatile uint32_t i = 0; i < TOGGLE_DELAY_ITERATIONS; ++i) {
-		}
-		DL_GPIO_togglePins(GPIOA, DEBUG_PINS);
+		gpio_pin_toggle_dt(&debug_pa19);
+		gpio_pin_toggle_dt(&debug_pa20);
+		k_busy_wait(100000);
 	}
 
 	return 0;

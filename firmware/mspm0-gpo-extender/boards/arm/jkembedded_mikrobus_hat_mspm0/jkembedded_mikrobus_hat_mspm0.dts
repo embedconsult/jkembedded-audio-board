@@ -18,6 +18,11 @@
 		zephyr,console = &uart0;
 	};
 
+	zephyr,user {
+		debug-pa19-gpios = <&gpioa 19 GPIO_ACTIVE_HIGH>;
+		debug-pa20-gpios = <&gpioa 20 GPIO_ACTIVE_HIGH>;
+	};
+
 	mux_pins: mux-pins {
 		compatible = "zephyr,gpio-map";
 		rst-wrd-sel-gpios = <&gpioa 3 GPIO_ACTIVE_HIGH>;
@@ -65,6 +70,16 @@
 
 		bootloader_sel_pa18: bootloader_sel_pa18 {
 			pinmux = <MSP_PINMUX(19, MSPM0_PIN_FUNCTION_GPIO)>;
+			bias-pull-down;
+		};
+
+		debug_pa19: debug_pa19 {
+			pinmux = <MSP_PINMUX(20, MSPM0_PIN_FUNCTION_GPIO)>;
+			bias-pull-down;
+		};
+
+		debug_pa20: debug_pa20 {
+			pinmux = <MSP_PINMUX(21, MSPM0_PIN_FUNCTION_GPIO)>;
 			bias-pull-down;
 		};
 
