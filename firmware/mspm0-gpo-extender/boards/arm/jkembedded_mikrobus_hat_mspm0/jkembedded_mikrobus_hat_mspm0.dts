@@ -21,6 +21,13 @@
 	zephyr,user {
 		debug-pa19-gpios = <&gpioa 19 GPIO_ACTIVE_HIGH>;
 		debug-pa20-gpios = <&gpioa 20 GPIO_ACTIVE_HIGH>;
+		rst-wrd-sel-gpios = <&gpioa 3 GPIO_ACTIVE_HIGH>;
+		pwm-bit-sel-gpios = <&gpioa 4 GPIO_ACTIVE_HIGH>;
+		an-di-sel-gpios = <&gpioa 9 GPIO_ACTIVE_HIGH>;
+		int-do-sel-gpios = <&gpioa 10 GPIO_ACTIVE_HIGH>;
+		cipo-cnt-sel0-gpios = <&gpioa 11 GPIO_ACTIVE_HIGH>;
+		cipo-cnt-sel1-gpios = <&gpioa 15 GPIO_ACTIVE_HIGH>;
+		bootloader-sel-gpios = <&gpioa 18 GPIO_ACTIVE_HIGH>;
 	};
 
 	mux_pins: mux-pins {
