@@ -41,11 +41,11 @@ static int configure_mux_state(void)
 		return -EIO;
 	}
 
-	if (configure_mux_pin(&an_di_sel, 0) < 0) {
+	if (configure_mux_pin(&an_di_sel, 1) < 0) {
 		return -EIO;
 	}
 
-	if (configure_mux_pin(&int_do_sel, 0) < 0) {
+	if (configure_mux_pin(&int_do_sel, 1) < 0) {
 		return -EIO;
 	}
 
