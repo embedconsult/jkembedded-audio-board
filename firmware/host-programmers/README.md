@@ -15,11 +15,26 @@ Utilities in this directory program the MSPM0L1105TRGER mux-control firmware fro
 
 BeaglePlay is excluded because it does not use the mikroBUS HAT.
 
+## Current status
+- GPIO line-name based BSL entry is working on the BeagleY-AI host
+- `bb-imager-cli flash zepto` is the current working flash path
+- The working invocation is:
+
+```console
+/home/beagle/bb-imager-rs/target/debug/bb-imager-cli --verbose flash zepto \
+  /path/to/zephyr.hex \
+  --reset-gpio GPIO24 \
+  --bsl-gpio GPIO25 \
+  /dev/hat/mcu_i2c0
+```
+
+- Flash verify may still false-fail on this transport; use `--no-verify` if the
+  image is written successfully but the CRC stage reports an error
+
 ## Planned features
-- Board detection and safe default mux selection.
-- BSL entry via BOOTLOADER_SEL and RESET control.
-- Firmware image flashing and verification over I2C.
-- Optional dry-run mode for validation during production testing.
+- Board detection and safe default mux selection
+- More robust verification/readback over I2C BSL
+- Optional dry-run mode for validation during production testing
 
 ## BeagleY-AI (current target) resource mapping
 
@@ -32,7 +47,13 @@ BeagleBoard.org Debian Bookworm Xfce Image 2025-11-25
 
 ### HAT I2C
 
-/dev/i2c-1
+Preferred path:
+
+`/dev/hat/mcu_i2c0`
+
+Resolved bus on this host:
+
+`/dev/i2c-1`
 
 ```
 beagle@beagle:~/jkembedded-audio-board$ i2cdetect -y -r 1
@@ -49,7 +70,7 @@ beagle@beagle:~/jkembedded-audio-board$ i2cdetect -y -r 1
 
 ### HAT GPIO
 
-| Signal             | pin | linename | chip | line |
-| ------------------ | --- | -------- | ---- | ---- |
-| MCU_RESET          | 18  | GPIO24   | 0    | 10   |
-| MCU_BOOTLOADER_SEL | 22  | GPIO25   | 1    | 42   |
+| Signal             | pin | linename |
+| ------------------ | --- | -------- |
+| MCU_RESET          | 18  | GPIO24   |
+| MCU_BOOTLOADER_SEL | 22  | GPIO25   |

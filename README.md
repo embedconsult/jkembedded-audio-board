@@ -48,12 +48,24 @@ KiCad design files, firmware plans, and host-side utilities for the JK-Embedded 
 6. Audio signals:
    * Jacks for stereo in and out at line level (1V<sub>RMS</sub> @ 100Ω) or better
    * Additional I/Os over 3-pin headers
-7. Texas Instruments MSPM0C1103 for header signal mapping
+7. Texas Instruments MSPM0L1105TRGER for header signal mapping
 
 ## MSPM0 GPO-extender goals
 - Mimic a simple I2C GPO-expander interface for host control while optionally auto-selecting mux states per detected host.
 - Use BOOTLOADER_SEL and RESET signals to enter the MSPM0 ROM BSL for programming via I2C.
 - Keep the binary footprint small and configuration-driven to ease host integration.
+
+## Current validated state
+- The local `zephyr` `audio-board` branch includes working MSPM0L110x GPIO support for this board.
+- The BeagleY-AI flash path is working with:
+  - `GPIO24` as `MCU_RESET`
+  - `GPIO25` as `MCU_BOOTLOADER_SEL`
+  - `/dev/hat/mcu_i2c0` as the MSPM0 I2C/BSL bus
+  - `bb-imager-cli --verbose flash zepto ... --reset-gpio GPIO24 --bsl-gpio GPIO25 /dev/hat/mcu_i2c0`
+- `firmware/blinky/` is the clean minimal Zephyr GPIO validation app and is a better board/GPIO smoke test than the earlier ad hoc debug images.
+- Zephyr GPIO control has been verified electrically on:
+  - `PA19` / `PA20` at `J6`
+  - `PA9` / `PA10` through the muxes using an `AN -> INT` short on the mikroBUS socket
 
 ## Host programmer expectations
 - Produce statically linked aarch64 binaries (Rust or Crystal) with no runtime dependencies beyond the Linux kernel.
@@ -108,8 +120,18 @@ How should the GPIO expander be set to route those signals for each board?
 | SK-AM62    | 1    | 0    | 1    | 1   | 1   | 1   |
 | SK-AM68/9  | 1    | 1    | 0    | 0   | 0   | 0   |
 
+Verified hardware behavior today for the `AN` / `INT` selectors:
+
+- With `PA9=0` and `PA10=0`, the `AN -> INT` short routed to host `GPIO13` and `GPIO16`.
+- With `PA9=1` and `PA10=1`, the same short routed to host `GPIO20` and `GPIO21`.
+
+That proves the MSPM0 controls the mux. When writing the final firmware, use the measured output polarity above rather than assuming the first software interpretation was correct.
+
 ## Next steps
-- Finalize the MSPM0 Zephyr/TI SDK project in `firmware/mspm0-gpo-extender/`.
-- Implement the host programmer utility and board detection logic in `firmware/host-programmers/`.
+- Convert the remaining selectors (`PA3`, `PA4`, `PA11`, `PA15`) from assumed polarity to measured polarity with the same Linux loopback method.
+- Decide the production MSPM0 firmware interface:
+  - fixed per-host mux profiles, or
+  - an I2C target / GPO-expander compatible interface.
+- Keep `firmware/blinky/` as the basic board/GPIO validation sample.
 - Add device-tree overlays and minimal driver hooks in `firmware/host-integration/` for clock generator initialization and codec wiring.
 - Integrate firmware and utility builds into both CI systems.

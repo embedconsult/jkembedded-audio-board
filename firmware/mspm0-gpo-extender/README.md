@@ -7,13 +7,35 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
 - Provide optional host-detection logic to choose defaults based on SBC profiles.
 - Keep the firmware small and configuration-driven; Zephyr preferred, TI SDK acceptable.
 
+## Current state
+
+- The Zephyr board `jkembedded_mikrobus_hat_mspm0` is building and flashing successfully.
+- Basic GPIO validation is working:
+  - `firmware/blinky/` is the clean minimal board support / GPIO smoke test.
+  - The `app/` image has been used to verify `PA19` / `PA20` at `J6`.
+  - The `app/` image has also been used to verify `PA9` / `PA10` through the muxes with a host-side loopback test.
+- The BeagleY-AI flash path is now:
+
+```sh
+/home/beagle/bb-imager-rs/target/debug/bb-imager-cli --verbose flash zepto \
+  /home/beagle/jkembedded-audio-board/build/mspm0-zephyr/zephyr/zephyr.hex \
+  --reset-gpio GPIO24 \
+  --bsl-gpio GPIO25 \
+  /dev/hat/mcu_i2c0
+```
+
+- The current `app/` is still a validation app, not the final production mux-control firmware.
+
 ## Expected inputs/outputs
 - **Inputs**: I2C commands from the host; BOOTLOADER_SEL and RESET to enter MSPM0 BSL.
 - **Outputs**: Deterministic mux control lines for each supported host profile.
 
-## TODO
-- Define Zephyr board configuration and pin assignments.
-- Establish the GPO register map and host profile table.
+## Remaining work
+- Validate selector polarity for `PA3`, `PA4`, `PA11`, and `PA15`
+- Decide whether the production image is:
+  - a fixed-profile mux image, or
+  - an I2C target / GPO-expander compatible image
+- Establish the final GPO register map and host profile table if the I2C target route is chosen
 
 ## Zephyr board configuration
 
@@ -31,17 +53,17 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
   6. reserved for future use
   7. reserved for future use
 
-The device tree in `boards/arm/jkembedded_mikrobus_hat_mspm0/jkembedded_mikrobus_hat_mspm0.dts` documents pinctrl defaults for the mux GPIO map. The PCA9538 compatibility is consumed on the host side; the firmware should expose that register map over I2C so existing `pca953x` drivers work without modification. I2C pinctrl will be added once the MSPM0 I2C controller binding is available.
+The device tree in `boards/arm/jkembedded_mikrobus_hat_mspm0/jkembedded_mikrobus_hat_mspm0.dts` documents the current pinctrl and validation GPIO map. The PCA9538 compatibility remains the intended host-facing model if the I2C target firmware route is chosen.
 
 ## Build and CI smoke test
 
-The Zephyr build smoke test lives in `app/` and targets `jkembedded_mikrobus_hat_mspm0`. CI uses the local `west.yml` (Zephyr v4.3.0) plus `ci/build-zephyr-mspm0.sh` to fetch only the required Zephyr modules (CMSIS and hal_ti), point `BOARD_ROOT` at this repository, and build the stub firmware. Run the same script locally from the repo root:
+The Zephyr build smoke test lives in `app/` and targets `jkembedded_mikrobus_hat_mspm0`. The repo `west.yml` now points Zephyr at the `audio-board` branch and imports only the required modules (`cmsis_6` and `hal_ti`). Run the same script locally from the repo root:
 
 ```sh
 ./ci/build-zephyr-mspm0.sh
 ```
 
-The script initializes an isolated west workspace under `build/`, uses the Zephyr SDK toolchain if it is installed at `/opt/zephyr-sdk` (as in CI containers), and rebuilds from a clean tree to catch board or configuration regressions. You can perform the same steps manually:
+The script initializes an isolated west workspace under `build/`, uses the Zephyr SDK toolchain if it is installed at `/opt/zephyr-sdk` (as in CI containers), and rebuilds from a clean tree to catch board or configuration regressions. Local bring-up on the BeagleY-AI host also works against `/home/beagle/zephyr` on the same branch. You can perform the same steps manually:
 
 ```sh
 west init -l .
