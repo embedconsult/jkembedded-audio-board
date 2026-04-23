@@ -47,24 +47,40 @@ Current proven setup:
 echo pca9538 0x20 | sudo tee /sys/bus/i2c/devices/i2c-1/new_device
 ```
 
-4. Until the overlay is applied, drive bits 2 and 3 through `gpiochip3`.
-5. After the overlay is applied, use the line names `AN_SEL` and `INT_SEL`.
-
-Example host-side route checks:
+4. Run the scripted validator:
 
 ```console
-gpioset -C host-a GPIO13=0 GPIO20=1
-gpioset -C mux-low -c gpiochip3 2=0 3=0
-# Expect GPIO16 low, GPIO21 high
-
-gpioset -C host-b GPIO13=1 GPIO20=0
-gpioset -C mux-high -c gpiochip3 2=1 3=1
-# Expect GPIO16 high, GPIO21 low
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-int
 ```
 
-When the overlay is active, replace the `gpiochip3` offsets with:
+Manual hold-and-probe mode is available too:
 
 ```console
-gpioset AN_SEL=0 INT_SEL=0
-gpioset AN_SEL=1 INT_SEL=1
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh hold an-int low
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh hold an-int high
+```
+
+The script uses the named selector lines when the overlay is active and falls
+back to `gpiochip3` offsets otherwise.
+
+### Remaining selector setups
+
+Use these jumper configurations to finish validating the remaining mux controls:
+
+- `AN -> PWM`
+
+```console
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-pwm
+```
+
+- `AN -> MISO`
+
+```console
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-miso
+```
+
+- `AN -> RST` and `J7/7 -> PWM`
+
+```console
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-rst-j7-pwm
 ```

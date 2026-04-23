@@ -160,18 +160,26 @@ host control are both working on hardware.
 
 #### Current validation recipe
 
-With the audio board removed and `AN` shorted to `INT` on the mikroBUS socket:
+The validation flow is now scripted:
+
+```console
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-int
+```
+
+With the audio board removed and `AN` shorted to `INT` on the mikroBUS socket,
+that command produces:
+
+```console
+AN->INT low state (expect GPIO16=0 GPIO21=1): 0 1
+AN->INT high state (expect GPIO16=1 GPIO21=0): 1 0
+```
+
+Manual hold-and-probe mode is also available:
 
 1. Hold the host-side source levels apart:
 
 ```console
-gpioset -C host-a GPIO13=0 GPIO20=1
-```
-
-2. Drive the emulated selector lines low:
-
-```console
-gpioset -C mux-low -c gpiochip3 2=0 3=0
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh hold an-int low
 ```
 
 Expected result:
@@ -179,16 +187,10 @@ Expected result:
 - probe or read `GPIO16` low
 - probe or read `GPIO21` high
 
-3. Release those holders, then invert the source levels:
+Then:
 
 ```console
-gpioset -C host-b GPIO13=1 GPIO20=0
-```
-
-4. Drive the emulated selector lines high:
-
-```console
-gpioset -C mux-high -c gpiochip3 2=1 3=1
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh hold an-int high
 ```
 
 Expected result:
@@ -196,9 +198,38 @@ Expected result:
 - probe or read `GPIO16` high
 - probe or read `GPIO21` low
 
-Once the host-side overlay is applied, the same selector control should be
-available by line name as `AN_SEL` and `INT_SEL` rather than by `gpiochip3`
-offsets `2` and `3`.
+- The script uses line names automatically when the host-side overlay is active.
+- Without the overlay, it falls back to `gpiochip3` offsets for the expander.
+
+#### Additional jumper setups for the remaining selectors
+
+These setups are enough for host-side automated validation without probing the
+MSPM0 pins directly:
+
+- `AN -> PWM`
+
+```console
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-pwm
+```
+
+- `AN -> MISO`
+
+```console
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-miso
+```
+
+- `AN -> RST` and `J7/7 -> PWM`
+
+```console
+/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-rst-j7-pwm
+```
+
+That set of jumpers covers all remaining selector GPIOs:
+
+- `PWM_SEL`
+- `CIPO_SEL_0`
+- `CIPO_SEL_1`
+- `RST_SEL`
 
 #### Current gaps before production firmware
 
