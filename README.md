@@ -85,7 +85,7 @@ Where do the various SBC signals need to go to the board connector for each boar
 
 | SBC signal | BP-AM62    | BYAI-AM67A | SK-AM62   | SK-AM68/9 |
 | ---------- | ---------- | ---------- | --------- | --------- |
-| WRD        | RST (D20)  | 35 (C26)   | N/A (D20) | 35        |
+| WRD        | RST (D20)  | 35 (C26)   | J7        | 35        |
 | BIT        | PWM (B20)  | 12 (D25)   | 11 (B20)  | 12        |
 | DI         | AN (E18)   | 38 (F23)   | 33 (E18)  | 38        |
 | DO         | INT (B18)  | 40 (B25)   | 36 (B18)  | 40        |
@@ -96,9 +96,9 @@ Where do the various SBC signals need to go to the board connector for each boar
 | 3.3V       | +3.3V      | 1,17       | 1,17      | 1,17      |
 | 5.0V       | +5V        | 2,4        | 2,4       | 2,4       |
 | GND        | GND        | GND        | GND       | GND       |
-| tbd        | RX (C15)   | 10 (C27)   | 10 (C15)  | 10        |
-| tbd        | TX (E15)   | 8 (F24)    | 8 (E15)   | 8         |
-| tbd        | SCK (A20)  | 23 (A9)    | 23 (A14)  | 23        |
+| RX         | RX (C15)   | 10 (C27)   | 10 (C15)  | 10        |
+| TX         | TX (E15)   | 8 (F24)    | 8 (E15)   | 8         |
+| SCK        | SCK (A20)  | 23 (A9)    | 23 (A14)  | 23        |
 | SDQ        | CS (E19)   | 24 (C12)   | 24 (A13)  | 24        |
 
 ## GPIO switches
@@ -106,40 +106,40 @@ Where do the various SBC signals need to go to the board connector for each boar
 The MSPM0 firmware exposes these selector lines through the emulated
 `pca9538` GPIO expander:
 
-| PCA9538 bit | Selector line | MSPM0 pin | Controlled route |
-| ----------- | ------------- | --------- | ---------------- |
-| 0           | `RST_SEL`     | `PA3`     | `WRD` between HAT pin `35` and `J7/7` |
-| 1           | `PWM_SEL`     | `PA4`     | `BIT` between HAT pin `11` and HAT pin `12` |
-| 2           | `AN_SEL`      | `PA9`     | `DI` between HAT pin `33` and HAT pin `38` |
-| 3           | `INT_SEL`     | `PA10`    | `DO` between HAT pin `36` and HAT pin `40` |
-| 4           | `CIPO_SEL_0`  | `PA11`    | `CNT` / `CIPO` selector bit 0 |
-| 5           | `CIPO_SEL_1`  | `PA15`    | `CNT` / `CIPO` selector bit 1 |
+| PCA9538 bit | Selector line | MSPM0 pin | SBC signal | HAT pin routes          |
+| ----------- | ------------- | --------- | ---------- | ----------------------- |
+| 0           | `RST_SEL`     | `PA3`     | `WRD`      | `35` or `7` (also J7)   |
+| 1           | `PWM_SEL`     | `PA4`     | `BIT`      | `11` or `12`            |
+| 2           | `AN_SEL`      | `PA9`     | `DI`       | `33` or `38`            |
+| 3           | `INT_SEL`     | `PA10`    | `DO`       | `36` or `40`            |
+| 4           | `CIPO_SEL_0`  | `PA11`    | `CNT`      | `38`, `36` or `11`      |
+| 5           | `CIPO_SEL_1`  | `PA15`    | `CNT`      | `38`, `36` or `11`      |
 
 Single-bit selector settings:
 
-| Selector line | `0` | `1` |
-| ------------- | --- | --- |
-| `RST_SEL`     | `WRD` on HAT pin `35` | `WRD` on `J7/7` |
-| `PWM_SEL`     | `BIT` on HAT pin `11` | `BIT` on HAT pin `12` |
-| `AN_SEL`      | `DI` on HAT pin `33` | `DI` on HAT pin `38` |
-| `INT_SEL`     | `DO` on HAT pin `36` | `DO` on HAT pin `40` |
+| Selector line | `0`                              | `1`                              |
+| ------------- | -------------------------------- | -------------------------------- |
+| `RST_SEL`     | `WRD` on HAT pin `35` (`GPIO19`) | `WRD` on HAT pin `7` (`GPIO4`)   |
+| `PWM_SEL`     | `BIT` on HAT pin `11` (`GPIO17`) | `BIT` on HAT pin `12` (`GPIO18`) |
+| `AN_SEL`      | `DI` on HAT pin `33` (`GPIO13`)  | `DI` on HAT pin `38` (`GPIO20`)  |
+| `INT_SEL`     | `DO` on HAT pin `36` (`GPIO16`)  | `DO` on HAT pin `40` (`GPIO21`)  |
 
 Two-bit `CNT` / `CIPO` selector settings:
 
-| `CIPO_SEL_0` | `CIPO_SEL_1` | `CNT` on |
-| ------------ | ------------ | -------- |
-| `0`          | `0`          | not connected |
-| `0`          | `1`          | HAT pin `38` |
-| `1`          | `0`          | HAT pin `36` |
-| `1`          | `1`          | HAT pin `11` |
+| `CIPO_SEL_0` | `CIPO_SEL_1` | `CNT` on                |
+| ------------ | ------------ | ----------------------- |
+| `0`          | `0`          | not connected           |
+| `0`          | `1`          | HAT pin `38` (`GPIO20`) |
+| `1`          | `0`          | HAT pin `36` (`GPIO16`) |
+| `1`          | `1`          | HAT pin `11` (`GPIO17`) |
 
 Selector settings for each target host:
 
-| Target host | `RST_SEL` | `PWM_SEL` | `AN_SEL` | `INT_SEL` | `CIPO_SEL_0` | `CIPO_SEL_1` |
-| ----------- | --------- | --------- | -------- | --------- | ------------ | ------------ |
-| `BYAI-AM67A` | `0` | `1` | `1` | `1` | `1` | `0` |
-| `SK-AM62`    | `1` | `0` | `0` | `0` | `0` | `1` |
-| `SK-AM68/9`  | `0` | `1` | `1` | `1` | `1` | `1` |
+| Target host  | `RST_SEL` | `PWM_SEL` | `AN_SEL` | `INT_SEL` | `CIPO_SEL_0` | `CIPO_SEL_1` |
+| ------------ | --------- | --------- | -------- | --------- | ------------ | ------------ |
+| `BYAI-AM67A` | `0`       | `1`       | `1`      | `1`       | `1`          | `0`          |
+| `SK-AM62`    | `1`       | `0`       | `0`      | `0`       | `0`          | `1`          |
+| `SK-AM68/9`  | `0`       | `1`       | `1`      | `1`       | `1`          | `1`          |
 
 ## Next steps
 - Finish `RST_SEL` validation after fixing or bypassing the undersized `J7` connector on this PCB revision.
