@@ -8,9 +8,9 @@ KiCad design files, firmware plans, and host-side utilities for the JK-Embedded 
 - [X] B. Schematic entry (1 weeks after A approval)
 - [X] C. Layout (1 weeks after B approval)
 - [X] D. Prototype coordination (3 days after C approval)
-- [ ] E. Test code development (2 weeks after C approval)
-- [ ] F. Test bench materials (2 weeks after C approval)
-- [ ] G. Prototype delivery (3 weeks after C approval)
+- [X] E. Test code development (2 weeks after C approval)
+- [X] F. Test bench materials (2 weeks after C approval)
+- [X] G. Prototype delivery (3 weeks after C approval)
 - [ ] H. Sign-off on production design
 - [ ] I. First production units ship (12 weeks after H approval)
 
