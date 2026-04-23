@@ -32,9 +32,7 @@ export ZEPHYR_BASE="$(west list -f '{abspath}' zephyr)"
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user -r "${ZEPHYR_BASE}/scripts/requirements-base.txt"
 
-find "${BOARD_ROOT}" \
-	\( -path '*/build' -o -path '*/build/*' \) -prune -o \
-	-type f \( -name '*.c' -o -name '*.h' \) -print0 \
+find "${BOARD_ROOT}" -type f \( -name '*.c' -o -name '*.h' \) -print0 \
 	| xargs -0 -r clang-format --style=file --dry-run --Werror
 
 west build -p always \
