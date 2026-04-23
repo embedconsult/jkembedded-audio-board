@@ -72,3 +72,12 @@ jobs:
           toolchains: arm-zephyr-eabi
       - name: Build MSPM0 mux firmware (Zephyr)
         run: ./ci/build-zephyr-mspm0.sh
+      - name: Upload firmware artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: mspm0-zephyr-firmware
+          path: |
+            build/mspm0-zephyr/zephyr/zephyr.hex
+            build/mspm0-zephyr/zephyr/zephyr.bin
+            build/mspm0-zephyr/zephyr/zephyr.elf
+            build/mspm0-zephyr/zephyr/zephyr.map

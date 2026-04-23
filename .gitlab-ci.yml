@@ -96,4 +96,11 @@ zephyr_mspm0:
     - structure
   script:
     - ./ci/build-zephyr-mspm0.sh
+  artifacts:
+    name: "${CI_PROJECT_NAME}-mspm0-zephyr"
+    paths:
+      - build/mspm0-zephyr/zephyr/zephyr.hex
+      - build/mspm0-zephyr/zephyr/zephyr.bin
+      - build/mspm0-zephyr/zephyr/zephyr.elf
+      - build/mspm0-zephyr/zephyr/zephyr.map
   allow_failure: true
