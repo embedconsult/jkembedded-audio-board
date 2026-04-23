@@ -7,7 +7,7 @@ export PATH="$HOME/.local/bin:${PATH}"
 
 BUILD_DIR="${REPO_ROOT}/build/mspm0-zephyr"
 APP_DIR="${REPO_ROOT}/firmware/mspm0-gpo-extender/app"
-BOARD_ROOT="${REPO_ROOT}/firmware/mspm0-gpo-extender"
+BOARD_ROOT="${REPO_ROOT}/firmware"
 
 export ZEPHYR_TOOLCHAIN_VARIANT="${ZEPHYR_TOOLCHAIN_VARIANT:-zephyr}"
 if [ -z "${ZEPHYR_SDK_INSTALL_DIR:-}" ] && [ -d /opt/zephyr-toolchain/zephyr-sdk-0.17.4 ]; then
@@ -36,7 +36,7 @@ find "${BOARD_ROOT}" -type f \( -name '*.c' -o -name '*.h' \) -print0 \
 	| xargs -0 -r clang-format --style=file --dry-run --Werror
 
 west build -p always \
-  -b jkembedded_mikrobus_hat_mspm0 \
+  -b mikrobus_hat \
   "${APP_DIR}" \
   --build-dir "${BUILD_DIR}" \
   -- \

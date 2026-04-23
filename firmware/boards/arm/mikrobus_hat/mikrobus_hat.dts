@@ -8,14 +8,17 @@
 
 / {
 	model = "JK-Embedded MSPM0 mux controller";
-	compatible = "jkembedded,mspm0-gpo-extender";
+	compatible = "jkembedded,mikrobus-hat";
 
 	aliases {
+		led0 = &led0;
 		gpio-0 = &gpioa;
 	};
 
 	chosen {
 		zephyr,console = &uart0;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
 	};
 
 	zephyr,user {
@@ -28,6 +31,14 @@
 		cipo-cnt-sel0-gpios = <&gpioa 11 GPIO_ACTIVE_HIGH>;
 		cipo-cnt-sel1-gpios = <&gpioa 15 GPIO_ACTIVE_HIGH>;
 		bootloader-sel-gpios = <&gpioa 18 GPIO_ACTIVE_HIGH>;
+	};
+
+	leds: leds {
+		compatible = "gpio-leds";
+
+		led0: led_0 {
+			gpios = <&gpioa 19 GPIO_ACTIVE_HIGH>;
+		};
 	};
 
 	mux_pins: mux-pins {
@@ -43,66 +54,66 @@
 };
 
 &pinctrl {
-		status = "okay";
+	status = "okay";
 
-		rst_wrd_sel_pa3: rst_wrd_sel_pa3 {
-			pinmux = <MSP_PINMUX(4, MSPM0_PIN_FUNCTION_GPIO)>;
-			bias-pull-down;
-		};
+	rst_wrd_sel_pa3: rst_wrd_sel_pa3 {
+		pinmux = <MSP_PINMUX(4, MSPM0_PIN_FUNCTION_GPIO)>;
+		bias-pull-down;
+	};
 
-		pwm_bit_sel_pa4: pwm_bit_sel_pa4 {
-			pinmux = <MSP_PINMUX(5, MSPM0_PIN_FUNCTION_GPIO)>;
-			bias-pull-down;
-		};
+	pwm_bit_sel_pa4: pwm_bit_sel_pa4 {
+		pinmux = <MSP_PINMUX(5, MSPM0_PIN_FUNCTION_GPIO)>;
+		bias-pull-down;
+	};
 
-		an_di_sel_pa9: an_di_sel_pa9 {
-			pinmux = <MSP_PINMUX(10, MSPM0_PIN_FUNCTION_GPIO)>;
-			bias-pull-down;
-		};
+	an_di_sel_pa9: an_di_sel_pa9 {
+		pinmux = <MSP_PINMUX(10, MSPM0_PIN_FUNCTION_GPIO)>;
+		bias-pull-down;
+	};
 
-		int_do_sel_pa10: int_do_sel_pa10 {
-			pinmux = <MSP_PINMUX(11, MSPM0_PIN_FUNCTION_GPIO)>;
-			bias-pull-down;
-		};
+	int_do_sel_pa10: int_do_sel_pa10 {
+		pinmux = <MSP_PINMUX(11, MSPM0_PIN_FUNCTION_GPIO)>;
+		bias-pull-down;
+	};
 
-		cipo_cnt_sel0_pa11: cipo_cnt_sel0_pa11 {
-			pinmux = <MSP_PINMUX(12, MSPM0_PIN_FUNCTION_GPIO)>;
-			bias-pull-down;
-		};
+	cipo_cnt_sel0_pa11: cipo_cnt_sel0_pa11 {
+		pinmux = <MSP_PINMUX(12, MSPM0_PIN_FUNCTION_GPIO)>;
+		bias-pull-down;
+	};
 
-		cipo_cnt_sel1_pa15: cipo_cnt_sel1_pa15 {
-			pinmux = <MSP_PINMUX(16, MSPM0_PIN_FUNCTION_GPIO)>;
-			bias-pull-down;
-		};
+	cipo_cnt_sel1_pa15: cipo_cnt_sel1_pa15 {
+		pinmux = <MSP_PINMUX(16, MSPM0_PIN_FUNCTION_GPIO)>;
+		bias-pull-down;
+	};
 
-		bootloader_sel_pa18: bootloader_sel_pa18 {
-			pinmux = <MSP_PINMUX(19, MSPM0_PIN_FUNCTION_GPIO)>;
-			bias-pull-down;
-		};
+	bootloader_sel_pa18: bootloader_sel_pa18 {
+		pinmux = <MSP_PINMUX(19, MSPM0_PIN_FUNCTION_GPIO)>;
+		bias-pull-down;
+	};
 
-		debug_pa19: debug_pa19 {
-			pinmux = <MSP_PINMUX(20, MSPM0_PIN_FUNCTION_GPIO)>;
-			bias-pull-down;
-		};
+	debug_pa19: debug_pa19 {
+		pinmux = <MSP_PINMUX(20, MSPM0_PIN_FUNCTION_GPIO)>;
+		bias-pull-down;
+	};
 
-		debug_pa20: debug_pa20 {
-			pinmux = <MSP_PINMUX(21, MSPM0_PIN_FUNCTION_GPIO)>;
-			bias-pull-down;
-		};
+	debug_pa20: debug_pa20 {
+		pinmux = <MSP_PINMUX(21, MSPM0_PIN_FUNCTION_GPIO)>;
+		bias-pull-down;
+	};
 
-		i2c0_sda_pa0: i2c0_sda_pa0 {
-			pinmux = <MSP_PINMUX(1, MSPM0_PIN_FUNCTION_3)>;
-			input-enable;
-			bias-pull-up;
-			drive-open-drain;
-		};
+	i2c0_sda_pa0: i2c0_sda_pa0 {
+		pinmux = <MSP_PINMUX(1, MSPM0_PIN_FUNCTION_3)>;
+		input-enable;
+		bias-pull-up;
+		drive-open-drain;
+	};
 
-		i2c0_scl_pa1: i2c0_scl_pa1 {
-			pinmux = <MSP_PINMUX(2, MSPM0_PIN_FUNCTION_3)>;
-			input-enable;
-			bias-pull-up;
-			drive-open-drain;
-		};
+	i2c0_scl_pa1: i2c0_scl_pa1 {
+		pinmux = <MSP_PINMUX(2, MSPM0_PIN_FUNCTION_3)>;
+		input-enable;
+		bias-pull-up;
+		drive-open-drain;
+	};
 };
 
 &gpioa {

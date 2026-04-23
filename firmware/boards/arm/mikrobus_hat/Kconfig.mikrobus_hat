@@ -1,4 +1,4 @@
-# JK-Embedded mikroBUS HAT MSPM0 mux controller board configuration
+# JK-Embedded mikroBUS HAT MSPM0 board configuration
 config BOARD_MIKROBUS_HAT
 	bool "JK-Embedded mikroBUS HAT MSPM0 mux controller"
 	select SOC_MSPM0L1105

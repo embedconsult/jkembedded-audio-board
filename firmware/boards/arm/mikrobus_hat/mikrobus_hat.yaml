@@ -1,12 +1,15 @@
-identifier: jkembedded_mikrobus_hat_mspm0
+identifier: mikrobus_hat
 name: JK-Embedded mikroBUS HAT MSPM0 mux controller
 type: mcu
 arch: arm
 toolchain:
   - zephyr
-ram: 4
-flash: 32
+  - gnuarmemb
+  - xtools
+ram: 16
+flash: 128
 supported:
+  - pinctrl
   - gpio
   - i2c
 vendor: jkembedded

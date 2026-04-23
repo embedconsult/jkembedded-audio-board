@@ -1,6 +1,0 @@
-board:
-  name: jkembedded_mikrobus_hat_mspm0
-  full_name: JK-Embedded mikroBUS HAT MSPM0 mux controller
-  vendor: jkembedded
-  socs:
-    - name: mspm0l1105
