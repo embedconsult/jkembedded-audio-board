@@ -134,7 +134,7 @@ That proves:
 - the updated Zephyr MSPM0L1105 GPIO driver works
 - the `AN_SEL`, `INT_SEL`, `PWM_SEL`, `CIPO_SEL_0`, and `CIPO_SEL_1`
   selectors are controllable in firmware
-- `RST_SEL` can be validated from HAT pin `7` (`GPIO4`), which is tied to the
+- `RST_SEL` was validated from HAT pin `7` (`GPIO4`), which is tied to the
   `J7` signal through `R23` (`0 ohm`)
 
 #### I2C target validation
@@ -256,8 +256,8 @@ AN->MISO state 3 (CIPO_SEL_0=1 CIPO_SEL_1=1) -> GPIO16 GPIO20 GPIO17: 1 1 0
 Expected output:
 
 ```console
-AN->RST low state (expect GPIO19=0 GPIO4=1): 0 1
-AN->RST high state (expect GPIO19=1 GPIO4=0): 1 0
+AN->RST low state (expect GPIO19=1 GPIO4=0): 1 0
+AN->RST high state (expect GPIO19=0 GPIO4=1): 0 1
 ```
 
 Probe or read HAT pin `35` (`GPIO19`) and HAT pin `7` (`GPIO4`). HAT pin `7`
@@ -266,6 +266,8 @@ is the preferred validation point on this PCB revision.
 
 #### Current gaps before production firmware
 
-- `RST_SEL` still needs a measured validation run using HAT pin `7` (`GPIO4`)
+- `RST_SEL` was measured and is opposite the original schematic assumption:
+  - `RST_SEL=0` routes `WRD` to HAT pin `7` (`GPIO4`) / `J7`
+  - `RST_SEL=1` routes `WRD` to HAT pin `35` (`GPIO19`)
 - The current `mspm0-gpo-extender` app only exposes the mux selectors through
   the PCA9538 register model; host-profile policy is still future work

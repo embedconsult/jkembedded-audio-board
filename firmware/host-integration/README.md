@@ -108,6 +108,6 @@ is tied to the same signal that is also brought out at `J7` through `R23`
 Expected output:
 
 ```console
-AN->RST low state (expect GPIO19=0 GPIO4=1): 0 1
-AN->RST high state (expect GPIO19=1 GPIO4=0): 1 0
+AN->RST low state (expect GPIO19=1 GPIO4=0): 1 0
+AN->RST high state (expect GPIO19=0 GPIO4=1): 0 1
 ```

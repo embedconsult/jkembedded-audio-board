@@ -119,7 +119,7 @@ Single-bit selector settings:
 
 | Selector line | `0`                              | `1`                              |
 | ------------- | -------------------------------- | -------------------------------- |
-| `RST_SEL`     | `WRD` on HAT pin `35` (`GPIO19`) | `WRD` on HAT pin `7` (`GPIO4`) / `J7` |
+| `RST_SEL`     | `WRD` on HAT pin `7` (`GPIO4`) / `J7` | `WRD` on HAT pin `35` (`GPIO19`) |
 | `PWM_SEL`     | `BIT` on HAT pin `11` (`GPIO17`) | `BIT` on HAT pin `12` (`GPIO18`) |
 | `AN_SEL`      | `DI` on HAT pin `33` (`GPIO13`)  | `DI` on HAT pin `38` (`GPIO20`)  |
 | `INT_SEL`     | `DO` on HAT pin `36` (`GPIO16`)  | `DO` on HAT pin `40` (`GPIO21`)  |
@@ -137,12 +137,12 @@ Selector settings for each target host:
 
 | Target host  | `RST_SEL` | `PWM_SEL` | `AN_SEL` | `INT_SEL` | `CIPO_SEL_0` | `CIPO_SEL_1` |
 | ------------ | --------- | --------- | -------- | --------- | ------------ | ------------ |
-| `BYAI-AM67A` | `0`       | `1`       | `1`      | `1`       | `1`          | `0`          |
-| `SK-AM62`    | `1`       | `0`       | `0`      | `0`       | `0`          | `1`          |
-| `SK-AM68/9`  | `0`       | `1`       | `1`      | `1`       | `1`          | `1`          |
+| `BYAI-AM67A` | `1`       | `1`       | `1`      | `1`       | `1`          | `0`          |
+| `SK-AM62`    | `0`       | `0`       | `0`      | `0`       | `0`          | `1`          |
+| `SK-AM68/9`  | `1`       | `1`       | `1`      | `1`       | `1`          | `1`          |
 
 ## Next steps
-- Finish `RST_SEL` validation using HAT pin `7` (`GPIO4`), which is tied to the `J7` signal through `R23` (`0 ohm`).
+- Decide whether to keep the measured selector polarity as-is in production firmware or to invert any lines in software before exposing host profiles.
 - Decide the production MSPM0 firmware interface:
   - fixed per-host mux profiles, or
   - an I2C target / GPO-expander compatible interface.

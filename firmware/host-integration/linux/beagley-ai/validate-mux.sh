@@ -205,8 +205,8 @@ EOF
 Fixture: AN -> RST
 Driven state: AN_SEL=0, RST_SEL=0
 Expected:
-  GPIO19 low
-  GPIO4 high
+  GPIO19 high
+  GPIO4 low
 Press Ctrl-C to release the held lines.
 EOF
 		;;
@@ -217,8 +217,8 @@ EOF
 Fixture: AN -> RST
 Driven state: AN_SEL=0, RST_SEL=1
 Expected:
-  GPIO19 high
-  GPIO4 low
+  GPIO19 low
+  GPIO4 high
 Press Ctrl-C to release the held lines.
 EOF
 		;;
@@ -283,14 +283,14 @@ sample_an_rst() {
 	host_set_bg host-an-rst GPIO13=0 GPIO20=1
 	expander_set_bg mux-an-rst-low AN_SEL=0 RST_SEL=0
 	sleep 0.1
-	printf 'AN->RST low state (expect GPIO19=0 GPIO4=1): '
+	printf 'AN->RST low state (expect GPIO19=1 GPIO4=0): '
 	probe_lines GPIO19 GPIO4
 	release_pids
 
 	host_set_bg host-an-rst GPIO13=0 GPIO20=1
 	expander_set_bg mux-an-rst-high AN_SEL=0 RST_SEL=1
 	sleep 0.1
-	printf 'AN->RST high state (expect GPIO19=1 GPIO4=0): '
+	printf 'AN->RST high state (expect GPIO19=0 GPIO4=1): '
 	probe_lines GPIO19 GPIO4
 }
 
