@@ -9,9 +9,13 @@ This document outlines the planned firmware, host utilities, and integration ste
 - **Host awareness**: Support optional host detection (GPIO line names or static profiles) to pre-select safe mux defaults.
 - **Validated so far**:
   - `PA19` / `PA20` GPIO control at `J6`
-  - `PA9` / `PA10` mux control via `AN -> INT` loopback
+  - `AN_SEL` / `INT_SEL` mux control via `AN -> INT` loopback
+  - `PWM_SEL` mux control via `AN -> PWM` loopback
+  - `CIPO_SEL_0` / `CIPO_SEL_1` mux control via `AN -> MISO` loopback
+  - PCA9538-compatible I2C target emulation at `0x20`
+  - Linux `gpio-pca953x` binding against the emulated target
 - **Still to validate**:
-  - `PA3`, `PA4`, `PA11`, `PA15` selector polarity
+  - `RST_SEL` (`PA3`) polarity, which is currently blocked by the undersized `J7` footprint on this PCB revision
 
 ## Host programmer utility
 - **Language**: Rust or Crystal only; produce statically linked aarch64 binaries with no dynamic library dependencies.
@@ -34,7 +38,7 @@ BB_IMAGER_CLI="${BB_IMAGER_CLI:-../bb-imager-rs/target/debug/bb-imager-cli}"
 ## Linux/Zephyr host integration
 - **Clock generator (Si5351)**: Provide device-tree overlays and minimal configuration helpers to initialize VCXO control via DAC53002.
 - **Audio codec**: Rely on mainline support for the TI AIC/TAS codec; supply DTS fragments to bind to the correct buses and clocks.
-- **Configuration flow**: DTS overlay -> mux selection via MSPM0 -> clock generator setup -> codec registration.
+- **Configuration flow**: host binds PCA9538-compatible MSPM0 target -> mux selection via named GPIO lines -> clock generator setup -> codec registration.
 - **Upstreaming**: Keep DTS overlays minimal and align node names/compatible strings with mainline conventions to ease upstream submission.
 
 ## Directory pointers
@@ -44,6 +48,6 @@ BB_IMAGER_CLI="${BB_IMAGER_CLI:-../bb-imager-rs/target/debug/bb-imager-cli}"
 - `docs/`: Additional design notes, bring-up procedures, and any shared usage documentation.
 
 ## Next integration steps
-1. Finish the remaining selector-polarity measurements (`PA3`, `PA4`, `PA11`, `PA15`) using the documented `gpioset` and probe procedure.
-2. Apply and test the host-side `pca9538` integration so Linux exposes the MSPM0 lines as `RST_SEL`, `PWM_SEL`, `CIPO_SEL_0`, `CIPO_SEL_1`, `AN_SEL`, and `INT_SEL`.
-3. Keep all MSPM0 Zephyr apps building from the shared `firmware/boards/arm/mikrobus_hat/` board root and extend CI coverage as new apps are added.
+1. Finish `RST_SEL` validation after fixing or bypassing the undersized `J7` connector so that `PA3` can be measured with the same loopback method as the other selectors.
+2. Apply the BeagleY-AI host overlay in normal boot flows so Linux exposes the emulated PCA9538 lines as `RST_SEL`, `PWM_SEL`, `CIPO_SEL_0`, `CIPO_SEL_1`, `AN_SEL`, and `INT_SEL` without manual `new_device` binding.
+3. Decide the production MSPM0 firmware policy on top of the validated PCA9538 register model: pure host-controlled muxing, fixed power-on defaults, or host-profile-based defaults.
