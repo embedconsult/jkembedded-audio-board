@@ -103,38 +103,57 @@ Where do the various SBC signals need to go to the board connector for each boar
 
 ## GPIO switches
 
-How should the GPIO expander be set to route those signals for each board?
+The MSPM0 is presented to Linux as a `pca9538`-compatible GPIO expander. These
+are the selector lines users should think in terms of:
 
-| MSPM0 signal | function    | 0  | 1    |
-| ------------ | ----------- | -- | ---- |
-| PA3          | RST_SEL      | unresolved on current PCB revision because `J7` is too small to validate reliably |
-| PA4          | PWM_SEL      | 11 | 12   |
-| PA9          | AN_SEL       | 33 | 38   |
-| PA10         | INT_SEL      | 36 | 40   |
+| MSPM0 pin | Selector line | Purpose | Validation status |
+| --------- | ------------- | ------- | ----------------- |
+| `PA3`     | `RST_SEL`     | Selects the `WRD` / `RST` route | schematic-derived only; blocked by undersized `J7` on this PCB revision |
+| `PA4`     | `PWM_SEL`     | Selects the `BIT` / `PWM` route | measured on hardware |
+| `PA9`     | `AN_SEL`      | Selects the `DI` / `AN` route | measured on hardware |
+| `PA10`    | `INT_SEL`     | Selects the `DO` / `INT` route | measured on hardware |
+| `PA11`    | `CIPO_SEL_0`  | `CNT` / `CIPO` mux selector bit 0 | measured on hardware |
+| `PA15`    | `CIPO_SEL_1`  | `CNT` / `CIPO` mux selector bit 1 | measured on hardware |
 
-| Selector bits             | function  | 0  | 1  | 2  | 3  |
-| ------------------------- | --------- | -- | -- | -- | -- |
-| CIPO_SEL_0 / CIPO_SEL_1   | CIPO_SEL  | NA | 38 | 36 | 11 |
+Measured selector polarity:
 
-| Board      | PA15 | PA11 | PA10 | PA9 | PA4 | PA3 |
-| ---------- | ---- | ---- | ---- | --- | --- | --- |
-| BYAI-AM67A | 0    | 1    | 0    | 0   | 0   | 0   |
-| SK-AM62    | 1    | 0    | 1    | 1   | 1   | 1   |
-| SK-AM68/9  | 1    | 1    | 0    | 0   | 0   | 0   |
+| Selector line | `0` selects | `1` selects | Status |
+| ------------- | ----------- | ----------- | ------ |
+| `RST_SEL`     | pin `35` (`WRD`) | `J7/7` | not yet re-validated on hardware |
+| `PWM_SEL`     | pin `11` | pin `12` (`PWM`) | measured |
+| `AN_SEL`      | pin `33` | pin `38` (`AN`) | measured |
+| `INT_SEL`     | pin `36` | pin `40` (`INT`) | measured |
 
-Verified hardware behavior today:
+Measured `CIPO_SEL[1:0]` polarity:
 
-- With `AN_SEL=0` and `INT_SEL=0`, the `AN -> INT` short routed to host `GPIO13` and `GPIO16`.
-- With `AN_SEL=1` and `INT_SEL=1`, the same short routed to host `GPIO20` and `GPIO21`.
-- With `AN_SEL=0` and `PWM_SEL=0`, the `AN -> PWM` short routed to host `GPIO17`.
-- With `AN_SEL=0` and `PWM_SEL=1`, the `AN -> PWM` short routed to host `GPIO18`.
-- With `AN_SEL=0`, `CIPO_SEL_0` / `CIPO_SEL_1` routed `AN -> MISO` as:
-  - `0 / 0` -> no host path selected
-  - `0 / 1` -> host `GPIO20`
-  - `1 / 0` -> host `GPIO16`
-  - `1 / 1` -> host `GPIO17`
+| `CIPO_SEL_0` | `CIPO_SEL_1` | Selected host pin | Status |
+| ------------ | ------------ | ----------------- | ------ |
+| `0`          | `0`          | no host path selected | measured |
+| `0`          | `1`          | pin `38` | measured |
+| `1`          | `0`          | pin `36` | measured |
+| `1`          | `1`          | pin `11` | measured |
 
-That proves the MSPM0 controls the mux. When writing the final firmware, use the measured output polarity above rather than assuming the first software interpretation was correct.
+Desired selector states for each supported host profile:
+
+| Board      | `RST_SEL` | `PWM_SEL` | `AN_SEL` | `INT_SEL` | `CIPO_SEL_0` | `CIPO_SEL_1` | Notes |
+| ---------- | --------- | --------- | -------- | --------- | ------------ | ------------ | ----- |
+| `BYAI-AM67A` | `0` | `1` | `1` | `1` | `1` | `0` | `RST_SEL` still schematic-derived; other values measured |
+| `SK-AM62`    | `1` | `0` | `0` | `0` | `0` | `1` | `RST_SEL` still schematic-derived; other values measured |
+| `SK-AM68/9`  | `0` | `1` | `1` | `1` | `1` | `1` | `RST_SEL` still schematic-derived; other values measured |
+
+Measured loopback results:
+
+- `AN_SEL=0`, `INT_SEL=0` routed `AN -> INT` to host `GPIO13` and `GPIO16`.
+- `AN_SEL=1`, `INT_SEL=1` routed `AN -> INT` to host `GPIO20` and `GPIO21`.
+- `AN_SEL=0`, `PWM_SEL=0` routed `AN -> PWM` to host `GPIO17`.
+- `AN_SEL=0`, `PWM_SEL=1` routed `AN -> PWM` to host `GPIO18`.
+- `AN_SEL=0`, `CIPO_SEL_0=0`, `CIPO_SEL_1=0` selected no host path for `AN -> MISO`.
+- `AN_SEL=0`, `CIPO_SEL_0=0`, `CIPO_SEL_1=1` routed `AN -> MISO` to host `GPIO20`.
+- `AN_SEL=0`, `CIPO_SEL_0=1`, `CIPO_SEL_1=0` routed `AN -> MISO` to host `GPIO16`.
+- `AN_SEL=0`, `CIPO_SEL_0=1`, `CIPO_SEL_1=1` routed `AN -> MISO` to host `GPIO17`.
+
+That proves the MSPM0 controls the mux, and the measured selector polarity
+above should be treated as the source of truth for firmware and host control.
 
 ## Next steps
 - Finish `RST_SEL` validation after fixing or bypassing the undersized `J7` connector on this PCB revision.
