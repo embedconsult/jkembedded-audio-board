@@ -249,14 +249,14 @@ sample_an_pwm() {
 	host_set_bg host-an-pwm GPIO13=0 GPIO20=1
 	expander_set_bg mux-an-pwm-low AN_SEL=0 PWM_SEL=0
 	sleep 0.1
-	printf 'AN->PWM low state (expect GPIO18=0 GPIO17=1): '
+	printf 'AN->PWM low state (expect GPIO18=1 GPIO17=0): '
 	probe_lines GPIO18 GPIO17
 	release_pids
 
 	host_set_bg host-an-pwm GPIO13=0 GPIO20=1
 	expander_set_bg mux-an-pwm-high AN_SEL=0 PWM_SEL=1
 	sleep 0.1
-	printf 'AN->PWM high state (expect GPIO18=1 GPIO17=0): '
+	printf 'AN->PWM high state (expect GPIO18=0 GPIO17=1): '
 	probe_lines GPIO18 GPIO17
 }
 
@@ -282,14 +282,14 @@ sample_an_rst_j7_pwm() {
 	host_set_bg host-an-rst GPIO13=0 GPIO20=1
 	expander_set_bg mux-an-rst-low AN_SEL=0 PWM_SEL=0 RST_SEL=0
 	sleep 0.1
-	printf 'AN->RST / J7->PWM low state (expect GPIO19=0 GPIO18=1): '
+	printf 'AN->RST / J7->PWM low state (measured GPIO19 GPIO18): '
 	probe_lines GPIO19 GPIO18
 	release_pids
 
 	host_set_bg host-an-rst GPIO13=0 GPIO20=1
 	expander_set_bg mux-an-rst-high AN_SEL=0 PWM_SEL=0 RST_SEL=1
 	sleep 0.1
-	printf 'AN->RST / J7->PWM high state (expect GPIO19=1 GPIO18=0): '
+	printf 'AN->RST / J7->PWM high state (measured GPIO19 GPIO18): '
 	probe_lines GPIO19 GPIO18
 }
 

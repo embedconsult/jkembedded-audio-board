@@ -22,7 +22,8 @@ This document outlines the planned firmware, host utilities, and integration ste
 - **Current working command**:
 
 ```sh
-/home/beagle/bb-imager-rs/target/debug/bb-imager-cli --verbose flash zepto \
+BB_IMAGER_CLI="${BB_IMAGER_CLI:-../bb-imager-rs/target/debug/bb-imager-cli}"
+"${BB_IMAGER_CLI}" --verbose flash zepto \
   /path/to/zephyr.hex \
   --reset-gpio GPIO24 \
   --bsl-gpio GPIO25 \

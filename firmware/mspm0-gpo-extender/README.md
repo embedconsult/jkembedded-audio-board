@@ -22,8 +22,10 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
 - The BeagleY-AI flash path is now:
 
 ```sh
-/home/beagle/bb-imager-rs/target/debug/bb-imager-cli --verbose flash zepto \
-  /home/beagle/jkembedded-audio-board/build/mspm0-zephyr/zephyr/zephyr.hex \
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+BB_IMAGER_CLI="${BB_IMAGER_CLI:-../bb-imager-rs/target/debug/bb-imager-cli}"
+"${BB_IMAGER_CLI}" --verbose flash zepto \
+  "${REPO_ROOT}/build/mspm0-zephyr/zephyr/zephyr.hex" \
   --reset-gpio GPIO24 \
   --bsl-gpio GPIO25 \
   /dev/hat/mcu_i2c0
@@ -66,7 +68,7 @@ The Zephyr build smoke test lives in `app/` and targets `mikrobus_hat`. The repo
 ./ci/build-zephyr-mspm0.sh
 ```
 
-The script initializes an isolated west workspace under `build/`, uses the Zephyr SDK toolchain if it is installed at `/opt/zephyr-sdk` (as in CI containers), and rebuilds from a clean tree to catch board or configuration regressions. Local bring-up on the BeagleY-AI host also works against `/home/beagle/zephyr` on the same branch. You can perform the same steps manually:
+The script initializes an isolated west workspace under `build/`, uses the Zephyr SDK toolchain if it is installed at `/opt/zephyr-sdk` (as in CI containers), and rebuilds from a clean tree to catch board or configuration regressions. Local bring-up also works with any sibling or external Zephyr checkout on the same branch. You can perform the same steps manually:
 
 ```sh
 west init -l .

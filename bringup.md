@@ -66,22 +66,23 @@ bring-up attempts.
 #### Host setup used
 
 - BeagleY-AI host
-- Local Zephyr workspace rooted at `/home/beagle`
+- Local Zephyr workspace checked out alongside this repository
 - Local Zephyr branch `audio-board` with MSPM0L110x GPIO support merged
 - `bb-imager-rs` with `flash zepto` support and GPIO-assisted BSL entry
 
 #### Build the firmware image
 
 ```console
+REPO_ROOT="$(git rev-parse --show-toplevel)"
 ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb \
 GNUARMEMB_TOOLCHAIN_PATH=/usr \
-/home/beagle/.venvs/zephyr-tools/bin/west build -p always \
-  -d /home/beagle/jkembedded-audio-board/build/mspm0-zephyr \
+west build -p always \
+  -d "${REPO_ROOT}/build/mspm0-zephyr" \
   -b mikrobus_hat \
-  /home/beagle/jkembedded-audio-board/firmware/mspm0-gpo-extender/app \
+  "${REPO_ROOT}/firmware/mspm0-gpo-extender/app" \
   -- \
   -G'Unix Makefiles' \
-  -DBOARD_ROOT=/home/beagle/jkembedded-audio-board/firmware
+  -DBOARD_ROOT="${REPO_ROOT}/firmware"
 ```
 
 Artifacts:
@@ -94,8 +95,10 @@ Artifacts:
 Current working command:
 
 ```console
-/home/beagle/bb-imager-rs/target/debug/bb-imager-cli --verbose flash zepto \
-  /home/beagle/jkembedded-audio-board/build/mspm0-zephyr/zephyr/zephyr.hex \
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+BB_IMAGER_CLI="${BB_IMAGER_CLI:-../bb-imager-rs/target/debug/bb-imager-cli}"
+"${BB_IMAGER_CLI}" --verbose flash zepto \
+  "${REPO_ROOT}/build/mspm0-zephyr/zephyr/zephyr.hex" \
   --reset-gpio GPIO24 \
   --bsl-gpio GPIO25 \
   /dev/hat/mcu_i2c0
@@ -115,14 +118,24 @@ Notes:
 - Zephyr GPIO works on this board with the local `audio-board` Zephyr branch
 - `PA19` / `PA20` were driven successfully and observed at `J6`
 - The mux is controllable from the MSPM0:
-  - with `PA9=0` and `PA10=0`, an `AN -> INT` short routed to host `GPIO13` and `GPIO16`
-  - with `PA9=1` and `PA10=1`, the same short routed to host `GPIO20` and `GPIO21`
+  - with `AN_SEL=0` and `INT_SEL=0`, an `AN -> INT` short routed to host `GPIO13` and `GPIO16`
+  - with `AN_SEL=1` and `INT_SEL=1`, the same short routed to host `GPIO20` and `GPIO21`
+  - with `AN_SEL=0` and `PWM_SEL=0`, an `AN -> PWM` short routed to host `GPIO17`
+  - with `AN_SEL=0` and `PWM_SEL=1`, the same short routed to host `GPIO18`
+  - with `AN_SEL=0`, the `AN -> MISO` combinations measured as:
+    - `CIPO_SEL_0=0`, `CIPO_SEL_1=0` -> no host path selected
+    - `CIPO_SEL_0=0`, `CIPO_SEL_1=1` -> host `GPIO20`
+    - `CIPO_SEL_0=1`, `CIPO_SEL_1=0` -> host `GPIO16`
+    - `CIPO_SEL_0=1`, `CIPO_SEL_1=1` -> host `GPIO17`
 
 That proves:
 
 - the updated flash path works
 - the updated Zephyr MSPM0L1105 GPIO driver works
-- at least the `AN_DI_SEL` and `INT_DO_SEL` mux selectors are controllable in firmware
+- the `AN_SEL`, `INT_SEL`, `PWM_SEL`, `CIPO_SEL_0`, and `CIPO_SEL_1`
+  selectors are controllable in firmware
+- `RST_SEL` still needs re-validation because the `J7` footprint is too small
+  to make the documented jumper setup reliable
 
 #### I2C target validation
 
@@ -163,7 +176,7 @@ host control are both working on hardware.
 The validation flow is now scripted:
 
 ```console
-/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-int
+./firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-int
 ```
 
 With the audio board removed and `AN` shorted to `INT` on the mikroBUS socket,
@@ -179,7 +192,7 @@ Manual hold-and-probe mode is also available:
 1. Hold the host-side source levels apart:
 
 ```console
-/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh hold an-int low
+./firmware/host-integration/linux/beagley-ai/validate-mux.sh hold an-int low
 ```
 
 Expected result:
@@ -190,7 +203,7 @@ Expected result:
 Then:
 
 ```console
-/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh hold an-int high
+./firmware/host-integration/linux/beagley-ai/validate-mux.sh hold an-int high
 ```
 
 Expected result:
@@ -209,30 +222,51 @@ MSPM0 pins directly:
 - `AN -> PWM`
 
 ```console
-/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-pwm
+./firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-pwm
+```
+
+Current measured output:
+
+```console
+AN->PWM low state (expect GPIO18=1 GPIO17=0): 1 0
+AN->PWM high state (expect GPIO18=0 GPIO17=1): 0 1
 ```
 
 - `AN -> MISO`
 
 ```console
-/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-miso
+./firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-miso
+```
+
+Current measured output:
+
+```console
+AN->MISO state 0 (CIPO_SEL_0=0 CIPO_SEL_1=0) -> GPIO16 GPIO20 GPIO17: 1 1 1
+AN->MISO state 1 (CIPO_SEL_0=0 CIPO_SEL_1=1) -> GPIO16 GPIO20 GPIO17: 1 0 1
+AN->MISO state 2 (CIPO_SEL_0=1 CIPO_SEL_1=0) -> GPIO16 GPIO20 GPIO17: 0 1 1
+AN->MISO state 3 (CIPO_SEL_0=1 CIPO_SEL_1=1) -> GPIO16 GPIO20 GPIO17: 1 1 0
 ```
 
 - `AN -> RST` and `J7/7 -> PWM`
 
 ```console
-/home/beagle/jkembedded-audio-board/firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-rst-j7-pwm
+./firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-rst-j7-pwm
 ```
 
-That set of jumpers covers all remaining selector GPIOs:
+Current measured output on this PCB revision:
 
-- `PWM_SEL`
-- `CIPO_SEL_0`
-- `CIPO_SEL_1`
-- `RST_SEL`
+```console
+AN->RST / J7->PWM low state (measured GPIO19 GPIO18): 1 1
+AN->RST / J7->PWM high state (measured GPIO19 GPIO18): 0 1
+```
+
+Because `J7` is undersized on this PCB revision, treat the `RST_SEL` result as
+inconclusive until you either bodge a larger test point or wire the net by some
+other reliable means.
 
 #### Current gaps before production firmware
 
-- `PA3`, `PA4`, `PA11`, and `PA15` still need the same measured-polarity validation
+- `RST_SEL` still needs a reliable measured-polarity validation after fixing or
+  bypassing the `J7` access issue
 - The current `mspm0-gpo-extender` app only exposes the mux selectors through
   the PCA9538 register model; host-profile policy is still future work

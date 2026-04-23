@@ -107,14 +107,14 @@ How should the GPIO expander be set to route those signals for each board?
 
 | MSPM0 signal | function    | 0  | 1    |
 | ------------ | ----------- | -- | ---- |
-| PA3          | RST_WRD_SEL | 35 | J7/7 |
-| PA4          | PWM_BIT_SEL | 12 | 11   |
-| PA9          | AN_DI_SEL   | 38 | 33   |
-| PA10         | INT_DO_SEL  | 40 | 36   |
+| PA3          | RST_SEL      | unresolved on current PCB revision because `J7` is too small to validate reliably |
+| PA4          | PWM_SEL      | 11 | 12   |
+| PA9          | AN_SEL       | 33 | 38   |
+| PA10         | INT_SEL      | 36 | 40   |
 
-| MSPM0 signals | function     | 0  | 1  | 2  | 3  |
-| ------------- | ------------ | -- | -- | -- | -- |
-| PA15/PA11     | CIPO_CNT_SEL | NA | 36 | 38 | 11 |
+| Selector bits             | function  | 0  | 1  | 2  | 3  |
+| ------------------------- | --------- | -- | -- | -- | -- |
+| CIPO_SEL_0 / CIPO_SEL_1   | CIPO_SEL  | NA | 38 | 36 | 11 |
 
 | Board      | PA15 | PA11 | PA10 | PA9 | PA4 | PA3 |
 | ---------- | ---- | ---- | ---- | --- | --- | --- |
@@ -122,15 +122,22 @@ How should the GPIO expander be set to route those signals for each board?
 | SK-AM62    | 1    | 0    | 1    | 1   | 1   | 1   |
 | SK-AM68/9  | 1    | 1    | 0    | 0   | 0   | 0   |
 
-Verified hardware behavior today for the `AN` / `INT` selectors:
+Verified hardware behavior today:
 
-- With `PA9=0` and `PA10=0`, the `AN -> INT` short routed to host `GPIO13` and `GPIO16`.
-- With `PA9=1` and `PA10=1`, the same short routed to host `GPIO20` and `GPIO21`.
+- With `AN_SEL=0` and `INT_SEL=0`, the `AN -> INT` short routed to host `GPIO13` and `GPIO16`.
+- With `AN_SEL=1` and `INT_SEL=1`, the same short routed to host `GPIO20` and `GPIO21`.
+- With `AN_SEL=0` and `PWM_SEL=0`, the `AN -> PWM` short routed to host `GPIO17`.
+- With `AN_SEL=0` and `PWM_SEL=1`, the `AN -> PWM` short routed to host `GPIO18`.
+- With `AN_SEL=0`, `CIPO_SEL_0` / `CIPO_SEL_1` routed `AN -> MISO` as:
+  - `0 / 0` -> no host path selected
+  - `0 / 1` -> host `GPIO20`
+  - `1 / 0` -> host `GPIO16`
+  - `1 / 1` -> host `GPIO17`
 
 That proves the MSPM0 controls the mux. When writing the final firmware, use the measured output polarity above rather than assuming the first software interpretation was correct.
 
 ## Next steps
-- Convert the remaining selectors (`PA3`, `PA4`, `PA11`, `PA15`) from assumed polarity to measured polarity with the same Linux loopback method.
+- Finish `RST_SEL` validation after fixing or bypassing the undersized `J7` connector on this PCB revision.
 - Decide the production MSPM0 firmware interface:
   - fixed per-host mux profiles, or
   - an I2C target / GPO-expander compatible interface.

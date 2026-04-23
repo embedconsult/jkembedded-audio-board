@@ -21,7 +21,8 @@ BeaglePlay is excluded because it does not use the mikroBUS HAT.
 - The working invocation is:
 
 ```console
-/home/beagle/bb-imager-rs/target/debug/bb-imager-cli --verbose flash zepto \
+BB_IMAGER_CLI="${BB_IMAGER_CLI:-../bb-imager-rs/target/debug/bb-imager-cli}"
+"${BB_IMAGER_CLI}" --verbose flash zepto \
   /path/to/zephyr.hex \
   --reset-gpio GPIO24 \
   --bsl-gpio GPIO25 \
