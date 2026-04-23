@@ -126,36 +126,40 @@ That proves:
 
 #### I2C target validation
 
-The current `app/` image is a minimal Zephyr I2C target using
-`zephyr,i2c-target-eeprom` at address `0x20`.
+The current `app/` image emulates a `pca9538`-compatible 8-bit GPIO expander
+at address `0x20`.
 
 Validated on hardware:
 
 - `0x20` ACKs in normal boot
 - `0x48` disappears after returning `GPIO25` low and resetting with `GPIO24`
-- userspace writes/readbacks work:
+- direct register access works:
 
 ```console
-i2ctransfer -y 1 w3@0x20 0x00 0xaa 0x55
-i2ctransfer -y 1 w1@0x20 0x00 r2
-# returns: 0xaa 0x55
+i2ctransfer -y 1 w1@0x20 0x00 r4
+# returns: INPUT OUTPUT POLARITY CONFIG
+# example: 0xc0 0xff 0x00 0xff
 ```
 
-- a standard Linux kernel client also works:
+- a standard Linux `gpio-pca953x` client also works:
 
 ```console
-echo 24c02 0x20 | sudo tee /sys/bus/i2c/devices/i2c-1/new_device
-sudo dd if=/sys/bus/i2c/devices/1-0020/eeprom bs=1 count=16 2>/dev/null | hexdump -C
+echo pca9538 0x20 | sudo tee /sys/bus/i2c/devices/i2c-1/new_device
+gpiodetect
+gpioinfo -c gpiochip3
 echo 0x20 | sudo tee /sys/bus/i2c/devices/i2c-1/delete_device
 ```
 
-That is the current proof point that MSPM0 I2C target mode is working well
-enough to proceed to PCA9538 emulation.
+- with `gpio-pca953x` bound, expander bits 2 and 3 control the measured mux
+  route:
+  - `2=0, 3=0` gives the `GPIO13 -> GPIO16` path
+  - `2=1, 3=1` gives the `GPIO20 -> GPIO21` path
+
+That is the current proof point that MSPM0 I2C target mode and PCA9538-style
+host control are both working on hardware.
 
 #### Current gaps before production firmware
 
 - `PA3`, `PA4`, `PA11`, and `PA15` still need the same measured-polarity validation
-- The production MSPM0 firmware interface is still a decision:
-  - fixed host-profile image, or
-  - I2C target / GPO-expander style interface
-- The current `mspm0-gpo-extender` app is a hardware-validation app, not final product firmware
+- The current `mspm0-gpo-extender` app only exposes the mux selectors through
+  the PCA9538 register model; host-profile policy is still future work
