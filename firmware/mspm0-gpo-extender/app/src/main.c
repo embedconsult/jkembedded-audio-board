@@ -6,14 +6,14 @@
 
 #define USER_NODE DT_PATH(zephyr_user)
 
-#define PCA9538_I2C_ADDR 0x20
-#define PCA9538_REG_INPUT 0x00
-#define PCA9538_REG_OUTPUT 0x01
-#define PCA9538_REG_POLARITY 0x02
-#define PCA9538_REG_CONFIG 0x03
-#define PCA9538_REG_MASK 0x03
+#define PCA9538_I2C_ADDR      0x20
+#define PCA9538_REG_INPUT     0x00
+#define PCA9538_REG_OUTPUT    0x01
+#define PCA9538_REG_POLARITY  0x02
+#define PCA9538_REG_CONFIG    0x03
+#define PCA9538_REG_MASK      0x03
 #define PCA9538_HW_GPIO_COUNT 6
-#define PCA9538_HW_MASK GENMASK(PCA9538_HW_GPIO_COUNT - 1, 0)
+#define PCA9538_HW_MASK       GENMASK(PCA9538_HW_GPIO_COUNT - 1, 0)
 
 struct pca9538_state {
 	uint8_t output;
@@ -56,8 +56,7 @@ static int pca9538_apply_outputs(void)
 
 		is_input = (pca9538.config & BIT(i)) != 0U;
 		level = (pca9538.output & BIT(i)) != 0U;
-		flags = is_input ? GPIO_INPUT :
-				   (level ? GPIO_OUTPUT_ACTIVE : GPIO_OUTPUT_INACTIVE);
+		flags = is_input ? GPIO_INPUT : (level ? GPIO_OUTPUT_ACTIVE : GPIO_OUTPUT_INACTIVE);
 
 		ret = gpio_pin_configure_dt(spec, flags);
 		if (ret < 0) {
