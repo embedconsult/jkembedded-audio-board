@@ -1,0 +1,31 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "beagle,am67a-beagley-ai", "ti,am67";
+
+	fragment@0 {
+		target-path = "/bus@f0000/bus@4000000/i2c@4900000";
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mspm0_mux: gpio-expander@20 {
+				compatible = "nxp,pca9538";
+				reg = <0x20>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				gpio-line-names =
+					"RST_SEL",
+					"PWM_SEL",
+					"AN_SEL",
+					"INT_SEL",
+					"CIPO_SEL_0",
+					"CIPO_SEL_1",
+					"",
+					"";
+				status = "okay";
+			};
+		};
+	};
+};

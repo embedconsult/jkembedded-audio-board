@@ -77,11 +77,11 @@ ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb \
 GNUARMEMB_TOOLCHAIN_PATH=/usr \
 /home/beagle/.venvs/zephyr-tools/bin/west build -p always \
   -d /home/beagle/jkembedded-audio-board/build/mspm0-zephyr \
-  -b jkembedded_mikrobus_hat_mspm0 \
+  -b mikrobus_hat \
   /home/beagle/jkembedded-audio-board/firmware/mspm0-gpo-extender/app \
   -- \
   -G'Unix Makefiles' \
-  -DBOARD_ROOT=/home/beagle/jkembedded-audio-board/firmware/mspm0-gpo-extender
+  -DBOARD_ROOT=/home/beagle/jkembedded-audio-board/firmware
 ```
 
 Artifacts:
@@ -157,6 +157,48 @@ echo 0x20 | sudo tee /sys/bus/i2c/devices/i2c-1/delete_device
 
 That is the current proof point that MSPM0 I2C target mode and PCA9538-style
 host control are both working on hardware.
+
+#### Current validation recipe
+
+With the audio board removed and `AN` shorted to `INT` on the mikroBUS socket:
+
+1. Hold the host-side source levels apart:
+
+```console
+gpioset -C host-a GPIO13=0 GPIO20=1
+```
+
+2. Drive the emulated selector lines low:
+
+```console
+gpioset -C mux-low -c gpiochip3 2=0 3=0
+```
+
+Expected result:
+
+- probe or read `GPIO16` low
+- probe or read `GPIO21` high
+
+3. Release those holders, then invert the source levels:
+
+```console
+gpioset -C host-b GPIO13=1 GPIO20=0
+```
+
+4. Drive the emulated selector lines high:
+
+```console
+gpioset -C mux-high -c gpiochip3 2=1 3=1
+```
+
+Expected result:
+
+- probe or read `GPIO16` high
+- probe or read `GPIO21` low
+
+Once the host-side overlay is applied, the same selector control should be
+available by line name as `AN_SEL` and `INT_SEL` rather than by `gpiochip3`
+offsets `2` and `3`.
 
 #### Current gaps before production firmware
 

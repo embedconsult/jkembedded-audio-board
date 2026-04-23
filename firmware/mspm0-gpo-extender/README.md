@@ -9,7 +9,7 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
 
 ## Current state
 
-- The Zephyr board `jkembedded_mikrobus_hat_mspm0` is building and flashing successfully.
+- The shared Zephyr board `mikrobus_hat` is building and flashing successfully.
 - Basic GPIO validation is working:
   - `firmware/blinky/` is the clean minimal board support / GPIO smoke test.
   - The `app/` image has been used to verify `PA19` / `PA20` at `J6`.
@@ -42,7 +42,7 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
 
 ## Zephyr board configuration
 
-- **Board identifier**: `jkembedded_mikrobus_hat_mspm0` (see `boards/arm/jkembedded_mikrobus_hat_mspm0/`).
+- **Board identifier**: `mikrobus_hat` (see `firmware/boards/arm/mikrobus_hat/`).
 - **I2C role**: target/peripheral on `PA0`/`PA1`, currently emulating an 8-bit `pca9538` GPIO expander at `0x20` so existing Linux `pca953x` drivers can toggle the mux selects without changes.
 - **I2C pins**: `PA0` = SDA (`HAT_SDA`), `PA1` = SCL (`HAT_SCL`).
 - **Bootloader pins**: `PA18` = `MCU_BOOTLOADER_SEL`, `NRST` exposed via the reset net shared with the programming header.
@@ -56,11 +56,11 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
   6. reserved for future use
   7. reserved for future use
 
-The device tree in `boards/arm/jkembedded_mikrobus_hat_mspm0/jkembedded_mikrobus_hat_mspm0.dts` documents the current pinctrl and validation GPIO map. The current `app/` implementation uses the PCA9538 register model directly rather than the older EEPROM target shim.
+The shared board DTS in `firmware/boards/arm/mikrobus_hat/mikrobus_hat.dts` documents the current pinctrl and validation GPIO map. The current `app/` implementation uses the PCA9538 register model directly rather than the older EEPROM target shim.
 
 ## Build and CI smoke test
 
-The Zephyr build smoke test lives in `app/` and targets `jkembedded_mikrobus_hat_mspm0`. The repo `west.yml` now points Zephyr at the `audio-board` branch and imports only the required modules (`cmsis_6` and `hal_ti`). Run the same script locally from the repo root:
+The Zephyr build smoke test lives in `app/` and targets `mikrobus_hat`. The repo `west.yml` now points Zephyr at the `audio-board` branch and imports only the required modules (`cmsis_6` and `hal_ti`). Run the same script locally from the repo root:
 
 ```sh
 ./ci/build-zephyr-mspm0.sh
@@ -72,11 +72,11 @@ The script initializes an isolated west workspace under `build/`, uses the Zephy
 west init -l .
 west update --narrow --fetch-opt=--depth=1
 west build -p always \
-  -b jkembedded_mikrobus_hat_mspm0 \
+  -b mikrobus_hat \
   "$PWD/firmware/mspm0-gpo-extender/app" \
   --build-dir "$PWD/build/mspm0-zephyr" \
   -- \
-  -DBOARD_ROOT="$PWD/firmware/mspm0-gpo-extender"
+  -DBOARD_ROOT="$PWD/firmware"
 ```
 
 CI also runs `clang-format` (using `.clang-format` from Zephyr) and `dtslint.py` on the board DTS before building.

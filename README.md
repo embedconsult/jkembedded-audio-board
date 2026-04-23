@@ -57,12 +57,14 @@ KiCad design files, firmware plans, and host-side utilities for the JK-Embedded 
 
 ## Current validated state
 - The local `zephyr` `audio-board` branch includes working MSPM0L110x GPIO support for this board.
+- The shared Zephyr board definition for MSPM0 firmware now lives at `firmware/boards/arm/mikrobus_hat/`.
 - The BeagleY-AI flash path is working with:
   - `GPIO24` as `MCU_RESET`
   - `GPIO25` as `MCU_BOOTLOADER_SEL`
   - `/dev/hat/mcu_i2c0` as the MSPM0 I2C/BSL bus
   - `bb-imager-cli --verbose flash zepto ... --reset-gpio GPIO24 --bsl-gpio GPIO25 /dev/hat/mcu_i2c0`
 - `firmware/blinky/` is the clean minimal Zephyr GPIO validation app and is a better board/GPIO smoke test than the earlier ad hoc debug images.
+- The MSPM0 now emulates a `pca9538`-compatible GPIO expander at `0x20`, and Linux can bind the standard `gpio-pca953x` driver to it.
 - Zephyr GPIO control has been verified electrically on:
   - `PA19` / `PA20` at `J6`
   - `PA9` / `PA10` through the muxes using an `AN -> INT` short on the mikroBUS socket

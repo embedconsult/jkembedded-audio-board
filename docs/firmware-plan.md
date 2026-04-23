@@ -43,8 +43,6 @@ This document outlines the planned firmware, host utilities, and integration ste
 - `docs/`: Additional design notes, bring-up procedures, and any shared usage documentation.
 
 ## Next integration steps
-1. Lock down measured selector polarity for the remaining mux-control GPIOs.
-2. Choose the production MSPM0 firmware model:
-   fixed-profile image or host-controlled I2C target.
-3. Create initial DTS overlays for Si5351 and DAC53002 usage on the target hosts.
-4. Add CI jobs to build/test the firmware and programmer utility once sources are stabilized.
+1. Finish the remaining selector-polarity measurements (`PA3`, `PA4`, `PA11`, `PA15`) using the documented `gpioset` and probe procedure.
+2. Apply and test the host-side `pca9538` integration so Linux exposes the MSPM0 lines as `RST_SEL`, `PWM_SEL`, `CIPO_SEL_0`, `CIPO_SEL_1`, `AN_SEL`, and `INT_SEL`.
+3. Keep all MSPM0 Zephyr apps building from the shared `firmware/boards/arm/mikrobus_hat/` board root and extend CI coverage as new apps are added.
