@@ -63,6 +63,24 @@ beagle@beagle:~$ i2cdetect -y -r 3
 This section captures the current working state, not the older failed
 bring-up attempts.
 
+#### Reproducible starting point
+
+Use this starting point for a fresh system:
+
+- BeagleY-AI host
+- mikroBUS HAT installed
+- audio board installed on the mikroBUS socket
+- no validation jumpers fitted
+- no MSPM0 GPIO overlay applied
+- no audio overlay applied
+- no 1-wire EEPROM programming assumptions
+
+The goal at this stage is only:
+
+1. build the MSPM0 firmware
+2. flash it over `/dev/hat/mcu_i2c0`
+3. verify the raw I2C bus without any overlay help
+
 #### Host setup used
 
 - BeagleY-AI host
@@ -112,6 +130,33 @@ Notes:
 - The repo-built `bb-imager-cli` supports `flash zepto`; a stale installed CLI may not
 - Flash verify over this transport is still not fully trustworthy; `--no-verify`
   may be required if the CRC stage reports a false failure after program/write succeeds
+
+#### Raw post-flash verification
+
+Before using any overlay or Linux `pca953x` binding, verify the raw bus:
+
+```console
+i2cdetect -y -r 1
+```
+
+Expected result after a successful flash and return to normal boot:
+
+- audio board devices still present at `0x47`, `0x50`, and `0x60`
+- MSPM0 app present at `0x20`
+- no `0x48`
+
+Troubleshooting:
+
+- if `0x20` appears as `UU`, a previous `pca953x` client is already bound and
+  should be removed before treating the scan as a clean baseline:
+
+```console
+echo 0x20 | sudo tee /sys/bus/i2c/devices/i2c-1/delete_device
+```
+
+- if `0x48` is still present, the MSPM0 is still in ROM BSL and boot-state
+  handling needs to be fixed before moving on
+- keep overlays disabled until this raw-I2C check passes
 
 #### What is verified on hardware
 

@@ -18,6 +18,10 @@ The MSPM0 now emulates a `pca9538`-compatible GPIO expander at `0x20` on the
 host-visible I2C bus `/dev/hat/mcu_i2c0` (`i2c-1` on the current BeagleY-AI
 setup).
 
+Do not start here for fresh-system bring-up. The initial reproduction point is
+the raw build/flash/raw-I2C flow in `bringup.md`, before any overlay or manual
+Linux `pca953x` binding is introduced.
+
 ### BeagleY-AI overlay
 
 Use `firmware/host-integration/linux/beagley-ai/mspm0-pca9538-gpio.dts`

@@ -10,6 +10,11 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
 ## Current state
 
 - The shared Zephyr board `mikrobus_hat` is building and flashing successfully.
+- The current reproducible bring-up point is intentionally overlay-free:
+  - mikroBUS HAT installed
+  - audio board installed
+  - no validation jumpers
+  - no MSPM0 GPIO overlay applied yet
 - Basic GPIO validation is working:
   - `firmware/blinky/` is the clean minimal board support / GPIO smoke test.
   - The `app/` image has been used to verify `PA19` / `PA20` at `J6`.
@@ -38,7 +43,7 @@ BB_IMAGER_CLI="${BB_IMAGER_CLI:-../bb-imager-rs/target/debug/bb-imager-cli}"
 - **Outputs**: Deterministic mux control lines for each supported host profile.
 
 ## Remaining work
-- Validate selector polarity for `PA3`, `PA4`, `PA11`, and `PA15`
+- Document and preserve the clean raw-I2C bring-up path before enabling overlays
 - Decide how host-profile policy should sit on top of the PCA9538 register model
 - Add any host integration needed for line naming or board-specific defaults when binding the Linux `pca953x` client
 

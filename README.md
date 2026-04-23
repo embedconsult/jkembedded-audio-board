@@ -69,6 +69,47 @@ KiCad design files, firmware plans, and host-side utilities for the JK-Embedded 
   - `PA19` / `PA20` at `J6`
   - `PA9` / `PA10` through the muxes using an `AN -> INT` short on the mikroBUS socket
 
+## Fresh System Reproduction
+
+Use this path when starting from a fresh BeagleY-AI system with:
+
+- the mikroBUS HAT installed
+- the audio board installed on the mikroBUS socket
+- no validation jumpers fitted
+- no MSPM0 GPIO overlay applied
+- no audio overlay applied
+- no 1-wire EEPROM programming assumptions
+
+This is the current reproducible starting point for bring-up.
+
+### What to read first
+
+- [bringup.md](/home/beagle/jkembedded-audio-board/bringup.md)
+- [firmware/mspm0-gpo-extender/README.md](/home/beagle/jkembedded-audio-board/firmware/mspm0-gpo-extender/README.md)
+- [firmware/host-programmers/README.md](/home/beagle/jkembedded-audio-board/firmware/host-programmers/README.md)
+
+### Minimum prerequisites
+
+- `/dev/hat/mcu_i2c0` exists and resolves to the HAT-facing I2C bus
+- GPIO line names `GPIO24` and `GPIO25` exist on the host
+- `bb-imager-cli` is available from the checked-out `bb-imager-rs` repo
+- Zephyr is checked out on the `audio-board` branch and reachable through this repo's `west.yml`
+
+### Reproduction steps
+
+1. Build the MSPM0 firmware in `firmware/mspm0-gpo-extender/app`.
+2. Flash it with `bb-imager-cli --verbose flash zepto ... --reset-gpio GPIO24 --bsl-gpio GPIO25 /dev/hat/mcu_i2c0`.
+3. Verify the raw I2C bus before doing anything with overlays:
+   - the audio board devices should still be present at `0x47`, `0x50`, and `0x60`
+   - the MSPM0 application should respond at `0x20`
+   - `0x48` should not still be present after returning to normal boot
+
+### Notes
+
+- Keep the initial reproduction point overlay-free. Bind the Linux `pca9538` client or apply the BeagleY-AI overlay only after the raw flash and raw-I2C checks pass.
+- If `0x20` shows up as `UU`, a previous `pca953x` binding is still active and should be removed before treating the scan as a clean baseline.
+- If `0x48` remains present after flashing, the MSPM0 is still in ROM BSL and `GPIO25` / boot-state handling needs to be checked before moving on.
+
 ## Host programmer expectations
 - Produce statically linked aarch64 binaries (Rust or Crystal) with no runtime dependencies beyond the Linux kernel.
 - Discover GPIO line names and I2C controller symlinks when available; otherwise fall back to board-specific static mappings or CLI arguments.
