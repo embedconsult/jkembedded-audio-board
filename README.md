@@ -103,38 +103,43 @@ Where do the various SBC signals need to go to the board connector for each boar
 
 ## GPIO switches
 
-How should the GPIO expander be set to route those signals for each board?
+The MSPM0 firmware exposes these selector lines through the emulated
+`pca9538` GPIO expander:
 
-| MSPM0 signal | function    | 0  | 1    |
-| ------------ | ----------- | -- | ---- |
-| PA3          | RST_SEL      | unresolved on current PCB revision because `J7` is too small to validate reliably |
-| PA4          | PWM_SEL      | 11 | 12   |
-| PA9          | AN_SEL       | 33 | 38   |
-| PA10         | INT_SEL      | 36 | 40   |
+| PCA9538 bit | Selector line | MSPM0 pin | Controlled route |
+| ----------- | ------------- | --------- | ---------------- |
+| 0           | `RST_SEL`     | `PA3`     | `WRD` between HAT pin `35` and `J7/7` |
+| 1           | `PWM_SEL`     | `PA4`     | `BIT` between HAT pin `11` and HAT pin `12` |
+| 2           | `AN_SEL`      | `PA9`     | `DI` between HAT pin `33` and HAT pin `38` |
+| 3           | `INT_SEL`     | `PA10`    | `DO` between HAT pin `36` and HAT pin `40` |
+| 4           | `CIPO_SEL_0`  | `PA11`    | `CNT` / `CIPO` selector bit 0 |
+| 5           | `CIPO_SEL_1`  | `PA15`    | `CNT` / `CIPO` selector bit 1 |
 
-| Selector bits             | function  | 0  | 1  | 2  | 3  |
-| ------------------------- | --------- | -- | -- | -- | -- |
-| CIPO_SEL_0 / CIPO_SEL_1   | CIPO_SEL  | NA | 38 | 36 | 11 |
+Single-bit selector settings:
 
-| Board      | PA15 | PA11 | PA10 | PA9 | PA4 | PA3 |
-| ---------- | ---- | ---- | ---- | --- | --- | --- |
-| BYAI-AM67A | 0    | 1    | 0    | 0   | 0   | 0   |
-| SK-AM62    | 1    | 0    | 1    | 1   | 1   | 1   |
-| SK-AM68/9  | 1    | 1    | 0    | 0   | 0   | 0   |
+| Selector line | `0` | `1` |
+| ------------- | --- | --- |
+| `RST_SEL`     | `WRD` on HAT pin `35` | `WRD` on `J7/7` |
+| `PWM_SEL`     | `BIT` on HAT pin `11` | `BIT` on HAT pin `12` |
+| `AN_SEL`      | `DI` on HAT pin `33` | `DI` on HAT pin `38` |
+| `INT_SEL`     | `DO` on HAT pin `36` | `DO` on HAT pin `40` |
 
-Verified hardware behavior today:
+Two-bit `CNT` / `CIPO` selector settings:
 
-- With `AN_SEL=0` and `INT_SEL=0`, the `AN -> INT` short routed to host `GPIO13` and `GPIO16`.
-- With `AN_SEL=1` and `INT_SEL=1`, the same short routed to host `GPIO20` and `GPIO21`.
-- With `AN_SEL=0` and `PWM_SEL=0`, the `AN -> PWM` short routed to host `GPIO17`.
-- With `AN_SEL=0` and `PWM_SEL=1`, the `AN -> PWM` short routed to host `GPIO18`.
-- With `AN_SEL=0`, `CIPO_SEL_0` / `CIPO_SEL_1` routed `AN -> MISO` as:
-  - `0 / 0` -> no host path selected
-  - `0 / 1` -> host `GPIO20`
-  - `1 / 0` -> host `GPIO16`
-  - `1 / 1` -> host `GPIO17`
+| `CIPO_SEL_0` | `CIPO_SEL_1` | `CNT` on |
+| ------------ | ------------ | -------- |
+| `0`          | `0`          | not connected |
+| `0`          | `1`          | HAT pin `38` |
+| `1`          | `0`          | HAT pin `36` |
+| `1`          | `1`          | HAT pin `11` |
 
-That proves the MSPM0 controls the mux. When writing the final firmware, use the measured output polarity above rather than assuming the first software interpretation was correct.
+Selector settings for each target host:
+
+| Target host | `RST_SEL` | `PWM_SEL` | `AN_SEL` | `INT_SEL` | `CIPO_SEL_0` | `CIPO_SEL_1` |
+| ----------- | --------- | --------- | -------- | --------- | ------------ | ------------ |
+| `BYAI-AM67A` | `0` | `1` | `1` | `1` | `1` | `0` |
+| `SK-AM62`    | `1` | `0` | `0` | `0` | `0` | `1` |
+| `SK-AM68/9`  | `0` | `1` | `1` | `1` | `1` | `1` |
 
 ## Next steps
 - Finish `RST_SEL` validation after fixing or bypassing the undersized `J7` connector on this PCB revision.
