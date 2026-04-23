@@ -26,15 +26,16 @@ Fixtures:
   an-miso
     Required jumper: mikroBUS AN -> MISO
 
-  an-rst-j7-pwm
-    Required jumpers:
-      mikroBUS AN -> RST
-      J7/7 -> mikroBUS PWM
+  an-rst
+    Required jumper: mikroBUS AN -> RST
+    Observation points:
+      HAT pin 35 / GPIO19
+      HAT pin 7 / GPIO4 (same signal as J7 through R23)
 
 States:
   an-int: low | high
   an-pwm: low | high
-  an-rst-j7-pwm: low | high
+  an-rst: low | high
 
 Examples:
   validate-mux.sh hold an-int low
@@ -197,27 +198,27 @@ Expected:
 Press Ctrl-C to release the held lines.
 EOF
 		;;
-	an-rst-j7-pwm:low)
+	an-rst:low)
 		host_set_bg host-an-rst GPIO13=0 GPIO20=1
-		expander_set_bg mux-an-rst-low AN_SEL=0 PWM_SEL=0 RST_SEL=0
+		expander_set_bg mux-an-rst-low AN_SEL=0 RST_SEL=0
 		cat <<'EOF'
-Fixture: AN -> RST and J7/7 -> PWM
-Driven state: AN_SEL=0, PWM_SEL=0, RST_SEL=0
+Fixture: AN -> RST
+Driven state: AN_SEL=0, RST_SEL=0
 Expected:
   GPIO19 low
-  GPIO18 high
+  GPIO4 high
 Press Ctrl-C to release the held lines.
 EOF
 		;;
-	an-rst-j7-pwm:high)
+	an-rst:high)
 		host_set_bg host-an-rst GPIO13=0 GPIO20=1
-		expander_set_bg mux-an-rst-high AN_SEL=0 PWM_SEL=0 RST_SEL=1
+		expander_set_bg mux-an-rst-high AN_SEL=0 RST_SEL=1
 		cat <<'EOF'
-Fixture: AN -> RST and J7/7 -> PWM
-Driven state: AN_SEL=0, PWM_SEL=0, RST_SEL=1
+Fixture: AN -> RST
+Driven state: AN_SEL=0, RST_SEL=1
 Expected:
   GPIO19 high
-  GPIO18 low
+  GPIO4 low
 Press Ctrl-C to release the held lines.
 EOF
 		;;
@@ -278,19 +279,19 @@ sample_an_miso() {
 	done
 }
 
-sample_an_rst_j7_pwm() {
+sample_an_rst() {
 	host_set_bg host-an-rst GPIO13=0 GPIO20=1
-	expander_set_bg mux-an-rst-low AN_SEL=0 PWM_SEL=0 RST_SEL=0
+	expander_set_bg mux-an-rst-low AN_SEL=0 RST_SEL=0
 	sleep 0.1
-	printf 'AN->RST / J7->PWM low state (measured GPIO19 GPIO18): '
-	probe_lines GPIO19 GPIO18
+	printf 'AN->RST low state (expect GPIO19=0 GPIO4=1): '
+	probe_lines GPIO19 GPIO4
 	release_pids
 
 	host_set_bg host-an-rst GPIO13=0 GPIO20=1
-	expander_set_bg mux-an-rst-high AN_SEL=0 PWM_SEL=0 RST_SEL=1
+	expander_set_bg mux-an-rst-high AN_SEL=0 RST_SEL=1
 	sleep 0.1
-	printf 'AN->RST / J7->PWM high state (measured GPIO19 GPIO18): '
-	probe_lines GPIO19 GPIO18
+	printf 'AN->RST high state (expect GPIO19=1 GPIO4=0): '
+	probe_lines GPIO19 GPIO4
 }
 
 main() {
@@ -329,8 +330,8 @@ main() {
 	sample:an-miso)
 		sample_an_miso
 		;;
-	sample:an-rst-j7-pwm)
-		sample_an_rst_j7_pwm
+	sample:an-rst)
+		sample_an_rst
 		;;
 	*)
 		usage >&2

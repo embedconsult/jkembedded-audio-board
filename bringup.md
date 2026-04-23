@@ -134,8 +134,8 @@ That proves:
 - the updated Zephyr MSPM0L1105 GPIO driver works
 - the `AN_SEL`, `INT_SEL`, `PWM_SEL`, `CIPO_SEL_0`, and `CIPO_SEL_1`
   selectors are controllable in firmware
-- `RST_SEL` still needs re-validation because the `J7` footprint is too small
-  to make the documented jumper setup reliable
+- `RST_SEL` can be validated from HAT pin `7` (`GPIO4`), which is tied to the
+  `J7` signal through `R23` (`0 ohm`)
 
 #### I2C target validation
 
@@ -247,26 +247,25 @@ AN->MISO state 2 (CIPO_SEL_0=1 CIPO_SEL_1=0) -> GPIO16 GPIO20 GPIO17: 0 1 1
 AN->MISO state 3 (CIPO_SEL_0=1 CIPO_SEL_1=1) -> GPIO16 GPIO20 GPIO17: 1 1 0
 ```
 
-- `AN -> RST` and `J7/7 -> PWM`
+- `AN -> RST`
 
 ```console
-./firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-rst-j7-pwm
+./firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-rst
 ```
 
-Current measured output on this PCB revision:
+Expected output:
 
 ```console
-AN->RST / J7->PWM low state (measured GPIO19 GPIO18): 1 1
-AN->RST / J7->PWM high state (measured GPIO19 GPIO18): 0 1
+AN->RST low state (expect GPIO19=0 GPIO4=1): 0 1
+AN->RST high state (expect GPIO19=1 GPIO4=0): 1 0
 ```
 
-Because `J7` is undersized on this PCB revision, treat the `RST_SEL` result as
-inconclusive until you either bodge a larger test point or wire the net by some
-other reliable means.
+Probe or read HAT pin `35` (`GPIO19`) and HAT pin `7` (`GPIO4`). HAT pin `7`
+is tied to the same signal brought out at `J7` through `R23` (`0 ohm`), so it
+is the preferred validation point on this PCB revision.
 
 #### Current gaps before production firmware
 
-- `RST_SEL` still needs a reliable measured-polarity validation after fixing or
-  bypassing the `J7` access issue
+- `RST_SEL` still needs a measured validation run using HAT pin `7` (`GPIO4`)
 - The current `mspm0-gpo-extender` app only exposes the mux selectors through
   the PCA9538 register model; host-profile policy is still future work

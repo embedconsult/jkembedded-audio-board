@@ -15,7 +15,7 @@ This document outlines the planned firmware, host utilities, and integration ste
   - PCA9538-compatible I2C target emulation at `0x20`
   - Linux `gpio-pca953x` binding against the emulated target
 - **Still to validate**:
-  - `RST_SEL` (`PA3`) polarity, which is currently blocked by the undersized `J7` footprint on this PCB revision
+  - `RST_SEL` (`PA3`) polarity, using HAT pin `7` (`GPIO4`), which is tied to the `J7` signal through `R23` (`0 ohm`)
 
 ## Host programmer utility
 - **Language**: Rust or Crystal only; produce statically linked aarch64 binaries with no dynamic library dependencies.
@@ -48,6 +48,6 @@ BB_IMAGER_CLI="${BB_IMAGER_CLI:-../bb-imager-rs/target/debug/bb-imager-cli}"
 - `docs/`: Additional design notes, bring-up procedures, and any shared usage documentation.
 
 ## Next integration steps
-1. Finish `RST_SEL` validation after fixing or bypassing the undersized `J7` connector so that `PA3` can be measured with the same loopback method as the other selectors.
+1. Finish `RST_SEL` validation using HAT pin `7` (`GPIO4`), which is tied to the `J7` signal through `R23` (`0 ohm`).
 2. Apply the BeagleY-AI host overlay in normal boot flows so Linux exposes the emulated PCA9538 lines as `RST_SEL`, `PWM_SEL`, `CIPO_SEL_0`, `CIPO_SEL_1`, `AN_SEL`, and `INT_SEL` without manual `new_device` binding.
 3. Decide the production MSPM0 firmware policy on top of the validated PCA9538 register model: pure host-controlled muxing, fixed power-on defaults, or host-profile-based defaults.

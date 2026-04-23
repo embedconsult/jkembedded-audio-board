@@ -108,7 +108,7 @@ The MSPM0 firmware exposes these selector lines through the emulated
 
 | PCA9538 bit | Selector line | MSPM0 pin | SBC signal | HAT pin routes          |
 | ----------- | ------------- | --------- | ---------- | ----------------------- |
-| 0           | `RST_SEL`     | `PA3`     | `WRD`      | `35` or `7` (also J7)   |
+| 0           | `RST_SEL`     | `PA3`     | `WRD`      | `35` or `7` / `J7`      |
 | 1           | `PWM_SEL`     | `PA4`     | `BIT`      | `11` or `12`            |
 | 2           | `AN_SEL`      | `PA9`     | `DI`       | `33` or `38`            |
 | 3           | `INT_SEL`     | `PA10`    | `DO`       | `36` or `40`            |
@@ -119,7 +119,7 @@ Single-bit selector settings:
 
 | Selector line | `0`                              | `1`                              |
 | ------------- | -------------------------------- | -------------------------------- |
-| `RST_SEL`     | `WRD` on HAT pin `35` (`GPIO19`) | `WRD` on HAT pin `7` (`GPIO4`)   |
+| `RST_SEL`     | `WRD` on HAT pin `35` (`GPIO19`) | `WRD` on HAT pin `7` (`GPIO4`) / `J7` |
 | `PWM_SEL`     | `BIT` on HAT pin `11` (`GPIO17`) | `BIT` on HAT pin `12` (`GPIO18`) |
 | `AN_SEL`      | `DI` on HAT pin `33` (`GPIO13`)  | `DI` on HAT pin `38` (`GPIO20`)  |
 | `INT_SEL`     | `DO` on HAT pin `36` (`GPIO16`)  | `DO` on HAT pin `40` (`GPIO21`)  |
@@ -142,7 +142,7 @@ Selector settings for each target host:
 | `SK-AM68/9`  | `0`       | `1`       | `1`      | `1`       | `1`          | `1`          |
 
 ## Next steps
-- Finish `RST_SEL` validation after fixing or bypassing the undersized `J7` connector on this PCB revision.
+- Finish `RST_SEL` validation using HAT pin `7` (`GPIO4`), which is tied to the `J7` signal through `R23` (`0 ohm`).
 - Decide the production MSPM0 firmware interface:
   - fixed per-host mux profiles, or
   - an I2C target / GPO-expander compatible interface.

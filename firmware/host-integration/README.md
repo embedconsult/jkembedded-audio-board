@@ -95,16 +95,19 @@ AN->MISO state 2 (CIPO_SEL_0=1 CIPO_SEL_1=0) -> GPIO16 GPIO20 GPIO17: 0 1 1
 AN->MISO state 3 (CIPO_SEL_0=1 CIPO_SEL_1=1) -> GPIO16 GPIO20 GPIO17: 1 1 0
 ```
 
-- `AN -> RST` and `J7/7 -> PWM`
+- `AN -> RST`
 
 ```console
-./firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-rst-j7-pwm
+./firmware/host-integration/linux/beagley-ai/validate-mux.sh sample an-rst
 ```
 
-The `RST_SEL` fixture is currently not trustworthy on this PCB revision because
-`J7` is undersized. The measured output so far is:
+Probe or read HAT pin `35` (`GPIO19`) and HAT pin `7` (`GPIO4`). HAT pin `7`
+is tied to the same signal that is also brought out at `J7` through `R23`
+(`0 ohm`), so it is the preferred validation point on this PCB revision.
+
+Expected output:
 
 ```console
-AN->RST / J7->PWM low state (measured GPIO19 GPIO18): 1 1
-AN->RST / J7->PWM high state (measured GPIO19 GPIO18): 0 1
+AN->RST low state (expect GPIO19=0 GPIO4=1): 0 1
+AN->RST high state (expect GPIO19=1 GPIO4=0): 1 0
 ```
