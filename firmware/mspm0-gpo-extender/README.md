@@ -14,6 +14,10 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
   - `firmware/blinky/` is the clean minimal board support / GPIO smoke test.
   - The `app/` image has been used to verify `PA19` / `PA20` at `J6`.
   - The `app/` image has also been used to verify `PA9` / `PA10` through the muxes with a host-side loopback test.
+- Minimal I2C target validation is working:
+  - The current `app/` image exposes a `zephyr,i2c-target-eeprom` target at `0x20`.
+  - Userspace `i2ctransfer` writes/readbacks succeed.
+  - A standard Linux `at24` client can bind at `0x20` and read the expected bytes.
 - The BeagleY-AI flash path is now:
 
 ```sh
@@ -32,15 +36,14 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
 
 ## Remaining work
 - Validate selector polarity for `PA3`, `PA4`, `PA11`, and `PA15`
-- Decide whether the production image is:
-  - a fixed-profile mux image, or
-  - an I2C target / GPO-expander compatible image
-- Establish the final GPO register map and host profile table if the I2C target route is chosen
+- Replace the temporary EEPROM target app with PCA9538-compatible target behavior at `0x20`
+- Validate that Linux `pca953x` can bind and drive the mux selectors through the emulated register map
+- Establish the final GPO register map and host profile table if the I2C target route is kept
 
 ## Zephyr board configuration
 
 - **Board identifier**: `jkembedded_mikrobus_hat_mspm0` (see `boards/arm/jkembedded_mikrobus_hat_mspm0/`).
-- **I2C role**: target/peripheral that emulates an 8-bit `pca9538` GPIO expander at address `0x20` so existing Linux `pca953x` drivers can toggle the mux selects without changes.
+- **I2C role**: target/peripheral on `PA0`/`PA1`. The current validation image presents an EEPROM-like target at `0x20`; the intended production model is an 8-bit `pca9538` GPIO expander at the same address so existing Linux `pca953x` drivers can toggle the mux selects without changes.
 - **I2C pins**: `PA0` = SDA (`HAT_SDA`), `PA1` = SCL (`HAT_SCL`).
 - **Bootloader pins**: `PA18` = `MCU_BOOTLOADER_SEL`, `NRST` exposed via the reset net shared with the programming header.
 - **Mux GPIO assignments (PCA9538 bit order)**:

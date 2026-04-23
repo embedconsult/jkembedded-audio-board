@@ -73,10 +73,15 @@ bring-up attempts.
 #### Build the firmware image
 
 ```console
-/home/beagle/.venvs/zephyr-tools/bin/west build \
+ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb \
+GNUARMEMB_TOOLCHAIN_PATH=/usr \
+/home/beagle/.venvs/zephyr-tools/bin/west build -p always \
   -d /home/beagle/jkembedded-audio-board/build/mspm0-zephyr \
   -b jkembedded_mikrobus_hat_mspm0 \
-  /home/beagle/jkembedded-audio-board/firmware/mspm0-gpo-extender/app
+  /home/beagle/jkembedded-audio-board/firmware/mspm0-gpo-extender/app \
+  -- \
+  -G'Unix Makefiles' \
+  -DBOARD_ROOT=/home/beagle/jkembedded-audio-board/firmware/mspm0-gpo-extender
 ```
 
 Artifacts:
@@ -118,6 +123,34 @@ That proves:
 - the updated flash path works
 - the updated Zephyr MSPM0L1105 GPIO driver works
 - at least the `AN_DI_SEL` and `INT_DO_SEL` mux selectors are controllable in firmware
+
+#### I2C target validation
+
+The current `app/` image is a minimal Zephyr I2C target using
+`zephyr,i2c-target-eeprom` at address `0x20`.
+
+Validated on hardware:
+
+- `0x20` ACKs in normal boot
+- `0x48` disappears after returning `GPIO25` low and resetting with `GPIO24`
+- userspace writes/readbacks work:
+
+```console
+i2ctransfer -y 1 w3@0x20 0x00 0xaa 0x55
+i2ctransfer -y 1 w1@0x20 0x00 r2
+# returns: 0xaa 0x55
+```
+
+- a standard Linux kernel client also works:
+
+```console
+echo 24c02 0x20 | sudo tee /sys/bus/i2c/devices/i2c-1/new_device
+sudo dd if=/sys/bus/i2c/devices/1-0020/eeprom bs=1 count=16 2>/dev/null | hexdump -C
+echo 0x20 | sudo tee /sys/bus/i2c/devices/i2c-1/delete_device
+```
+
+That is the current proof point that MSPM0 I2C target mode is working well
+enough to proceed to PCA9538 emulation.
 
 #### Current gaps before production firmware
 
