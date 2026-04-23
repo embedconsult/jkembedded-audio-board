@@ -123,12 +123,4 @@
 	clock-frequency = <I2C_BITRATE_STANDARD>;
 	pinctrl-0 = <&i2c0_sda_pa0 &i2c0_scl_pa1>;
 	pinctrl-names = "default";
-
-	eeprom0: eeprom@20 {
-		compatible = "zephyr,i2c-target-eeprom";
-		reg = <0x20>;
-		size = <16>;
-		address-width = <8>;
-		status = "okay";
-	};
 };
