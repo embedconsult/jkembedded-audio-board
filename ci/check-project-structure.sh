@@ -12,6 +12,7 @@ required_paths=(
   "firmware/mspm0-gpo-extender/README.md"
   "firmware/host-programmers/README.md"
   "firmware/host-integration/README.md"
+  "firmware/host-integration/linux/set-mux-profile.sh"
 )
 
 missing=()

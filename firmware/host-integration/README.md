@@ -39,6 +39,27 @@ this system:
 
 - `/bus@f0000/bus@4000000/i2c@4900000`
 
+
+### Host mux profile helper
+
+Use `firmware/host-integration/linux/set-mux-profile.sh` after the MSPM0
+`pca9538` target is reachable to drive all six selector lines for a supported
+host-board profile in one command. The helper uses the overlay-provided line
+names when available and otherwise falls back to the detected `pca9538`
+`gpiochip` offsets. It binds a temporary Linux `pca9538` client at `0x20` on
+`i2c-1` by default when no client exists yet.
+
+```console
+./firmware/host-integration/linux/set-mux-profile.sh --host byai-am67a
+./firmware/host-integration/linux/set-mux-profile.sh --host sk-am62
+./firmware/host-integration/linux/set-mux-profile.sh --host sk-am68
+./firmware/host-integration/linux/set-mux-profile.sh --host sk-am69
+```
+
+Pass `--i2c-bus <bus>` or set `I2C_BUS=<bus>` when the MSPM0 target is on a
+different Linux I2C adapter. Use `--dry-run` to print the selected values
+without touching GPIOs.
+
 ### Validation recipe
 
 Current proven setup:
