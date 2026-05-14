@@ -25,6 +25,49 @@
 					"",
 					"";
 				status = "okay";
+
+				/* BeagleY-AI / AM67A audio-board routing defaults. */
+				rst-sel-hog {
+					gpio-hog;
+					gpios = <0 0>;
+					output-high;
+					line-name = "RST_SEL";
+				};
+
+				pwm-sel-hog {
+					gpio-hog;
+					gpios = <1 0>;
+					output-high;
+					line-name = "PWM_SEL";
+				};
+
+				an-sel-hog {
+					gpio-hog;
+					gpios = <2 0>;
+					output-high;
+					line-name = "AN_SEL";
+				};
+
+				int-sel-hog {
+					gpio-hog;
+					gpios = <3 0>;
+					output-high;
+					line-name = "INT_SEL";
+				};
+
+				cipo-sel-0-hog {
+					gpio-hog;
+					gpios = <4 0>;
+					output-high;
+					line-name = "CIPO_SEL_0";
+				};
+
+				cipo-sel-1-hog {
+					gpio-hog;
+					gpios = <5 0>;
+					output-low;
+					line-name = "CIPO_SEL_1";
+				};
 			};
 		};
 	};

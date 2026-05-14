@@ -186,7 +186,8 @@ Use `firmware/host-integration/linux/set-mux-profile.sh --host <profile>` to
 apply these selector settings from Linux once the MSPM0 `pca9538` target is
 reachable. Supported profile names include `byai-am67a`, `sk-am62`, `sk-am68`,
 and `sk-am69`; see `firmware/host-integration/README.md` for options and
-examples.
+examples. The BeagleY-AI overlay applies the `BYAI-AM67A` audio-board defaults
+at probe time.
 
 ## Next steps
 - Decide whether to keep the measured selector polarity as-is in production firmware or to invert any lines in software before exposing host profiles.
