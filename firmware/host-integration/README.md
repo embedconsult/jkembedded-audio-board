@@ -25,7 +25,8 @@ Linux `pca953x` binding is introduced.
 ### BeagleY-AI overlay
 
 Use `firmware/host-integration/linux/beagley-ai/mspm0-pca9538-gpio.dts`
-to instantiate the Linux `gpio-pca953x` driver with stable line names:
+to instantiate the Linux `gpio-pca953x` driver with stable line names and
+BeagleY-AI / AM67A audio-board mux defaults:
 
 - `RST_SEL`
 - `PWM_SEL`
@@ -38,6 +39,33 @@ The overlay targets the live BeagleY-AI `i2c-1` controller path observed on
 this system:
 
 - `/bus@f0000/bus@4000000/i2c@4900000`
+
+When this overlay probes, GPIO hogs drive the selector lines to the
+`BYAI-AM67A` profile used by the audio board: `RST_SEL=1`, `PWM_SEL=1`,
+`AN_SEL=1`, `INT_SEL=1`, `CIPO_SEL_0=1`, and `CIPO_SEL_1=0`.
+
+### Host mux profile helper
+
+Use `firmware/host-integration/linux/set-mux-profile.sh` after the MSPM0
+`pca9538` target is reachable to drive all six selector lines for a supported
+host-board profile in one command. The helper uses the overlay-provided line
+names when available and otherwise falls back to the detected `pca9538`
+`gpiochip` offsets. It binds a temporary Linux `pca9538` client at `0x20` on
+`i2c-1` by default when no client exists yet. If an overlay already hogs the
+selector GPIOs for its board default, the muxes are already in that profile;
+use the helper before loading such an overlay or with a non-hogging manual
+binding when you need to change profiles interactively.
+
+```console
+./firmware/host-integration/linux/set-mux-profile.sh --host byai-am67a
+./firmware/host-integration/linux/set-mux-profile.sh --host sk-am62
+./firmware/host-integration/linux/set-mux-profile.sh --host sk-am68
+./firmware/host-integration/linux/set-mux-profile.sh --host sk-am69
+```
+
+Pass `--i2c-bus <bus>` or set `I2C_BUS=<bus>` when the MSPM0 target is on a
+different Linux I2C adapter. Use `--dry-run` to print the selected values
+without touching GPIOs.
 
 ### Validation recipe
 
