@@ -15,6 +15,13 @@
 #define PCA9538_HW_GPIO_COUNT 6
 #define PCA9538_HW_MASK       GENMASK(PCA9538_HW_GPIO_COUNT - 1, 0)
 
+/*
+ * SK-AM62 mux profile: RST_SEL=0, PWM_SEL=0, AN_SEL=0, INT_SEL=0,
+ * CIPO_SEL_0=0, CIPO_SEL_1=1. Reserved PCA9538 bits remain high and inputs.
+ */
+#define PCA9538_DEFAULT_OUTPUT (BIT(5) | (0xffU & ~PCA9538_HW_MASK))
+#define PCA9538_DEFAULT_CONFIG (0xffU & ~PCA9538_HW_MASK)
+
 struct pca9538_state {
 	uint8_t output;
 	uint8_t polarity;
@@ -34,9 +41,9 @@ static const struct gpio_dt_spec mux_gpios[PCA9538_HW_GPIO_COUNT] = {
 
 static const struct device *const i2c_target = DEVICE_DT_GET(DT_NODELABEL(i2c0));
 static struct pca9538_state pca9538 = {
-	.output = 0xffU,
+	.output = PCA9538_DEFAULT_OUTPUT,
 	.polarity = 0x00U,
-	.config = 0xffU,
+	.config = PCA9538_DEFAULT_CONFIG,
 	.reg_ptr = PCA9538_REG_INPUT,
 	.reg_ptr_valid = false,
 };

@@ -24,6 +24,7 @@ The MSPM0L1105TRGER manages mux control for the audio board and mikroBUS HAT.
   - Direct `i2ctransfer` register reads/writes succeed.
   - A standard Linux `gpio-pca953x` client can bind at `0x20`.
   - With the `AN -> INT` loopback in place, Linux-driven expander bits 2 and 3 select the expected mux route.
+  - The firmware power-on mux default is now the `SK-AM62` profile: `RST_SEL=0`, `PWM_SEL=0`, `AN_SEL=0`, `INT_SEL=0`, `CIPO_SEL_0=0`, and `CIPO_SEL_1=1`.
 - The BeagleY-AI flash path is now:
 
 ```sh
@@ -54,14 +55,14 @@ BB_IMAGER_CLI="${BB_IMAGER_CLI:-../bb-imager-rs/target/debug/bb-imager-cli}"
 - **I2C pins**: `PA0` = SDA (`HAT_SDA`), `PA1` = SCL (`HAT_SCL`).
 - **Bootloader pins**: `PA18` = `MCU_BOOTLOADER_SEL`, `NRST` exposed via the reset net shared with the programming header.
 - **Mux GPIO assignments (PCA9538 bit order)**:
-  0. `PA3` → `RST_WRD_SEL`
-  1. `PA4` → `PWM_BIT_SEL`
-  2. `PA9` → `AN_DI_SEL`
-  3. `PA10` → `INT_DO_SEL`
-  4. `PA11` → `CIPO_CNT_SEL0`
-  5. `PA15` → `CIPO_CNT_SEL1`
-  6. reserved for future use
-  7. reserved for future use
+  0. `PA3` → `RST_WRD_SEL` (`SK-AM62` default: low/output)
+  1. `PA4` → `PWM_BIT_SEL` (`SK-AM62` default: low/output)
+  2. `PA9` → `AN_DI_SEL` (`SK-AM62` default: low/output)
+  3. `PA10` → `INT_DO_SEL` (`SK-AM62` default: low/output)
+  4. `PA11` → `CIPO_CNT_SEL0` (`SK-AM62` default: low/output)
+  5. `PA15` → `CIPO_CNT_SEL1` (`SK-AM62` default: high/output)
+  6. reserved for future use (reported high/input)
+  7. reserved for future use (reported high/input)
 
 The shared board DTS in `firmware/boards/arm/mikrobus_hat/mikrobus_hat.dts` documents the current pinctrl and validation GPIO map. The current `app/` implementation uses the PCA9538 register model directly rather than the older EEPROM target shim.
 
