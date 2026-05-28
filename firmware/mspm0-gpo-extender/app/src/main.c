@@ -4,13 +4,13 @@
 #include <zephyr/kernel.h>
 #include <zephyr/sys/util.h>
 
-#define PCA9538_I2C_ADDR 0x20
-#define PCA9538_REG_INPUT 0x00
-#define PCA9538_REG_OUTPUT 0x01
-#define PCA9538_REG_POLARITY 0x02
-#define PCA9538_REG_CONFIG 0x03
-#define PCA9538_REG_COUNT 4
-#define PCA9538_GPIO_MASK 0x3f
+#define PCA9538_I2C_ADDR      0x20
+#define PCA9538_REG_INPUT     0x00
+#define PCA9538_REG_OUTPUT    0x01
+#define PCA9538_REG_POLARITY  0x02
+#define PCA9538_REG_CONFIG    0x03
+#define PCA9538_REG_COUNT     4
+#define PCA9538_GPIO_MASK     0x3f
 #define PCA9538_RESERVED_MASK 0xc0
 
 struct pca9538_state {
@@ -31,12 +31,41 @@ static const struct gpio_dt_spec mux_gpios[] = {
 static const struct device *const i2c_dev = DEVICE_DT_GET(DT_NODELABEL(i2c0));
 static struct pca9538_state pca_state;
 
+static int pca9538_apply_gpio_outputs(const struct pca9538_state *state)
+{
+	for (size_t i = 0; i < ARRAY_SIZE(mux_gpios); i++) {
+		uint8_t bit = BIT(i);
+
+		if ((state->regs[PCA9538_REG_CONFIG] & bit) != 0U) {
+			continue;
+		}
+
+		if (!device_is_ready(mux_gpios[i].port)) {
+			return -ENODEV;
+		}
+
+		int ret = gpio_pin_set_dt(&mux_gpios[i],
+					  (state->regs[PCA9538_REG_OUTPUT] & bit) != 0U);
+		if (ret != 0) {
+			return ret;
+		}
+	}
+
+	return 0;
+}
+
 static int pca9538_apply_gpio_config(const struct pca9538_state *state)
 {
 	for (size_t i = 0; i < ARRAY_SIZE(mux_gpios); i++) {
 		uint8_t bit = BIT(i);
 		bool is_input = (state->regs[PCA9538_REG_CONFIG] & bit) != 0U;
-		int flags = is_input ? GPIO_INPUT : GPIO_OUTPUT_INACTIVE;
+		int flags = GPIO_INPUT;
+
+		if (!is_input) {
+			flags = (state->regs[PCA9538_REG_OUTPUT] & bit) != 0U
+					? GPIO_OUTPUT_ACTIVE
+					: GPIO_OUTPUT_INACTIVE;
+		}
 
 		if (!device_is_ready(mux_gpios[i].port)) {
 			return -ENODEV;
@@ -45,14 +74,6 @@ static int pca9538_apply_gpio_config(const struct pca9538_state *state)
 		int ret = gpio_pin_configure_dt(&mux_gpios[i], flags);
 		if (ret != 0) {
 			return ret;
-		}
-
-		if (!is_input) {
-			ret = gpio_pin_set_dt(&mux_gpios[i],
-						(state->regs[PCA9538_REG_OUTPUT] & bit) != 0U);
-			if (ret != 0) {
-				return ret;
-			}
 		}
 	}
 
@@ -89,22 +110,21 @@ static uint8_t pca9538_get_register(const struct pca9538_state *state, uint8_t r
 	}
 }
 
-static void pca9538_write_register(struct pca9538_state *state, uint8_t reg,
-				  uint8_t value)
+static void pca9538_write_register(struct pca9538_state *state, uint8_t reg, uint8_t value)
 {
 	switch (reg) {
 	case PCA9538_REG_OUTPUT:
 		state->regs[PCA9538_REG_OUTPUT] &= ~PCA9538_GPIO_MASK;
 		state->regs[PCA9538_REG_OUTPUT] |= (value & PCA9538_GPIO_MASK);
-		(void)pca9538_apply_gpio_config(state);
+		(void)pca9538_apply_gpio_outputs(state);
 		break;
 	case PCA9538_REG_POLARITY:
 		state->regs[PCA9538_REG_POLARITY] &= ~PCA9538_GPIO_MASK;
 		state->regs[PCA9538_REG_POLARITY] |= (value & PCA9538_GPIO_MASK);
 		break;
 	case PCA9538_REG_CONFIG:
-		state->regs[PCA9538_REG_CONFIG] = (value & PCA9538_GPIO_MASK) |
-					    PCA9538_RESERVED_MASK;
+		state->regs[PCA9538_REG_CONFIG] =
+			(value & PCA9538_GPIO_MASK) | PCA9538_RESERVED_MASK;
 		(void)pca9538_apply_gpio_config(state);
 		break;
 	default:
