@@ -13,6 +13,10 @@ required_paths=(
   "firmware/host-programmers/README.md"
   "firmware/host-integration/README.md"
   "firmware/host-integration/linux/set-mux-profile.sh"
+  "firmware/host-integration/linux/beagley-ai/mspm0-pca9538-gpio.dts"
+  "firmware/host-integration/linux/sk-am62/mspm0-pca9538-gpio.dts"
+  "firmware/host-integration/linux/sk-am68/mspm0-pca9538-gpio.dts"
+  "firmware/host-integration/linux/sk-am69/mspm0-pca9538-gpio.dts"
 )
 
 missing=()

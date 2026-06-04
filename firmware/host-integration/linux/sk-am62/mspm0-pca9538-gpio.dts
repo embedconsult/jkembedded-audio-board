@@ -1,0 +1,75 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "ti,am625-sk", "ti,am625";
+
+	fragment@0 {
+		/* SK-AM62 40-pin expansion header I2C is the SoC I2C2 bus. */
+		target = <&main_i2c2>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mspm0_mux: gpio-expander@20 {
+				compatible = "nxp,pca9538";
+				reg = <0x20>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				gpio-line-names =
+					"RST_SEL",
+					"PWM_SEL",
+					"AN_SEL",
+					"INT_SEL",
+					"CIPO_SEL_0",
+					"CIPO_SEL_1",
+					"",
+					"";
+				status = "okay";
+
+				/* TI AM62 SK-EVM audio-board routing defaults. */
+				rst-sel-hog {
+					gpio-hog;
+					gpios = <0 0>;
+					output-low;
+					line-name = "RST_SEL";
+				};
+
+				pwm-sel-hog {
+					gpio-hog;
+					gpios = <1 0>;
+					output-low;
+					line-name = "PWM_SEL";
+				};
+
+				an-sel-hog {
+					gpio-hog;
+					gpios = <2 0>;
+					output-low;
+					line-name = "AN_SEL";
+				};
+
+				int-sel-hog {
+					gpio-hog;
+					gpios = <3 0>;
+					output-low;
+					line-name = "INT_SEL";
+				};
+
+				cipo-sel-0-hog {
+					gpio-hog;
+					gpios = <4 0>;
+					output-low;
+					line-name = "CIPO_SEL_0";
+				};
+
+				cipo-sel-1-hog {
+					gpio-hog;
+					gpios = <5 0>;
+					output-high;
+					line-name = "CIPO_SEL_1";
+				};
+			};
+		};
+	};
+};

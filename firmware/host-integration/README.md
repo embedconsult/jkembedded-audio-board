@@ -22,11 +22,22 @@ Do not start here for fresh-system bring-up. The initial reproduction point is
 the raw build/flash/raw-I2C flow in `bringup.md`, before any overlay or manual
 Linux `pca953x` binding is introduced.
 
-### BeagleY-AI overlay
+### Host-board overlays
 
-Use `firmware/host-integration/linux/beagley-ai/mspm0-pca9538-gpio.dts`
-to instantiate the Linux `gpio-pca953x` driver with stable line names and
-BeagleY-AI / AM67A audio-board mux defaults:
+Use the matching `mspm0-pca9538-gpio.dts` overlay under
+`firmware/host-integration/linux/<host>/` to instantiate the Linux
+`gpio-pca953x` driver with stable line names and target-host mux defaults.
+
+Available overlays:
+
+| Host board | Overlay | Default selector profile | I2C target |
+| ---------- | ------- | ------------------------ | ---------- |
+| BeagleY-AI / AM67A | `linux/beagley-ai/mspm0-pca9538-gpio.dts` | `BYAI-AM67A` (`1 1 1 1 1 0`) | observed live path `/bus@f0000/bus@4000000/i2c@4900000` |
+| TI AM62 SK-EVM | `linux/sk-am62/mspm0-pca9538-gpio.dts` | `SK-AM62` (`0 0 0 0 0 1`) | `&main_i2c2` |
+| TI AM68 SK-EVM | `linux/sk-am68/mspm0-pca9538-gpio.dts` | `SK-AM68/9` (`1 1 1 1 1 1`) | `&main_i2c4` |
+| TI AM69 SK-EVM | `linux/sk-am69/mspm0-pca9538-gpio.dts` | `SK-AM68/9` (`1 1 1 1 1 1`) | `&mcu_i2c0` |
+
+Each overlay exposes these selector lines:
 
 - `RST_SEL`
 - `PWM_SEL`
@@ -35,14 +46,11 @@ BeagleY-AI / AM67A audio-board mux defaults:
 - `CIPO_SEL_0`
 - `CIPO_SEL_1`
 
-The overlay targets the live BeagleY-AI `i2c-1` controller path observed on
-this system:
-
-- `/bus@f0000/bus@4000000/i2c@4900000`
-
-When this overlay probes, GPIO hogs drive the selector lines to the
-`BYAI-AM67A` profile used by the audio board: `RST_SEL=1`, `PWM_SEL=1`,
-`AN_SEL=1`, `INT_SEL=1`, `CIPO_SEL_0=1`, and `CIPO_SEL_1=0`.
+When an overlay probes, GPIO hogs drive the selector lines to that host
+profile immediately. The BeagleY-AI overlay keeps the existing live
+`i2c-1` `target-path` because that path was validated on hardware. The SK-EVM
+overlays use upstream board labels so they follow the base DTS I2C bus layout
+used by each target kernel.
 
 ### Host mux profile helper
 
