@@ -150,24 +150,24 @@ schematic signal names.
 
 | HAT signal | HAT pin | Overlay line name | BeagleY-AI SoC / GPIO | SK-AM62 SoC / GPIO | SK-AM68 SoC / GPIO | SK-AM69 SoC / GPIO |
 | ---------- | ------- | ----------------- | --------------------- | ------------------ | ------------------ | ------------------ |
-| WRD_A      | 7       | `GPIO4`           | W26 / GPIO4           | J7                 | G25 / WKUP_GPIO0_66 | N34 / WKUP_GPIO0_66 |
-| WRD_B      | 35      | `GPIO19`          | C26 / GPIO19          | D20 / GPIO1_13     | V28 / GPIO0_47     | AD33 / GPIO0_47    |
-| BIT_A      | 11      | `GPIO17`          | A26 / GPIO17          | B20 / GPIO1_11     | U24 / GPIO0_42     | AF34 / GPIO0_42    |
-| BIT_B      | 12      | `GPIO18`          | D25 / GPIO18          | G20 / GPIO1_14     | AA24 / GPIO0_46    | AC34 / GPIO0_46    |
-| DI_A       | 33      | `GPIO13`          | E19 / GPIO13          | B20 / GPIO1_10     | AE27 / GPIO0_51    | AM37 / GPIO0_51    |
-| DI_B       | 38      | `GPIO20`          | F23 / GPIO20          | B19 / GPIO1_8      | T28 / GPIO0_48     | AD38 / GPIO0_48    |
-| DO_A       | 36      | `GPIO16`          | A25 / GPIO16          | B18 / GPIO1_9      | T23 / GPIO0_41     | AJ36 / GPIO0_41    |
-| DO_B       | 40      | `GPIO21`          | B25 / GPIO21          | C19 / GPIO1_7      | U25 / GPIO0_45     | AL34 / GPIO0_45    |
-| CNT_A      | 38      | `GPIO20`          | F23 / GPIO20          | B19 / GPIO1_8      | T28 / GPIO0_48     | AD38 / GPIO0_48    |
-| CNT_B      | 36      | `GPIO16`          | A25 / GPIO16          | B18 / GPIO1_9      | T23 / GPIO0_41     | AJ36 / GPIO0_41    |
-| CNT_C      | 11      | `GPIO17`          | A26 / GPIO17          | B20 / GPIO1_11     | U24 / GPIO0_42     | AF34 / GPIO0_42    |
-| TS         | 19      | `GPIO10`          | B12 / GPIO10          | B13 / GPIO1_18     | E24 / WKUP_GPIO0_1 | J34 / WKUP_GPIO0_1 |
-| SDA        | 3       | `GPIO2`           | E11 / GPIO2           | K24 / GPIO0_44     | AF28 / GPIO0_4     | G34 / WKUP_GPIO0_87 |
-| SCL        | 5       | `GPIO3`           | B13 / GPIO3           | K22 / GPIO0_43     | AD25 / GPIO0_5     | M35 / WKUP_GPIO0_65 |
-| RX         | 10      | `GPIO15`          | C27 / GPIO15          | C15 / UART5_RXD    | AC24 / GPIO0_2     | AJ33 / GPIO0_2     |
-| TX         | 8       | `GPIO14`          | F24 / GPIO14          | E15 / UART5_TXD    | W25 / GPIO0_1      | AG36 / GPIO0_1     |
-| SCK        | 23      | `GPIO11`          | A9 / GPIO11           | A14 / GPIO1_17     | D26 / WKUP_GPIO0_0 | H38 / WKUP_GPIO0_0 |
-| SDQ        | 24      | `GPIO8`           | C12 / GPIO8           | A13 / GPIO1_15     | C27 / WKUP_GPIO0_3 | J36 / WKUP_GPIO0_3 |
+| RST_WRD_A  | 7       | `GPIO4`           | W26 / GPIO0_38        | J7                 | G25 / WKUP_GPIO0_66 | N34 / WKUP_GPIO0_66 |
+| RST_WRD_B  | 35      | `GPIO19`          | C26 / GPIO1_12        | D20 / GPIO1_13     | V28 / GPIO0_47     | AD33 / GPIO0_47    |
+| PWM_BIT_A  | 11      | `GPIO17`          | A26 / GPIO1_8         | B20 / GPIO1_11     | U24 / GPIO0_42     | AF34 / GPIO0_42    |
+| PWM_BIT_B  | 12      | `GPIO18`          | D25 / GPIO1_11        | G20 / GPIO1_14     | AA24 / GPIO0_46    | AC34 / GPIO0_46    |
+| AN_DI_A    | 33      | `GPIO13`          | E19 / GPIO1_18        | B20 / GPIO1_10     | AE27 / GPIO0_51    | AM37 / GPIO0_51    |
+| AN_DI_B    | 38      | `GPIO20`          | F23 / GPIO1_10        | B19 / GPIO1_8      | T28 / GPIO0_48     | AD38 / GPIO0_48    |
+| INT_DO_A   | 36      | `GPIO16`          | A25 / GPIO1_7         | B18 / GPIO1_9      | T23 / GPIO0_41     | AJ36 / GPIO0_41    |
+| INT_DO_B   | 40      | `GPIO21`          | B25 / GPIO1_9         | C19 / GPIO1_7      | U25 / GPIO0_45     | AL34 / GPIO0_45    |
+| CIPO_CNT_A | 38      | `GPIO20`          | F23 / GPIO1_10        | B19 / GPIO1_8      | T28 / GPIO0_48     | AD38 / GPIO0_48    |
+| CIPO_CNT_B | 36      | `GPIO16`          | A25 / GPIO1_7         | B18 / GPIO1_9      | T23 / GPIO0_41     | AJ36 / GPIO0_41    |
+| CIPO_CNT_C | 11      | `GPIO17`          | A26 / GPIO1_8         | B20 / GPIO1_11     | U24 / GPIO0_42     | AF34 / GPIO0_42    |
+| COPI_TS    | 19      | `GPIO10`          | B12 / MCU_GPIO0_3     | B13 / GPIO1_18     | E24 / WKUP_GPIO0_1 | J34 / WKUP_GPIO0_1 |
+| SDA        | 3       | `GPIO2`           | E11 / MCU_GPIO0_18    | K24 / GPIO0_44     | AF28 / GPIO0_4     | G34 / WKUP_GPIO0_87 |
+| SCL        | 5       | `GPIO3`           | B13 / MCU_GPIO0_17    | K22 / GPIO0_43     | AD25 / GPIO0_5     | M35 / WKUP_GPIO0_65 |
+| RX         | 10      | `GPIO15`          | C27 / GPIO1_13        | C15 / UART5_RXD    | AC24 / GPIO0_2     | AJ33 / GPIO0_2     |
+| TX         | 8       | `GPIO14`          | F24 / GPIO1_14        | E15 / UART5_TXD    | W25 / GPIO0_1      | AG36 / GPIO0_1     |
+| SCK        | 23      | `GPIO11`          | A9 / MCU_GPIO0_2      | A14 / GPIO1_17     | D26 / WKUP_GPIO0_0 | H38 / WKUP_GPIO0_0 |
+| CS_SDQ     | 24      | `GPIO8`           | C12 / MCU_GPIO0_0     | A13 / GPIO1_15     | C27 / WKUP_GPIO0_3 | J36 / WKUP_GPIO0_3 |
 | MCU_RESET  | 18      | `GPIO24`          | C8 / MCU_GPIO0_10     | K25 / GPIO0_39     | AD24 / GPIO0_13    | AJ34 / GPIO0_13    |
 | MCU_BOOTLOADER_SEL | 22 | `GPIO25`        | P21 / GPIO0_42        | A13 / GPIO0_14     | J27 / WKUP_GPIO0_67 | M34 / WKUP_GPIO0_67 |
 
