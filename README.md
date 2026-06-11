@@ -144,25 +144,32 @@ Where do the various SBC signals need to go to the board connector for each boar
 
 The host overlays use Raspberry Pi / BeagleY-AI-style GPIO line names for the
 HAT pins so that host tools can use one line-name vocabulary across boards.
-The audio mux can route some signals to more than one HAT pin; in those cases
-all possible HAT line names are listed.
+The audio mux can route some signals to more than one HAT pin; each alternate
+route gets its own row and uses the `_A`, `_B`, or `_C` suffix from the HAT
+schematic signal names.
 
-| HAT signal | HAT pin(s) | Overlay line name(s) | BeagleY-AI SoC / GPIO | SK-AM62 SoC / GPIO | SK-AM68/9 GPIO |
-| ---------- | ---------- | -------------------- | --------------------- | ------------------ | --------------- |
-| WRD        | 7 or 35    | `GPIO4` or `GPIO19`  | W26 / GPIO4, C26 / GPIO19 | J7, GPIO1_12 on D20 | GPIO19 |
-| BIT        | 11 or 12   | `GPIO17` or `GPIO18` | A26 / GPIO17, D25 / GPIO18 | GPIO1_11 on B20 | GPIO18 |
-| DI         | 33 or 38   | `GPIO13` or `GPIO20` | E19 / GPIO13, F23 / GPIO20 | GPIO1_10 on E18 | GPIO20 |
-| DO         | 36 or 40   | `GPIO16` or `GPIO21` | A25 / GPIO16, B25 / GPIO21 | GPIO1_9 on B18 | GPIO21 |
-| CNT        | 11, 36, or 38 | `GPIO17`, `GPIO16`, or `GPIO20` | A26 / GPIO17, A25 / GPIO16, F23 / GPIO20 | GPIO1_7 on B19 | GPIO17 |
-| TS         | 19         | `GPIO10`             | B12 / GPIO10 | B13 | GPIO10 |
-| SDA        | 3          | `GPIO2`              | E11 / GPIO2 | K24 | GPIO2 |
-| SCL        | 5          | `GPIO3`              | B13 / GPIO3 | K22 | GPIO3 |
-| RX         | 10         | `GPIO15`             | C27 / GPIO15 | C15 | GPIO15 |
-| TX         | 8          | `GPIO14`             | F24 / GPIO14 | E15 | GPIO14 |
-| SCK        | 23         | `GPIO11`             | A9 / GPIO11 | GPIO1_17 on A14 | GPIO11 |
-| SDQ        | 24         | `GPIO8`              | C12 / GPIO8 | GPIO1_15 on A13 | GPIO8 |
-| MCU_RESET  | 18         | `GPIO24`             | C8 / MCU_GPIO0_10 | GPIO0_39 | GPIO0_13 |
-| MCU_BOOTLOADER_SEL | 22 | `GPIO25`             | P21 / GPIO0_42 | GPIO0_14 | WKUP_GPIO0_67 |
+| HAT signal | HAT pin | Overlay line name | BeagleY-AI SoC / GPIO | SK-AM62 SoC / GPIO | SK-AM68 SoC / GPIO | SK-AM69 SoC / GPIO |
+| ---------- | ------- | ----------------- | --------------------- | ------------------ | ------------------ | ------------------ |
+| WRD_A      | 7       | `GPIO4`           | W26 / GPIO4           | J7                 | G25 / WKUP_GPIO0_66 | N34 / WKUP_GPIO0_66 |
+| WRD_B      | 35      | `GPIO19`          | C26 / GPIO19          | D20 / GPIO1_13     | V28 / GPIO0_47     | AD33 / GPIO0_47    |
+| BIT_A      | 11      | `GPIO17`          | A26 / GPIO17          | B20 / GPIO1_11     | U24 / GPIO0_42     | AF34 / GPIO0_42    |
+| BIT_B      | 12      | `GPIO18`          | D25 / GPIO18          | G20 / GPIO1_14     | AA24 / GPIO0_46    | AC34 / GPIO0_46    |
+| DI_A       | 33      | `GPIO13`          | E19 / GPIO13          | B20 / GPIO1_10     | AE27 / GPIO0_51    | AM37 / GPIO0_51    |
+| DI_B       | 38      | `GPIO20`          | F23 / GPIO20          | B19 / GPIO1_8      | T28 / GPIO0_48     | AD38 / GPIO0_48    |
+| DO_A       | 36      | `GPIO16`          | A25 / GPIO16          | B18 / GPIO1_9      | T23 / GPIO0_41     | AJ36 / GPIO0_41    |
+| DO_B       | 40      | `GPIO21`          | B25 / GPIO21          | C19 / GPIO1_7      | U25 / GPIO0_45     | AL34 / GPIO0_45    |
+| CNT_A      | 38      | `GPIO20`          | F23 / GPIO20          | B19 / GPIO1_8      | T28 / GPIO0_48     | AD38 / GPIO0_48    |
+| CNT_B      | 36      | `GPIO16`          | A25 / GPIO16          | B18 / GPIO1_9      | T23 / GPIO0_41     | AJ36 / GPIO0_41    |
+| CNT_C      | 11      | `GPIO17`          | A26 / GPIO17          | B20 / GPIO1_11     | U24 / GPIO0_42     | AF34 / GPIO0_42    |
+| TS         | 19      | `GPIO10`          | B12 / GPIO10          | B13 / GPIO1_18     | E24 / WKUP_GPIO0_1 | J34 / WKUP_GPIO0_1 |
+| SDA        | 3       | `GPIO2`           | E11 / GPIO2           | K24 / I2C2_SDA     | AF28 / I2C4_SDA    | G34 / WKUP_GPIO0_87 |
+| SCL        | 5       | `GPIO3`           | B13 / GPIO3           | K22 / I2C2_SCL     | AD25 / I2C4_SCL    | M35 / WKUP_GPIO0_65 |
+| RX         | 10      | `GPIO15`          | C27 / GPIO15          | C15 / UART5_RXD    | AC24 / GPIO0_2     | AJ33 / GPIO0_2     |
+| TX         | 8       | `GPIO14`          | F24 / GPIO14          | E15 / UART5_TXD    | W25 / GPIO0_1      | AG36 / GPIO0_1     |
+| SCK        | 23      | `GPIO11`          | A9 / GPIO11           | A14 / GPIO1_17     | D26 / WKUP_GPIO0_0 | H38 / WKUP_GPIO0_0 |
+| SDQ        | 24      | `GPIO8`           | C12 / GPIO8           | A13 / GPIO1_15     | C27 / WKUP_GPIO0_3 | J36 / WKUP_GPIO0_3 |
+| MCU_RESET  | 18      | `GPIO24`          | C8 / MCU_GPIO0_10     | K25 / GPIO0_39     | AD24 / GPIO0_13    | AJ34 / GPIO0_13    |
+| MCU_BOOTLOADER_SEL | 22 | `GPIO25`        | P21 / GPIO0_42        | A13 / GPIO0_14     | J27 / WKUP_GPIO0_67 | M34 / WKUP_GPIO0_67 |
 
 ## GPIO switches
 

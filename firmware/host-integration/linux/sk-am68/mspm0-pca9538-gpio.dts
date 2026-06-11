@@ -76,9 +76,17 @@
 	fragment@1 {
 		target = <&main_pmx0>;
 		__overlay__ {
-			hat_gpio24_pins: hat-gpio24-pins {
+			hat_gpio0_pins: hat-gpio0-pins {
 				pinctrl-single,pins = <
-					0x0034 0x00050007 /* HAT pin 18 / GPIO24 / GPIO0_13 input */
+					0x0004 0x00050007 /* HAT pin 8 / GPIO14 / W25 / GPIO0_1 input */
+					0x0008 0x00050007 /* HAT pin 10 / GPIO15 / AC24 / GPIO0_2 input */
+					0x0034 0x00050007 /* HAT pin 18 / GPIO24 / AD24 / GPIO0_13 input */
+					0x00a8 0x00050007 /* HAT pin 11 / GPIO17 / U24 / GPIO0_42 input */
+					0x00b4 0x00050007 /* HAT pin 40 / GPIO21 / U25 / GPIO0_45 input */
+					0x00b8 0x00050007 /* HAT pin 12 / GPIO18 / AA24 / GPIO0_46 input */
+					0x00bc 0x00050007 /* HAT pin 35 / GPIO19 / V28 / GPIO0_47 input */
+					0x00c0 0x00050007 /* HAT pin 38 / GPIO20 / T28 / GPIO0_48 input */
+					0x00cc 0x00050007 /* HAT pin 33 / GPIO13 / AE27 / GPIO0_51 input */
 				>;
 			};
 		};
@@ -87,9 +95,13 @@
 	fragment@2 {
 		target = <&wkup_pmx0>;
 		__overlay__ {
-			hat_gpio25_pins: hat-gpio25-pins {
+			hat_wkup_gpio0_pins: hat-wkup-gpio0-pins {
 				pinctrl-single,pins = <
-					0x011c 0x00050007 /* HAT pin 22 / GPIO25 / WKUP_GPIO0_67 input */
+					0x0058 0x00050007 /* HAT pin 23 / GPIO11 / D26 / WKUP_GPIO0_0 input */
+					0x005c 0x00050007 /* HAT pin 19 / GPIO10 / E24 / WKUP_GPIO0_1 input */
+					0x0064 0x00050007 /* HAT pin 24 / GPIO8 / C27 / WKUP_GPIO0_3 input */
+					0x011c 0x00040007 /* HAT pin 22 / GPIO25 / J27 / WKUP_GPIO0_67 input, pull-down */
+					0x0180 0x00050007 /* HAT pin 7 / GPIO4 / G25 / WKUP_GPIO0_66 input */
 				>;
 			};
 		};
@@ -99,9 +111,13 @@
 		target = <&main_gpio0>;
 		__overlay__ {
 			pinctrl-names = "default";
-			pinctrl-0 = <&hat_gpio24_pins>;
-			gpio-line-names = "", "", "", "", "", "", "", "", "", "",
-				"", "", "", "GPIO24";
+			pinctrl-0 = <&hat_gpio0_pins>;
+			gpio-line-names = "", "GPIO14", "GPIO15", "", "", "", "", "", "", "",
+				"", "", "", "GPIO24", "", "", "", "", "", "",
+				"", "", "", "", "", "", "", "", "", "",
+				"", "", "", "", "", "", "", "", "", "",
+				"", "GPIO16", "GPIO17", "", "", "GPIO21", "GPIO18",
+				"GPIO19", "GPIO20", "", "", "GPIO13";
 			status = "okay";
 		};
 	};
@@ -110,14 +126,14 @@
 		target = <&wkup_gpio0>;
 		__overlay__ {
 			pinctrl-names = "default";
-			pinctrl-0 = <&hat_gpio25_pins>;
-			gpio-line-names = "", "", "", "", "", "", "", "", "", "",
+			pinctrl-0 = <&hat_wkup_gpio0_pins>;
+			gpio-line-names = "GPIO11", "GPIO10", "", "GPIO8", "", "", "", "", "", "",
 				"", "", "", "", "", "", "", "", "", "",
 				"", "", "", "", "", "", "", "", "", "",
 				"", "", "", "", "", "", "", "", "", "",
 				"", "", "", "", "", "", "", "", "", "",
 				"", "", "", "", "", "", "", "", "", "",
-				"", "", "", "", "", "", "", "GPIO25";
+				"", "", "", "", "", "", "GPIO4", "GPIO25";
 			status = "okay";
 		};
 	};

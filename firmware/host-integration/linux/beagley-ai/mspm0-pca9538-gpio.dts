@@ -77,7 +77,7 @@
 		__overlay__ {
 			hat_gpio25_pins: hat-gpio25-pins {
 				pinctrl-single,pins = <
-					0x00ac 0x00050007 /* HAT pin 22 / GPIO25 / P21 / GPIO0_42 input */
+					0x00ac 0x00040007 /* HAT pin 22 / GPIO25 / P21 / GPIO0_42 input, pull-down */
 				>;
 			};
 		};
