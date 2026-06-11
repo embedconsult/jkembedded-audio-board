@@ -142,6 +142,28 @@ Where do the various SBC signals need to go to the board connector for each boar
 | SCK        | SCK (A20)  | 23 (A9)    | 23 (A14)  | 23        |
 | SDQ        | CS (E19)   | 24 (C12)   | 24 (A13)  | 24        |
 
+The host overlays use Raspberry Pi / BeagleY-AI-style GPIO line names for the
+HAT pins so that host tools can use one line-name vocabulary across boards.
+The audio mux can route some signals to more than one HAT pin; in those cases
+all possible HAT line names are listed.
+
+| HAT signal | HAT pin(s) | Overlay line name(s) | BeagleY-AI SoC / GPIO | SK-AM62 SoC / GPIO | SK-AM68/9 GPIO |
+| ---------- | ---------- | -------------------- | --------------------- | ------------------ | --------------- |
+| WRD        | 7 or 35    | `GPIO4` or `GPIO19`  | W26 / GPIO4, C26 / GPIO19 | J7, GPIO1_12 on D20 | GPIO19 |
+| BIT        | 11 or 12   | `GPIO17` or `GPIO18` | A26 / GPIO17, D25 / GPIO18 | GPIO1_11 on B20 | GPIO18 |
+| DI         | 33 or 38   | `GPIO13` or `GPIO20` | E19 / GPIO13, F23 / GPIO20 | GPIO1_10 on E18 | GPIO20 |
+| DO         | 36 or 40   | `GPIO16` or `GPIO21` | A25 / GPIO16, B25 / GPIO21 | GPIO1_9 on B18 | GPIO21 |
+| CNT        | 11, 36, or 38 | `GPIO17`, `GPIO16`, or `GPIO20` | A26 / GPIO17, A25 / GPIO16, F23 / GPIO20 | GPIO1_7 on B19 | GPIO17 |
+| TS         | 19         | `GPIO10`             | B12 / GPIO10 | B13 | GPIO10 |
+| SDA        | 3          | `GPIO2`              | E11 / GPIO2 | K24 | GPIO2 |
+| SCL        | 5          | `GPIO3`              | B13 / GPIO3 | K22 | GPIO3 |
+| RX         | 10         | `GPIO15`             | C27 / GPIO15 | C15 | GPIO15 |
+| TX         | 8          | `GPIO14`             | F24 / GPIO14 | E15 | GPIO14 |
+| SCK        | 23         | `GPIO11`             | A9 / GPIO11 | GPIO1_17 on A14 | GPIO11 |
+| SDQ        | 24         | `GPIO8`              | C12 / GPIO8 | GPIO1_15 on A13 | GPIO8 |
+| MCU_RESET  | 18         | `GPIO24`             | C8 / MCU_GPIO0_10 | GPIO0_39 | GPIO0_13 |
+| MCU_BOOTLOADER_SEL | 22 | `GPIO25`             | P21 / GPIO0_42 | GPIO0_14 | WKUP_GPIO0_67 |
+
 ## GPIO switches
 
 The MSPM0 firmware exposes these selector lines through the emulated

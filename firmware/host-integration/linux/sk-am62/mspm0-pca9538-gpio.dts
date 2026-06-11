@@ -74,25 +74,38 @@
 	};
 
 	fragment@1 {
+		target = <&main_pmx0>;
+		__overlay__ {
+			hat_gpio_default_pins: hat-gpio-default-pins {
+				pinctrl-single,pins = <
+					0x0038 0x00050007 /* HAT pin 22 / GPIO25 / GPIO0_14 input */
+					0x00a0 0x00050007 /* HAT pin 18 / GPIO24 / GPIO0_39 input */
+				>;
+			};
+		};
+	};
+
+	fragment@2 {
 		target = <&main_gpio0>;
 		__overlay__ {
+			pinctrl-names = "default";
+			pinctrl-0 = <&hat_gpio_default_pins>;
+			gpio-line-names = "", "", "", "", "", "", "", "", "", "",
+				"", "", "", "", "GPIO25", "", "", "", "", "",
+				"", "", "", "", "", "", "", "", "", "",
+				"", "", "", "", "", "", "", "", "", "GPIO24";
 			status = "okay";
+		};
+	};
 
-			/* HAT pin 18 / MCU_RESET / GPIO24: GPIO0_39. */
-			mcu-reset-hog {
-				gpio-hog;
-				gpios = <39 0>;
-				input;
-				line-name = "GPIO24";
-			};
-
-			/* HAT pin 22 / MCU_BOOTLOADER_SEL / GPIO25: GPIO0_14. */
-			mcu-bootloader-sel-hog {
-				gpio-hog;
-				gpios = <14 0>;
-				input;
-				line-name = "GPIO25";
-			};
+	fragment@3 {
+		target = <&main_gpio1>;
+		__overlay__ {
+			gpio-line-names = "", "", "", "", "", "", "", "GPIO20",
+				"", "GPIO16", "GPIO13", "GPIO17", "", "", "",
+				"GPIO8", "", "GPIO11", "GPIO10", "", "", "",
+				"GPIO15", "GPIO14";
+			status = "okay";
 		};
 	};
 };
