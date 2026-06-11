@@ -71,4 +71,34 @@
 			};
 		};
 	};
+
+	fragment@1 {
+		target = <&mcu_gpio0>;
+		__overlay__ {
+			status = "okay";
+
+			/* HAT pin 18 / MCU_RESET / GPIO24: C8, MCU_GPIO0_10. */
+			mcu-reset-hog {
+				gpio-hog;
+				gpios = <10 0>;
+				input;
+				line-name = "GPIO24";
+			};
+		};
+	};
+
+	fragment@2 {
+		target = <&main_gpio0>;
+		__overlay__ {
+			status = "okay";
+
+			/* HAT pin 22 / MCU_BOOTLOADER_SEL / GPIO25: P21, GPIO0_42. */
+			mcu-bootloader-sel-hog {
+				gpio-hog;
+				gpios = <42 0>;
+				input;
+				line-name = "GPIO25";
+			};
+		};
+	};
 };
