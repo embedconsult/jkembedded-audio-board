@@ -26,49 +26,6 @@
 					"",
 					"";
 				status = "okay";
-
-				/* TI AM68 SK-EVM audio-board routing defaults. */
-				rst-sel-hog {
-					gpio-hog;
-					gpios = <0 0>;
-					output-high;
-					line-name = "RST_SEL";
-				};
-
-				pwm-sel-hog {
-					gpio-hog;
-					gpios = <1 0>;
-					output-high;
-					line-name = "PWM_SEL";
-				};
-
-				an-sel-hog {
-					gpio-hog;
-					gpios = <2 0>;
-					output-high;
-					line-name = "AN_SEL";
-				};
-
-				int-sel-hog {
-					gpio-hog;
-					gpios = <3 0>;
-					output-high;
-					line-name = "INT_SEL";
-				};
-
-				cipo-sel-0-hog {
-					gpio-hog;
-					gpios = <4 0>;
-					output-high;
-					line-name = "CIPO_SEL_0";
-				};
-
-				cipo-sel-1-hog {
-					gpio-hog;
-					gpios = <5 0>;
-					output-high;
-					line-name = "CIPO_SEL_1";
-				};
 			};
 		};
 	};
@@ -112,12 +69,13 @@
 		__overlay__ {
 			pinctrl-names = "default";
 			pinctrl-0 = <&hat_gpio0_pins>;
-			gpio-line-names = "", "GPIO14", "GPIO15", "", "", "", "", "", "", "",
-				"", "", "", "GPIO24", "", "", "", "", "", "",
+			gpio-line-names = "", "GPIO14", "GPIO15", "GPIO23", "GPIO2",
+				"GPIO3", "", "", "", "", "", "", "", "GPIO24",
 				"", "", "", "", "", "", "", "", "", "",
-				"", "", "", "", "", "", "", "", "", "",
-				"", "GPIO16", "GPIO17", "", "", "GPIO21", "GPIO18",
-				"GPIO19", "GPIO20", "", "", "GPIO13";
+				"", "", "", "GPIO26", "", "", "", "", "", "",
+				"", "GPIO12", "GPIO27", "", "", "", "", "GPIO16",
+				"GPIO17", "", "", "GPIO21", "GPIO18", "GPIO19",
+				"GPIO20", "", "", "GPIO13";
 			status = "okay";
 		};
 	};
@@ -127,12 +85,12 @@
 		__overlay__ {
 			pinctrl-names = "default";
 			pinctrl-0 = <&hat_wkup_gpio0_pins>;
-			gpio-line-names = "GPIO11", "GPIO10", "", "GPIO8", "", "", "", "", "", "",
-				"", "", "", "", "", "", "", "", "", "",
-				"", "", "", "", "", "", "", "", "", "",
-				"", "", "", "", "", "", "", "", "", "",
-				"", "", "", "", "", "", "", "", "", "",
-				"", "", "", "", "", "", "", "", "", "",
+			gpio-line-names = "GPIO11", "GPIO10", "GPIO9", "GPIO8", "",
+				"", "", "", "", "", "", "", "", "", "", "GPIO7",
+				"", "", "", "", "", "", "", "", "", "", "", "",
+				"", "", "", "", "", "", "", "", "", "", "", "",
+				"", "", "", "", "", "", "", "", "", "GPIO22",
+				"", "", "", "", "", "", "GPIO5", "GPIO6", "", "",
 				"", "", "", "", "", "", "GPIO4", "GPIO25";
 			status = "okay";
 		};

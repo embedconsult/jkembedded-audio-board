@@ -144,7 +144,7 @@ Where do the various SBC signals need to go to the board connector for each boar
 
 The host overlays use Raspberry Pi / BeagleY-AI-style GPIO line names for the
 HAT pins so that host tools can use one line-name vocabulary across boards.
-The audio mux can route some signals to more than one HAT pin; each alternate
+The mikroBUS mux can route some signals to more than one HAT pin; each alternate
 route gets its own row and uses the `_A`, `_B`, or `_C` suffix from the HAT
 schematic signal names.
 
@@ -162,8 +162,8 @@ schematic signal names.
 | CNT_B      | 36      | `GPIO16`          | A25 / GPIO16          | B18 / GPIO1_9      | T23 / GPIO0_41     | AJ36 / GPIO0_41    |
 | CNT_C      | 11      | `GPIO17`          | A26 / GPIO17          | B20 / GPIO1_11     | U24 / GPIO0_42     | AF34 / GPIO0_42    |
 | TS         | 19      | `GPIO10`          | B12 / GPIO10          | B13 / GPIO1_18     | E24 / WKUP_GPIO0_1 | J34 / WKUP_GPIO0_1 |
-| SDA        | 3       | `GPIO2`           | E11 / GPIO2           | K24 / I2C2_SDA     | AF28 / I2C4_SDA    | G34 / WKUP_GPIO0_87 |
-| SCL        | 5       | `GPIO3`           | B13 / GPIO3           | K22 / I2C2_SCL     | AD25 / I2C4_SCL    | M35 / WKUP_GPIO0_65 |
+| SDA        | 3       | `GPIO2`           | E11 / GPIO2           | K24 / GPIO0_44     | AF28 / GPIO0_4     | G34 / WKUP_GPIO0_87 |
+| SCL        | 5       | `GPIO3`           | B13 / GPIO3           | K22 / GPIO0_43     | AD25 / GPIO0_5     | M35 / WKUP_GPIO0_65 |
 | RX         | 10      | `GPIO15`          | C27 / GPIO15          | C15 / UART5_RXD    | AC24 / GPIO0_2     | AJ33 / GPIO0_2     |
 | TX         | 8       | `GPIO14`          | F24 / GPIO14          | E15 / UART5_TXD    | W25 / GPIO0_1      | AG36 / GPIO0_1     |
 | SCK        | 23      | `GPIO11`          | A9 / GPIO11           | A14 / GPIO1_17     | D26 / WKUP_GPIO0_0 | H38 / WKUP_GPIO0_0 |
@@ -215,8 +215,9 @@ Use `firmware/host-integration/linux/set-mux-profile.sh --host <profile>` to
 apply these selector settings from Linux once the MSPM0 `pca9538` target is
 reachable. Supported profile names include `byai-am67a`, `sk-am62`, `sk-am68`,
 and `sk-am69`; see `firmware/host-integration/README.md` for options and
-examples. The host overlays under `firmware/host-integration/linux/<host>/`
-apply the matching audio-board defaults at probe time.
+examples. The base HAT overlays under `firmware/host-integration/linux/<host>/`
+provide line names and input pinmux defaults without applying any add-on-board
+selector profile.
 
 ## Next steps
 - Decide whether to keep the measured selector polarity as-is in production firmware or to invert any lines in software before exposing host profiles.

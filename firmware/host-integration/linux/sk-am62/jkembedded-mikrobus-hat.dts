@@ -26,49 +26,6 @@
 					"",
 					"";
 				status = "okay";
-
-				/* TI AM62 SK-EVM audio-board routing defaults. */
-				rst-sel-hog {
-					gpio-hog;
-					gpios = <0 0>;
-					output-low;
-					line-name = "RST_SEL";
-				};
-
-				pwm-sel-hog {
-					gpio-hog;
-					gpios = <1 0>;
-					output-low;
-					line-name = "PWM_SEL";
-				};
-
-				an-sel-hog {
-					gpio-hog;
-					gpios = <2 0>;
-					output-low;
-					line-name = "AN_SEL";
-				};
-
-				int-sel-hog {
-					gpio-hog;
-					gpios = <3 0>;
-					output-low;
-					line-name = "INT_SEL";
-				};
-
-				cipo-sel-0-hog {
-					gpio-hog;
-					gpios = <4 0>;
-					output-low;
-					line-name = "CIPO_SEL_0";
-				};
-
-				cipo-sel-1-hog {
-					gpio-hog;
-					gpios = <5 0>;
-					output-high;
-					line-name = "CIPO_SEL_1";
-				};
 			};
 		};
 	};
@@ -93,7 +50,8 @@
 			gpio-line-names = "", "", "", "", "", "", "", "", "", "",
 				"", "", "", "", "GPIO25", "", "", "", "", "",
 				"", "", "", "", "", "", "", "", "", "",
-				"", "", "", "", "", "", "", "", "", "GPIO24";
+				"", "", "", "GPIO6", "", "", "GPIO5", "", "GPIO23",
+				"GPIO24", "GPIO12", "GPIO26", "GPIO27", "GPIO3", "GPIO2";
 			status = "okay";
 		};
 	};
@@ -101,10 +59,10 @@
 	fragment@3 {
 		target = <&main_gpio1>;
 		__overlay__ {
-			gpio-line-names = "", "", "", "", "", "", "", "GPIO20",
-				"", "GPIO16", "GPIO13", "GPIO17", "", "", "",
-				"GPIO8", "", "GPIO11", "GPIO10", "", "", "",
-				"GPIO15", "GPIO14";
+			gpio-line-names = "", "", "", "", "", "", "", "GPIO21",
+				"GPIO20", "GPIO16", "GPIO13", "GPIO17", "", "GPIO19",
+				"GPIO18", "GPIO8", "", "GPIO11", "GPIO10", "GPIO9",
+				"", "", "GPIO22", "", "GPIO15", "GPIO14";
 			status = "okay";
 		};
 	};
