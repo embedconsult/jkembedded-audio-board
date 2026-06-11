@@ -24,18 +24,18 @@ Linux `pca953x` binding is introduced.
 
 ### Host-board overlays
 
-Use the matching `mspm0-pca9538-gpio.dts` overlay under
+Use the matching `jkembedded-mikrobus-hat.dts` overlay under
 `firmware/host-integration/linux/<host>/` to instantiate the Linux
-`gpio-pca953x` driver with stable line names and target-host mux defaults.
+`gpio-pca953x` driver with stable line names and base HAT GPIO line names.
 
 Available overlays:
 
-| Host board | Overlay | Default selector profile | I2C target |
-| ---------- | ------- | ------------------------ | ---------- |
-| BeagleY-AI / AM67A | `linux/beagley-ai/mspm0-pca9538-gpio.dts` | `BYAI-AM67A` (`1 1 1 1 1 0`) | observed live path `/bus@f0000/bus@4000000/i2c@4900000` |
-| TI AM62 SK-EVM | `linux/sk-am62/mspm0-pca9538-gpio.dts` | `SK-AM62` (`0 0 0 0 0 1`) | `&main_i2c2` |
-| TI AM68 SK-EVM | `linux/sk-am68/mspm0-pca9538-gpio.dts` | `SK-AM68/9` (`1 1 1 1 1 1`) | `&main_i2c4` |
-| TI AM69 SK-EVM | `linux/sk-am69/mspm0-pca9538-gpio.dts` | `SK-AM68/9` (`1 1 1 1 1 1`) | `&mcu_i2c0` |
+| Host board | Overlay | I2C target |
+| ---------- | ------- | ---------- |
+| BeagleY-AI / AM67A | `linux/beagley-ai/jkembedded-mikrobus-hat.dts` | observed live path `/bus@f0000/bus@4000000/i2c@4900000` |
+| TI AM62 SK-EVM | `linux/sk-am62/jkembedded-mikrobus-hat.dts` | `&main_i2c2` |
+| TI AM68 SK-EVM | `linux/sk-am68/jkembedded-mikrobus-hat.dts` | `&main_i2c4` |
+| TI AM69 SK-EVM | `linux/sk-am69/jkembedded-mikrobus-hat.dts` | `&mcu_i2c0` |
 
 Each overlay exposes these selector lines:
 
@@ -46,8 +46,10 @@ Each overlay exposes these selector lines:
 - `CIPO_SEL_0`
 - `CIPO_SEL_1`
 
-When an overlay probes, GPIO hogs drive the selector lines to that host
-profile immediately. The BeagleY-AI overlay keeps the existing live
+These base HAT overlays name the MSPM0 selector lines and host-side HAT GPIO
+lines, but they do not drive selector GPIOs to any target profile. Apply a
+separate mikroBUS add-on-board overlay, or use the helper below, when a board
+needs specific mux settings. The BeagleY-AI overlay keeps the existing live
 `i2c-1` `target-path` because that path was validated on hardware. The SK-EVM
 overlays use upstream board labels so they follow the base DTS I2C bus layout
 used by each target kernel.
@@ -58,11 +60,11 @@ Use `firmware/host-integration/linux/set-mux-profile.sh` after the MSPM0
 `pca9538` target is reachable to drive all six selector lines for a supported
 host-board profile in one command. The helper uses the overlay-provided line
 names when available and otherwise falls back to the detected `pca9538`
-`gpiochip` offsets. It binds a temporary Linux `pca9538` client at `0x20` on
-`i2c-1` by default when no client exists yet. If an overlay already hogs the
-selector GPIOs for its board default, the muxes are already in that profile;
-use the helper before loading such an overlay or with a non-hogging manual
-binding when you need to change profiles interactively.
+`gpiochip` offsets. It binds a temporary Linux `pca9538` client at `0x20`
+on `i2c-1` by default when no client exists yet. The base HAT overlays do not
+hog the selector GPIOs, so the helper can be used after the overlay loads when
+you need to change
+profiles interactively.
 
 ```console
 ./firmware/host-integration/linux/set-mux-profile.sh --host byai-am67a
