@@ -4,7 +4,10 @@
 #include <zephyr/kernel.h>
 #include <zephyr/sys/util.h>
 
-#define USER_NODE DT_PATH(zephyr_user)
+#define USER_NODE       DT_PATH(zephyr_user)
+#define I2C_TARGET_NODE DT_NODELABEL(i2c0)
+#define PCA9538_I2C_TARGET_AVAILABLE                                                               \
+	(DT_NODE_EXISTS(I2C_TARGET_NODE) && IS_ENABLED(CONFIG_I2C_TARGET))
 
 #define PCA9538_I2C_ADDR      0x20
 #define PCA9538_REG_INPUT     0x00
@@ -32,7 +35,9 @@ static const struct gpio_dt_spec mux_gpios[PCA9538_HW_GPIO_COUNT] = {
 	GPIO_DT_SPEC_GET(USER_NODE, cipo_cnt_sel1_gpios),
 };
 
-static const struct device *const i2c_target = DEVICE_DT_GET(DT_NODELABEL(i2c0));
+#if PCA9538_I2C_TARGET_AVAILABLE
+static const struct device *const i2c_target = DEVICE_DT_GET(I2C_TARGET_NODE);
+#endif
 static struct pca9538_state pca9538 = {
 	.output = 0xffU,
 	.polarity = 0x00U,
@@ -41,6 +46,7 @@ static struct pca9538_state pca9538 = {
 	.reg_ptr_valid = false,
 };
 
+#if PCA9538_I2C_TARGET_AVAILABLE
 static int pca9538_apply_output_latches(void)
 {
 	for (size_t i = 0; i < ARRAY_SIZE(mux_gpios); i++) {
@@ -66,6 +72,8 @@ static int pca9538_apply_output_latches(void)
 	return 0;
 }
 
+#endif
+
 static int pca9538_apply_config(void)
 {
 	for (size_t i = 0; i < ARRAY_SIZE(mux_gpios); i++) {
@@ -89,6 +97,7 @@ static int pca9538_apply_config(void)
 	return 0;
 }
 
+#if PCA9538_I2C_TARGET_AVAILABLE
 static uint8_t pca9538_input_value(void)
 {
 	uint8_t value = pca9538.output & ~PCA9538_HW_MASK;
@@ -204,19 +213,23 @@ static struct i2c_target_config pca9538_target_cfg = {
 	.callbacks = &pca9538_callbacks,
 };
 
+#endif
+
 int main(void)
 {
-	if (!device_is_ready(i2c_target)) {
+	if (pca9538_apply_config() < 0) {
 		return 0;
 	}
 
-	if (pca9538_apply_config() < 0) {
+#if PCA9538_I2C_TARGET_AVAILABLE
+	if (!device_is_ready(i2c_target)) {
 		return 0;
 	}
 
 	if (i2c_target_register(i2c_target, &pca9538_target_cfg) < 0) {
 		return 0;
 	}
+#endif
 
 	k_sleep(K_FOREVER);
 	return 0;

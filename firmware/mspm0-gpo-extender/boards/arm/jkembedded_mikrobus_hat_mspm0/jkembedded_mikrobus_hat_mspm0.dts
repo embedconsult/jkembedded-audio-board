@@ -17,8 +17,7 @@
 		zephyr,console = &uart0;
 	};
 
-	mux_pins: mux-pins {
-		compatible = "zephyr,gpio-map";
+	zephyr,user {
 		rst-wrd-sel-gpios = <&gpioa 3 GPIO_ACTIVE_HIGH>;
 		pwm-bit-sel-gpios = <&gpioa 4 GPIO_ACTIVE_HIGH>;
 		an-di-sel-gpios = <&gpioa 9 GPIO_ACTIVE_HIGH>;
@@ -74,6 +73,6 @@
 	reg = <0x20000000 DT_SIZE_K(16)>;
 };
 
-&i2c0 {
+&gpioa {
 	status = "okay";
 };
